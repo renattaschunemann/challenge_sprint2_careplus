@@ -1,0 +1,29 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fc !important;
+}
+
+/* Typography Colors */
+.text-primary {
+    color: #002c5c !important;
+}
+.bg-primary {
+    background-color: #002c5c !important;
+}
+.text-warning {
+    color: #d4af37 !important; /* Gold tone from image */
+}
+.bg-warning {
+    background-color: #d4af37 !important;
+}
+
+/* Nav Link Hover states */
+.navbar-nav .nav-link {
+    transition: color 0.2s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #002c5c !important;
+}
+.navbar-nav .nav-link.active {
+    color: #002c5c !important;
+}

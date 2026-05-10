@@ -1,0 +1,7 @@
+/* Estilos específicos da tela de agenda podem ser adicionados aqui */
+
+/* Horários selecionados (exemplo extra além do estilo inline) */
+.selected-time {
+    /* O JS já faz o estilo principal, mas isso permite fácil customização se precisar */
+    font-weight: bold;
+}
