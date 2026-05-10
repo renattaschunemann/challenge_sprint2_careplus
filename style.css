@@ -1,0 +1,84 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fc !important;
+}
+
+/* Typography Colors */
+.text-primary {
+    color: #002c5c !important;
+}
+.bg-primary {
+    background-color: #002c5c !important;
+}
+.text-warning {
+    color: #d4af37 !important; /* Gold tone from image */
+}
+.bg-warning {
+    background-color: #d4af37 !important;
+}
+
+/* Alert styling */
+.custom-alert {
+    background-color: #fff9e6;
+    border: 1px solid #f2e2c4;
+}
+
+/* Custom Progress Bar with Gradient */
+.custom-progress-bar {
+    background: linear-gradient(90deg, #b0c4de 0%, #d4af37 100%);
+    border-radius: 5px;
+}
+.progress {
+    border-radius: 5px;
+}
+
+/* Toggle Switch Styling */
+.action-toggle-container {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.action-toggle-container.bg-primary {
+    box-shadow: 0 4px 6px rgba(0, 44, 92, 0.2);
+}
+
+.action-toggle-container.bg-light {
+    background-color: #e9ecef !important;
+    border-color: #dee2e6 !important;
+}
+
+/* Customize the Bootstrap switch */
+.custom-switch {
+    width: 2.5em !important;
+    height: 1.25em !important;
+    cursor: pointer;
+}
+
+/* Specific styling for the switch inside the dark primary container */
+.bg-primary .custom-switch:not(:checked) {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: transparent;
+}
+.bg-primary .custom-switch:checked {
+    background-color: #fff;
+    border-color: #fff;
+}
+.bg-primary .form-check-input:checked {
+    background-color: #fff;
+    border-color: #fff;
+}
+.bg-primary .form-check-input:checked[type=checkbox] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23002c5c'/%3e%3c/svg%3e");
+}
+
+/* Nav Link Hover states */
+.navbar-nav .nav-link {
+    transition: color 0.2s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #002c5c !important;
+}
+.navbar-nav .nav-link.active {
+    color: #002c5c !important;
+}

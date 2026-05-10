@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Plus - Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
+        <div class="container">
+            <!-- Brand / Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 140" height="45">
+                    <g fill="#0071bc">
+                        <!-- Background -->
+                        <rect x="0" y="10" width="75" height="120" />
+                        <!-- Heartbeat Line -->
+                        <path d="M 0 80 Q 10 80 20 70 L 30 115 L 45 20 L 55 85 Q 65 80 75 80" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                        <!-- Text -->
+                        <text x="90" y="55" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Care Plus</text>
+                        <text x="90" y="105" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Clinic</text>
+                        <text x="90" y="130" font-family="'Inter', sans-serif" font-size="22" font-weight="600" font-style="italic">Part of Bupa</text>
+                    </g>
+                </svg>
+            </a>
+
+            <!-- Toggle Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item me-4">
+                        <a class="nav-link active fw-medium text-dark d-flex align-items-center" href="index.html">
+                            <i class="bi bi-house me-2"></i> Início
+                        </a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="agenda.html">
+                            <i class="bi bi-calendar3 me-2"></i> Minha Agenda
+                        </a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="#">
+                            <i class="bi bi-file-earmark-medical me-2"></i> Resultados
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="#">
+                            <i class="bi bi-gift me-2"></i> Benefícios
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- User Profile -->
+                <div class="d-flex align-items-center">
+                    <div class="text-end me-3">
+                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Amanda L.</div>
+                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end" style="font-size: 0.75rem;">
+                            <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
+                        </div>
+                    </div>
+                    <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold" style="width: 40px; height: 40px;">
+                        AL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <h1 class="fw-bold mb-4" style="color: #002c5c;">Sua Saúde, Amanda</h1>
+
+        <div class="row g-4">
+            <!-- Left Column: Appointments -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-sm rounded-4 h-100 p-2">
+                    <div class="card-body p-4">
+                        
+                        <!-- Appointment Header -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="icon-box bg-light rounded-circle d-flex justify-content-center align-items-center me-3 mt-1" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                <i class="bi bi-heart-pulse text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="fw-bold mb-2" style="color: #001f3f;">Consulta: Cardiologia com Dr. Roberto</h3>
+                                <div class="d-flex text-secondary" style="font-size: 0.95rem;">
+                                    <div class="me-4 d-flex align-items-center">
+                                        <i class="bi bi-clock me-2"></i> Hoje às 15:30
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-geo-alt me-2"></i> Clínica Central
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Traffic Alert -->
+                        <div class="alert custom-alert rounded-3 d-flex align-items-center mb-4 p-3" role="alert">
+                            <i class="bi bi-exclamation-triangle text-warning fs-4 me-3"></i>
+                            <div style="font-size: 0.95rem;">
+                                <strong style="color: #856404;">Trânsito intenso detectado no trajeto.</strong> Evite atrasos:
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="d-flex flex-column align-items-end gap-3 mt-4" style="border-top: 1px solid #eee; padding-top: 1.5rem;">
+                            
+                            <!-- Telemedicina Toggle -->
+                            <div class="action-toggle-container bg-primary text-white rounded-pill px-4 py-2 d-flex align-items-center" id="btn-telemedicina">
+                                <i class="bi bi-camera-video me-2"></i>
+                                <span class="fw-medium me-3">Mudar para Telemedicina</span>
+                                <div class="form-check form-switch m-0 ms-2">
+                                    <input class="form-check-input custom-switch" type="checkbox" role="switch" id="toggleTelemedicina">
+                                </div>
+                            </div>
+
+                            <!-- Presencial Toggle -->
+                            <div class="action-toggle-container bg-light text-secondary rounded-pill px-4 py-2 d-flex align-items-center border" id="btn-presencial">
+                                <i class="bi bi-camera-video me-2"></i>
+                                <span class="fw-medium me-3">Confirmar Presencial</span>
+                                <div class="form-check form-switch m-0 ms-2">
+                                    <input class="form-check-input custom-switch" type="checkbox" role="switch" id="togglePresencial" checked>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Stats & Balance -->
+            <div class="col-lg-5 d-flex flex-column gap-4">
+                
+                <!-- Care Status Card -->
+                <div class="card border-0 shadow-sm rounded-4 p-2">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-award fs-5 me-2" style="color: #002c5c;"></i>
+                            <h5 class="fw-bold m-0" style="color: #001f3f;">Status de Cuidado</h5>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-2 fw-bold" style="font-size: 0.9rem;">
+                            <span class="text-secondary">Nível Prata</span>
+                            <span class="text-warning">Rumo ao Ouro</span>
+                        </div>
+                        
+                        <div class="progress mb-3" style="height: 10px; background-color: #e9ecef;">
+                            <div class="progress-bar custom-progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        
+                        <p class="text-secondary m-0" style="font-size: 0.85rem;">80% concluído para alcançar o nível Ouro.</p>
+                    </div>
+                </div>
+
+                <!-- Care Coins Card -->
+                <div class="card border-0 shadow-sm rounded-4 p-2 h-100">
+                    <div class="card-body p-4 position-relative overflow-hidden">
+                        <!-- Decorative Star -->
+                        <i class="bi bi-stars position-absolute text-warning opacity-25" style="top: 20px; right: 20px; font-size: 4rem;"></i>
+                        
+                        <h5 class="fw-bold mb-3 text-secondary" style="color: #556b82 !important;">Care Coins Balance</h5>
+                        
+                        <div class="d-flex align-items-baseline mb-3">
+                            <span class="fw-bold" style="font-size: 2.5rem; color: #002c5c;">1.250</span>
+                            <span class="fw-bold text-warning ms-1" style="font-size: 1rem;">pts</span>
+                        </div>
+                        
+                        <p class="text-secondary m-0" style="font-size: 0.95rem; max-width: 85%;">
+                            Utilize seus pontos para resgatar benefícios na rede parceira.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
