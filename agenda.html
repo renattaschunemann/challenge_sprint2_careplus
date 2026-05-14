@@ -111,27 +111,36 @@
                         <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem;">+50 xp</span>
                     </div>
 
-                    <!-- Form Inputs -->
                     <div class="mb-3">
                         <label class="form-label text-secondary">Clínica</label>
-                        <input type="text" class="form-control rounded-3 py-2" style="border-color: #dee2e6;">
+                        <select id="select-clinica" class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
+                            <option selected disabled>Selecione uma clínica</option>
+                            <option value="Saúde da Mulher">Saúde da Mulher</option>
+                            <option value="Vida Plus">Vida Plus</option>
+                            <option value="Clínica Rios">Clínica Rios</option>
+                            <option value="SP Saúde">SP Saúde</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-secondary">Especialidade</label>
-                        <input type="text" class="form-control rounded-3 py-2" style="border-color: #dee2e6;">
+                        <select id="select-especialidade" class="form-select rounded-3 py-2" style="border-color: #dee2e6;" disabled>
+                            <option selected disabled>Selecione a clínica primeiro</option>
+                        </select>
                     </div>
 
                     <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <label class="form-label text-secondary">Data</label>
-                            <input type="date" class="form-control rounded-3 py-2" style="border-color: #dee2e6;">
+                            <input type="date" id="input-data" class="form-control rounded-3 py-2" style="border-color: #dee2e6;">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary">Horários disponíveis</label>
-                            <select class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
+                            <select id="select-horario" class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
                                 <option selected>Selecione um horário</option>
                                 <option value="1">09:00</option>
-                                <option value="2">14:00</option>
+                                <option value="2">10:00</option>
+                                <option value="3">14:00</option>
+                                <option value="4">15:30</option>
                             </select>
                         </div>
                         <div class="col-md-6">
@@ -227,7 +236,7 @@
                     </p>
                     <div class="d-flex justify-content-center gap-3">
                         <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-3 fw-medium" data-bs-dismiss="modal">Não confirmo</button>
-                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 fw-medium" style="background-color: #0d6efd; border-color: #0d6efd;" data-bs-dismiss="modal" onclick="alert('Consulta agendada com sucesso!')">Confirmo</button>
+                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 fw-medium" style="background-color: #0d6efd; border-color: #0d6efd;" data-bs-dismiss="modal" onclick="confirmarAgendamento()">Confirmo</button>
                     </div>
                 </div>
             </div>
