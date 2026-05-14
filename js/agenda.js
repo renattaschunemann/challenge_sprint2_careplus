@@ -64,7 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const especialidadesPorClinica = {
         "Saúde da Mulher": ["Ginecologia", "Obstetrícia", "Mastologista"],
         "Vida Plus": ["Clínico geral", "Cardiologia", "Geriatria", "Pediatria", "Pneumologia", "Endocrinologia", "Psiquiatria"],
-        "Clínica Rios": ["Nefrologia", "Hematologia", "Gastroenterologia", "Urologia"]
+        "Clínica Rios": ["Nefrologia", "Hematologia", "Gastroenterologia", "Urologia"],
+        "SP Saúde": ["Neurologia", "Laringologia", "Oftalmologia", "Ortopedia"],
+        "Bem Estar Clínica": ["Dermatologia", "Nutrição", "Fisioterapia", "Acupuntura"],
+        "Centro Médico Avançado": ["Oncologia", "Reumatologia", "Infectologia", "Cirurgia Geral"]
     };
 
     if (selectClinica && selectEspecialidade) {
