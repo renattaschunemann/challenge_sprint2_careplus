@@ -1,7 +1,29 @@
-/* Estilos específicos da tela de agenda podem ser adicionados aqui */
+/* Estilos específicos da tela de agenda */
 
-/* Horários selecionados (exemplo extra além do estilo inline) */
-.selected-time {
-    /* O JS já faz o estilo principal, mas isso permite fácil customização se precisar */
-    font-weight: bold;
+/* Estilos das Abas */
+.tab-btn {
+    background-color: transparent;
+    color: #495057;
+    border: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: #f8f9fa;
+    color: #002c5c;
+}
+
+.tab-btn.active {
+    background-color: #003366;
+    color: white;
+    font-weight: 600;
+}
+
+/* Transição de painéis */
+.tab-content-panel {
+    transition: opacity 0.3s ease;
 }
