@@ -68,16 +68,16 @@
                 <!-- User Profile -->
                 <div class="d-flex align-items-center">
                     <div class="text-end me-3">
-                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Amanda L.</div>
-                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end" style="font-size: 0.75rem;">
+                        <div class="fw-bold text-dark text-sm">Amanda L.</div>
+                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end text-xs">
                             <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
                         </div>
                     </div>
-                    <div class="avatar bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold" style="width: 40px; height: 40px;">
+                    <div class="avatar avatar-sm bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold">
                         AL
                     </div>
                     <div class="ms-3">
-                        <a href="cadastro.html" class="text-decoration-none fw-bold" style="color: #002c5c; font-size: 0.9rem; border-bottom: 2px solid #002c5c;">Editar<br>Perfil</a>
+                        <a href="cadastro.html" class="link-edit-profile">Editar<br>Perfil</a>
                     </div>
                 </div>
             </div>
@@ -86,15 +86,16 @@
 
     <!-- Main Content -->
     <main class="container my-5">
-        <h2 class="fw-bold mb-4" style="color: #002c5c;">Minha Agenda</h2>
+        <h2 class="fw-bold mb-4 text-brand-primary">Minha Agenda</h2>
 
         <div class="row">
             <!-- Left Column: Tabs and Content -->
             <div class="col-lg-8">
                 <!-- Tab Buttons -->
-                <div class="d-flex mb-3 gap-3">
+                <div class="d-flex mb-3 gap-3 flex-wrap">
                     <button class="btn tab-btn active" id="tab-agendar">Agendar consulta</button>
                     <button class="btn tab-btn" id="tab-consultas">Consultas agendadas</button>
+                    <button class="btn tab-btn" id="tab-historico">Histórico de consultas</button>
                 </div>
 
                 <!-- Tab Content: Agendar Consulta -->
@@ -104,16 +105,16 @@
                         <div>
                             <label class="form-label text-secondary mb-2">Tipo de Consulta</label>
                             <div class="d-flex gap-3">
-                                <button type="button" id="btn-tipo-presencial" class="btn btn-primary px-4 py-2 fw-medium rounded-3" style="background-color: #003366; border-color: #003366;">Presencial</button>
-                                <button type="button" id="btn-tipo-teleconsulta" class="btn btn-outline-secondary px-4 py-2 fw-medium rounded-3 bg-white" style="border-color: #dee2e6; color: #6c757d;">Teleconsulta</button>
+                                <button type="button" id="btn-tipo-presencial" class="btn px-4 py-2 fw-medium rounded-3 btn-presencial-active">Presencial</button>
+                                <button type="button" id="btn-tipo-teleconsulta" class="btn px-4 py-2 fw-medium rounded-3 btn-teleconsulta-inactive">Teleconsulta</button>
                             </div>
                         </div>
-                        <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem;">+50 xp</span>
+                        <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm text-sm">+50 xp</span>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label text-secondary">Clínica</label>
-                        <select id="select-clinica" class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
+                        <select id="select-clinica" class="form-select rounded-3 py-2 border-input-custom">
                             <option selected disabled>Selecione uma clínica</option>
                             <option value="Saúde da Mulher">Saúde da Mulher</option>
                             <option value="Vida Plus">Vida Plus</option>
@@ -125,7 +126,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label text-secondary">Especialidade</label>
-                        <select id="select-especialidade" class="form-select rounded-3 py-2" style="border-color: #dee2e6;" disabled>
+                        <select id="select-especialidade" class="form-select rounded-3 py-2 border-input-custom" disabled>
                             <option selected disabled>Selecione a clínica primeiro</option>
                         </select>
                     </div>
@@ -133,32 +134,28 @@
                     <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <label class="form-label text-secondary">Data</label>
-                            <input type="date" id="input-data" class="form-control rounded-3 py-2" style="border-color: #dee2e6;">
+                            <input type="date" id="input-data" class="form-control rounded-3 py-2 border-input-custom">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary">Horários disponíveis</label>
-                            <select id="select-horario" class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
-                                <option selected>Selecione um horário</option>
-                                <option value="1">09:00</option>
-                                <option value="2">10:00</option>
-                                <option value="3">14:00</option>
-                                <option value="4">15:30</option>
+                            <select id="select-horario" class="form-select rounded-3 py-2 border-input-custom">
+                                <option selected disabled>Selecione um período primeiro</option>
                             </select>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-secondary">Período</label>
-                            <select class="form-select rounded-3 py-2" style="border-color: #dee2e6;">
-                                <option selected>Selecione um período</option>
-                                <option value="1">Manhã</option>
-                                <option value="2">Tarde</option>
+                            <select id="select-periodo" class="form-select rounded-3 py-2 border-input-custom">
+                                <option selected disabled>Selecione um período</option>
+                                <option value="Manhã">Manhã</option>
+                                <option value="Tarde">Tarde</option>
                             </select>
                         </div>
                     </div>
 
                     <!-- Footer Actions -->
                     <div class="d-flex justify-content-between align-items-center mt-2">
-                        <a href="#" class="text-decoration-none fw-medium" style="color: #0056b3;">Previsão detalhada do trajeto</a>
-                        <button id="btn-agendar" type="button" class="btn btn-primary px-5 py-2 fw-medium rounded-3" style="background-color: #0071bc; border-color: #0071bc;" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
+                        <a href="#" class="text-link text-decoration-none fw-medium">Previsão detalhada do trajeto</a>
+                        <button id="btn-agendar" type="button" class="btn btn-brand-primary px-5 py-2 fw-medium rounded-3" data-bs-toggle="modal" data-bs-target="#confirmacaoModal">
                             Agendar
                         </button>
                     </div>
@@ -167,21 +164,59 @@
                 <!-- Tab Content: Consultas Agendadas -->
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 tab-content-panel d-none" id="content-consultas">
                     <p class="text-secondary mb-3">Próximas consultas</p>
-                    <div class="border rounded-4 p-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
-                        <div>
-                            <h5 class="fw-bold mb-3" style="color: #002c5c;">Consulta: Cardiologia com Dr. Roberto</h5>
-                            <div class="d-flex gap-4 text-secondary">
-                                <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1" style="font-size: 0.9rem;">
-                                    <i class="bi bi-clock me-2 text-primary"></i> Hoje às 15:30
-                                </span>
-                                <span class="d-flex align-items-center" style="font-size: 0.9rem;">
-                                    <i class="bi bi-geo-alt me-2"></i> Clínica Central
-                                </span>
+                    <div id="listaConsultasAgendadas">
+                        <!-- Default -->
+                        <div class="border rounded-4 p-4 mb-3 d-flex justify-content-between align-items-center flex-wrap gap-3 consulta-item" id="consulta-default">
+                            <div>
+                                <h5 class="fw-bold mb-3 text-brand-primary">Consulta: Cardiologia com Dr. Roberto</h5>
+                                <div class="d-flex gap-4 text-secondary flex-wrap">
+                                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1 text-sm">
+                                        <i class="bi bi-clock me-2 text-primary"></i> Hoje às 15:30
+                                    </span>
+                                    <span class="d-flex align-items-center text-sm">
+                                        <i class="bi bi-geo-alt me-2"></i> Clínica Central
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-brand-primary px-4 rounded-3" onclick="solicitarRemarcacaoConsulta('default', 'Cardiologia', 'Clínica Central')">Remarcar</button>
+                                <button class="btn btn-outline-brand-danger px-4 rounded-3" onclick="cancelarConsulta('default')">Desmarcar</button>
                             </div>
                         </div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary px-4 rounded-3" style="background-color: #0071bc; border-color: #0071bc;">Remarcar</button>
-                            <button class="btn btn-outline-danger px-4 rounded-3" style="color: #e56b46; border-color: #e56b46;">Cancelar</button>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Histórico de Consultas -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 tab-content-panel d-none" id="content-historico">
+                    <p class="text-secondary mb-3">Consultas anteriores</p>
+                    
+                    <div class="border rounded-4 p-3 mb-3">
+                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Clínica Geral com Dra. Ana</h6>
+                        <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-calendar3 me-1"></i> 10 de Jan 2026
+                                </span>
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-geo-alt me-1"></i> Bem Estar Clínica
+                                </span>
+                            </div>
+                            <span class="badge bg-success text-white rounded-pill px-3 py-1">Realizada</span>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-4 p-3">
+                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Dermatologia com Dr. Carlos</h6>
+                        <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-calendar3 me-1"></i> 15 de Nov 2025
+                                </span>
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-geo-alt me-1"></i> Vida Plus
+                                </span>
+                            </div>
+                            <span class="badge bg-success text-white rounded-pill px-3 py-1">Realizada</span>
                         </div>
                     </div>
                 </div>
@@ -191,35 +226,35 @@
             <div class="col-lg-4 mt-4 mt-lg-0 ps-lg-4">
                 <!-- Status de Cuidado -->
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
-                    <div class="d-flex align-items-center mb-3 fw-bold fs-5" style="color: #002c5c;">
+                    <div class="d-flex align-items-center mb-3 fw-bold fs-5 text-brand-primary">
                         <i class="bi bi-award me-2 fs-4"></i> Status de Cuidado
                     </div>
-                    <div class="d-flex justify-content-between text-secondary mb-1 fw-medium" style="font-size: 0.9rem;">
+                    <div class="d-flex justify-content-between text-secondary mb-1 fw-medium text-sm">
                         <span>Nível Prata</span>
                         <span class="text-warning">Rumo ao Ouro</span>
                     </div>
-                    <div class="progress mb-2" style="height: 10px; border-radius: 5px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 80%; background: linear-gradient(90deg, #e0e0e0 0%, #d4af37 100%);" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress mb-2 progress-custom">
+                        <div class="progress-bar bg-warning progress-gradient w-80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <p class="text-secondary mb-0" style="font-size: 0.8rem;">80% concluído para alcançar o nível Ouro.</p>
+                    <p class="text-secondary mb-0 text-xs-alt">80% concluído para alcançar o nível Ouro.</p>
                 </div>
 
                 <!-- Score -->
                 <div class="card border-0 shadow-sm rounded-4 p-4 position-relative overflow-hidden">
                     <h5 class="fw-bold mb-3 text-secondary">Score</h5>
                     <div class="d-flex align-items-baseline mb-2">
-                        <span class="fw-bold me-1" style="font-size: 2.5rem; color: #002c5c;">1.250</span>
+                        <span class="fw-bold me-1 score-value">1.250</span>
                         <span class="text-warning fw-bold fs-5">XP</span>
                     </div>
-                    <p class="text-secondary mb-0" style="font-size: 0.9rem; z-index: 1;">Utilize seus pontos para resgatar benefícios na rede parceira.</p>
-                    <i class="bi bi-stars text-warning position-absolute opacity-25" style="font-size: 5rem; top: 10px; right: 10px; z-index: 0;"></i>
+                    <p class="text-secondary mb-0 score-text">Utilize seus pontos para resgatar benefícios na rede parceira.</p>
+                    <i class="bi bi-stars text-warning position-absolute opacity-25 score-icon-bg"></i>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- FAB Button -->
-    <button class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg d-flex justify-content-center align-items-center p-0" style="width: 60px; height: 60px; z-index: 1000; background-color: #007bff; border: none;">
+    <button class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg d-flex justify-content-center align-items-center p-0 fab-btn">
         <i class="bi bi-chat-fill text-white fs-3"></i>
     </button>
 
@@ -231,14 +266,33 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center p-4 pt-0">
-                    <i class="bi bi-calendar-check text-primary mb-3" style="font-size: 3rem;"></i>
-                    <h4 class="fw-bold mb-3" style="color: #002c5c;">Confirmar Agendamento</h4>
+                    <i class="bi bi-calendar-check text-primary mb-3 modal-icon-lg"></i>
+                    <h4 class="fw-bold mb-3 text-brand-primary">Confirmar Agendamento</h4>
                     <p class="text-secondary fs-5 mb-4" id="modal-mensagem">
                         Confirma o agendamento da consulta de <strong id="modal-especialidade">Clínica Geral</strong>, no horário <strong id="modal-horario">selecionado</strong> com o(a) doutor(a) na clínica <strong id="modal-clinica">indicada</strong>?
                     </p>
                     <div class="d-flex justify-content-center gap-3">
                         <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-3 fw-medium" data-bs-dismiss="modal">Não confirmo</button>
-                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 fw-medium" style="background-color: #0d6efd; border-color: #0d6efd;" data-bs-dismiss="modal" onclick="confirmarAgendamento()">Confirmo</button>
+                        <button type="button" class="btn btn-primary px-4 py-2 rounded-3 fw-medium" data-bs-dismiss="modal" onclick="confirmarAgendamento()">Confirmo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmar Remarcação Agenda -->
+    <div class="modal fade" id="modalConfirmarRemarcacaoAgenda" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="bi bi-question-circle text-warning modal-icon-xl"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3 text-brand-primary">Remarcar Consulta?</h4>
+                    <p class="text-secondary mb-4">Tem certeza que deseja remarcar a sua consulta de <strong id="nomeConsultaRemarcacao"></strong>?</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-bold" data-bs-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-primary px-4 py-2 rounded-pill fw-bold" onclick="confirmarRemarcacaoAgenda()">Sim</button>
                     </div>
                 </div>
             </div>

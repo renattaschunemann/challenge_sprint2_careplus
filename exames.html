@@ -86,37 +86,270 @@
 
     <!-- Main Content -->
     <main class="container my-5">
-        <h2 class="fw-bold mb-4" style="color: #002c5c;">Meus Exames</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <h2 class="fw-bold mb-0" style="color: #002c5c;">Meus Exames</h2>
+        </div>
 
         <div class="row">
             <!-- Left Column: Tabs and Content -->
             <div class="col-lg-8">
                 <!-- Tab Buttons -->
-                <div class="d-flex mb-3 gap-3">
-                    <button class="btn tab-btn active" id="tab-agendados">Agendados</button>
-                    <button class="btn tab-btn" id="tab-historico" style="border: 1px solid #dee2e6;">Histórico</button>
-                    <button class="btn tab-btn" id="tab-pedidos" style="border: 1px solid #dee2e6;">Novos Pedidos</button>
+                <div class="d-flex mb-3 gap-3 flex-wrap">
+                    <button class="btn tab-btn active" id="tab-agendados" onclick="switchTab('agendados')">Agendados</button>
+                    <button class="btn tab-btn" id="tab-historico" style="border: 1px solid #dee2e6;" onclick="switchTab('historico')">Histórico</button>
+                    <button class="btn tab-btn" id="tab-pedidos" style="border: 1px solid #dee2e6;" onclick="switchTab('pedidos')">Novos Pedidos</button>
+                    <button class="btn tab-btn" id="tab-agendar-exames" style="border: 1px solid #dee2e6;" onclick="switchTab('agendar-exames')">Agendar Exames</button>
                 </div>
 
                 <!-- Tab Content: Agendados -->
-                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4" style="min-height: 400px;">
-                    <div class="border rounded-4 p-4">
-                        <h5 class="fw-bold mb-3" style="color: #002c5c;">Ressonância Magnética do Crânio</h5>
-                        <div class="d-flex flex-wrap gap-4 text-secondary mb-4">
-                            <span class="d-flex align-items-center" style="font-size: 0.9rem;">
-                                <i class="bi bi-calendar3 me-2"></i> 14 de Jun 2026
-                            </span>
-                            <span class="d-flex align-items-center" style="font-size: 0.9rem;">
-                                <i class="bi bi-clock me-2"></i> às 15:30
-                            </span>
+                <div id="content-agendados" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4" style="min-height: 400px;">
+                    <div id="listaAgendados">
+                        <!-- Default hardcoded item -->
+                        <div class="border rounded-4 p-4 mb-3 item-agendado" id="exame-default">
+                            <h5 class="fw-bold mb-3" style="color: #002c5c;">Ressonância Magnética do Crânio</h5>
+                            <div class="d-flex flex-wrap gap-4 text-secondary mb-4">
+                                <span class="d-flex align-items-center" style="font-size: 0.9rem;">
+                                    <i class="bi bi-calendar3 me-2"></i> 14 de Jun 2026
+                                </span>
+                                <span class="d-flex align-items-center" style="font-size: 0.9rem;">
+                                    <i class="bi bi-clock me-2"></i> às 15:30
+                                </span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                                <span class="d-flex align-items-center text-secondary" style="font-size: 0.9rem;">
+                                    <i class="bi bi-geo-alt me-2"></i> Clínica Itaim Bibi, Sala 402
+                                </span>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #0071bc; border-color: #0071bc;" onclick="abrirModalHorario('Ressonância Magnética do Crânio')">Remarcar</button>
+                                    <button class="btn btn-outline-danger px-4 rounded-3 fw-medium" style="color: #e56b46; border-color: #e56b46;" onclick="cancelarAgendamentoFuturoID('default')">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Histórico -->
+                <div id="content-historico" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
+                    <div class="d-flex gap-3 mb-4 flex-wrap">
+                        <div class="flex-grow-1">
+                            <label class="form-label text-secondary small">Data</label>
+                            <div class="d-flex gap-2 align-items-center">
+                                <input type="date" class="form-control rounded-3 text-secondary">
+                                <span>-</span>
+                                <input type="date" class="form-control rounded-3 text-secondary">
+                            </div>
+                        </div>
+                        <div class="flex-grow-1">
+                            <label class="form-label text-secondary small">Tipo</label>
+                            <input type="text" class="form-control rounded-3">
+                        </div>
+                    </div>
+
+                    <div class="border rounded-4 p-3 mb-3">
+                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Hemoglobina completa</h6>
+                        <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-calendar3 me-1"></i> 05 de Out 2025
+                                </span>
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-geo-alt me-1"></i> Laboratório Central
+                                </span>
+                            </div>
+                            <a href="#" class="text-decoration-none fw-medium" style="color: #002c5c; font-size: 0.85rem;">
+                                <i class="bi bi-arrow-down me-1"></i> Ver Resultado e Laudo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-4 p-3">
+                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Eletrocardiograma</h6>
+                        <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-calendar3 me-1"></i> 02 de Fev 2026
+                                </span>
+                                <span class="d-flex align-items-center">
+                                    <i class="bi bi-geo-alt me-1"></i> Clínica Cardiológica
+                                </span>
+                            </div>
+                            <a href="#" class="text-decoration-none fw-medium" style="color: #002c5c; font-size: 0.85rem;">
+                                <i class="bi bi-arrow-down me-1"></i> Ver Resultado e Laudo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Novos Pedidos -->
+                <div id="content-pedidos" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
+                    <div class="border rounded-4 p-4 position-relative overflow-hidden mb-3">
+                        <div class="position-absolute bg-light text-secondary rounded-pill px-2 py-1 fw-bold" style="top: 15px; right: 15px; font-size: 0.75rem;">
+                            +50 XP
+                        </div>
+                        <h5 class="fw-bold mb-3 mt-2" style="color: #002c5c;">Ressonância Magnética do Crânio</h5>
                         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
                             <span class="d-flex align-items-center text-secondary" style="font-size: 0.9rem;">
-                                <i class="bi bi-geo-alt me-2"></i> Clínica Itaim Bibi, Sala 402
+                                <i class="bi bi-person me-2"></i> Dr. Roberto
                             </span>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #0071bc; border-color: #0071bc;">Remarcar</button>
-                                <button class="btn btn-outline-danger px-4 rounded-3 fw-medium" style="color: #e56b46; border-color: #e56b46;">Cancelar</button>
+                            <button class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #0071bc; border-color: #0071bc;" onclick="agendarExame()">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Agendar Exames -->
+                <div id="content-agendar-exames" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
+                    <!-- Quick Search -->
+                    <div class="position-relative mb-4">
+                        <i class="bi bi-search position-absolute text-secondary" style="left: 15px; top: 50%; transform: translateY(-50%);"></i>
+                        <input type="text" id="buscaExames" class="form-control border-1 rounded-pill shadow-sm" style="padding-left: 45px; height: 45px;" placeholder="Localize pelo nome do exame..." onkeyup="filtrarExames()">
+                    </div>
+
+                    <!-- Atalhos / Categorias -->
+                    <h6 class="fw-bold mb-3 text-secondary">Atalhos por Categoria</h6>
+                    <div class="row row-cols-2 row-cols-md-4 g-2 mb-4">
+                        <div class="col">
+                            <div class="card bg-primary text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer;" onclick="filtrarCategoria('Mulher')">
+                                <i class="bi bi-gender-female fs-4 mb-1"></i>
+                                <span class="small fw-bold">Saúde da Mulher</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: linear-gradient(135deg, #0056b3 0%, #0096FF 100%);" onclick="filtrarCategoria('Homem')">
+                                <i class="bi bi-gender-male fs-4 mb-1"></i>
+                                <span class="small fw-bold">Saúde do Homem</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: #e56b46;" onclick="filtrarCategoria('Sangue')">
+                                <i class="bi bi-droplet-half fs-4 mb-1"></i>
+                                <span class="small fw-bold">Exames de Sangue</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: #6c757d;" onclick="filtrarCategoria('Radiologia')">
+                                <i class="bi bi-person-bounding-box fs-4 mb-1"></i>
+                                <span class="small fw-bold">Radiologia / Imagem</span>
+                            </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <button class="btn btn-outline-secondary btn-sm rounded-pill w-100" onclick="filtrarCategoria('Todos')">Mostrar Todos</button>
+                        </div>
+                    </div>
+
+                    <!-- Lista de Exames -->
+                    <h6 class="fw-bold mb-3 text-secondary">Selecione para agendar</h6>
+                    <div class="row row-cols-1 g-3" id="listaExamesAgendamento">
+                        <!-- Imagem / Radiologia -->
+                        <div class="col item-exame" data-cat="Radiologia">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Radiografia (Raio-X)')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Radiografia (Raio-X)</h6>
+                                <p class="small text-secondary mb-0">Tórax, coluna, membros e articulações.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia Mulher Homem">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ultrassonografia (Ecografia)')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ultrassonografia (Ecografia)</h6>
+                                <p class="small text-secondary mb-0">Abdominal total, pélvica, obstétrica, tireoide e mamas.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Tomografia Computadorizada')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Tomografia Computadorizada</h6>
+                                <p class="small text-secondary mb-0">Crânio, tórax, abdômen e articulações.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ressonância Magnética')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ressonância Magnética</h6>
+                                <p class="small text-secondary mb-0">Alta definição para cérebro, coluna, joelho e tecidos moles.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Mamografia Digital')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Mamografia Digital</h6>
+                                <p class="small text-secondary mb-0">Rastreamento do câncer de mama.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Densitometria Óssea')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Densitometria Óssea</h6>
+                                <p class="small text-secondary mb-0">Avaliação de osteoporose.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Radiologia">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ecocardiograma Transtorácico')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ecocardiograma Transtorácico</h6>
+                                <p class="small text-secondary mb-0">Ultrassom do coração (estrutura e fluxo).</p>
+                            </div>
+                        </div>
+
+                        <!-- Cardiológicos -->
+                        <div class="col item-exame" data-cat="Homem Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Eletrocardiograma (ECG)')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Eletrocardiograma (ECG)</h6>
+                                <p class="small text-secondary mb-0">Avaliação do ritmo cardíaco em repouso.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Homem Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Teste Ergométrico')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Teste Ergométrico</h6>
+                                <p class="small text-secondary mb-0">Teste de esforço na esteira.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Holter 24 horas')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Holter 24 horas</h6>
+                                <p class="small text-secondary mb-0">Monitoramento contínuo do ritmo cardíaco.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('MAPA')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">MAPA</h6>
+                                <p class="small text-secondary mb-0">Monitorização Ambulatorial da Pressão Arterial (24h).</p>
+                            </div>
+                        </div>
+
+                        <!-- Sangue / Outros -->
+                        <div class="col item-exame" data-cat="Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Preventivo (Papanicolau)')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Preventivo (Papanicolau)</h6>
+                                <p class="small text-secondary mb-0">Rastreamento de câncer do colo do útero.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Sangue Homem">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('PSA (Livre e Total)')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">PSA (Livre e Total)</h6>
+                                <p class="small text-secondary mb-0">Exame de sangue para rastreamento de alterações na próstata.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Hemograma Completo')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Hemograma Completo</h6>
+                                <p class="small text-secondary mb-0">Avaliação geral de células sanguíneas.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Glicemia em Jejum')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Glicemia em Jejum</h6>
+                                <p class="small text-secondary mb-0">Avaliação de açúcar no sangue.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Perfil Lipídico')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Perfil Lipídico</h6>
+                                <p class="small text-secondary mb-0">Colesterol Total, HDL, LDL e Triglicerídeos.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Endoscopia Digestiva Alta')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Endoscopia Digestiva Alta</h6>
+                                <p class="small text-secondary mb-0">Avaliação de estômago e esôfago.</p>
+                            </div>
+                        </div>
+                        <div class="col item-exame" data-cat="Homem Mulher">
+                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Colonoscopia')">
+                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Colonoscopia</h6>
+                                <p class="small text-secondary mb-0">Avaliação e prevenção.</p>
                             </div>
                         </div>
                     </div>
@@ -163,7 +396,74 @@
         </div>
     </main>
 
+    <!-- Modal Escolher Data e Hora -->
+    <div class="modal fade" id="modalEscolherHorario" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold mb-0" style="color: #002c5c;">Agendar <span id="spanNomeExameHorario" class="text-primary"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary small">Selecione a Data</label>
+                        <input type="date" class="form-control rounded-3" id="inputDataExame">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-secondary small">Horários Disponíveis</label>
+                        <select class="form-select rounded-3" id="selectHoraExame">
+                            <option value="">Selecione um horário...</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:30">09:30</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:30">15:30</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary px-4 py-2 rounded-pill w-100 fw-bold" onclick="confirmarAgendamentoComHorario()">Confirmar Agendamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmar Remarcação -->
+    <div class="modal fade" id="modalConfirmarRemarcacao" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="bi bi-question-circle text-warning" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3" style="color: #002c5c;">Remarcar Exame?</h4>
+                    <p class="text-secondary mb-4">Tem certeza que deseja remarcar o seu agendamento de <strong id="nomeExameRemarcacao"></strong>?</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-bold" data-bs-dismiss="modal">Não</button>
+                        <button type="button" class="btn btn-primary px-4 py-2 rounded-pill fw-bold" onclick="confirmarRemarcacao()">Sim</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação Simples -->
+    <div class="modal fade" id="modalAgendamento" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4 border-0 shadow">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3" style="color: #002c5c;">Agendamento Confirmado!</h4>
+                    <p class="text-secondary mb-4">O seu exame <strong id="modalNomeExameAgendado"></strong> foi agendado para o futuro e já consta no seu histórico.</p>
+                    <button type="button" class="btn btn-primary px-4 py-2 rounded-pill w-100 fw-bold" data-bs-dismiss="modal" onclick="switchTab('agendados')">Ver Meus Exames</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/exames.js"></script>
 </body>
 </html>

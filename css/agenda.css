@@ -1,6 +1,16 @@
 /* Estilos específicos da tela de agenda */
 
-/* Estilos das Abas */
+/* Cores e Tipografia */
+.text-brand-primary { color: #002c5c !important; }
+.text-brand-danger { color: #e56b46 !important; }
+.text-link { color: #0056b3 !important; }
+
+.text-sm { font-size: 0.9rem !important; }
+.text-xs { font-size: 0.75rem !important; }
+.text-xs-alt { font-size: 0.8rem !important; }
+.text-md { font-size: 0.85rem !important; }
+
+/* Botões */
 .tab-btn {
     background-color: transparent;
     color: #495057;
@@ -23,7 +33,109 @@
     font-weight: 600;
 }
 
+.tab-btn-outline {
+    border: 1px solid #dee2e6 !important;
+}
+
+.tab-btn-outline.active {
+    border: none !important;
+}
+
+.btn-brand-primary {
+    background-color: #0071bc !important;
+    border-color: #0071bc !important;
+    color: white !important;
+}
+
+.btn-brand-primary:hover {
+    background-color: #005a96 !important;
+    border-color: #005a96 !important;
+}
+
+.btn-outline-brand-danger {
+    color: #e56b46 !important;
+    border-color: #e56b46 !important;
+    background-color: transparent !important;
+}
+
+.btn-outline-brand-danger:hover {
+    background-color: #e56b46 !important;
+    color: white !important;
+}
+
+.btn-presencial-active {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+    color: #fff !important;
+}
+
+.btn-teleconsulta-inactive {
+    background-color: transparent !important;
+    border-color: #dee2e6 !important;
+    color: #6c757d !important;
+}
+
 /* Transição de painéis */
 .tab-content-panel {
     transition: opacity 0.3s ease;
+}
+
+/* Outros Utilitários */
+.avatar-sm {
+    width: 40px;
+    height: 40px;
+}
+
+.link-edit-profile {
+    color: #002c5c;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #002c5c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.border-input-custom {
+    border-color: #dee2e6 !important;
+}
+
+.progress-custom {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.progress-gradient {
+    background: linear-gradient(90deg, #e0e0e0 0%, #d4af37 100%) !important;
+}
+
+.score-value {
+    font-size: 2.5rem;
+    color: #002c5c;
+}
+
+.score-icon-bg {
+    font-size: 5rem;
+    top: 10px;
+    right: 10px;
+    z-index: 0;
+}
+
+.fab-btn {
+    width: 60px;
+    height: 60px;
+    z-index: 1000;
+    background-color: #007bff;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.fab-btn:hover {
+    transform: scale(1.05);
+}
+
+.modal-icon-lg {
+    font-size: 3rem;
+}
+
+.modal-icon-xl {
+    font-size: 4rem;
 }
