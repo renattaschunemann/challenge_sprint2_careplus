@@ -3,23 +3,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Lógica das Abas ---
     const tabAgendar = document.getElementById('tab-agendar');
     const tabConsultas = document.getElementById('tab-consultas');
+    const tabHistorico = document.getElementById('tab-historico');
+    
     const contentAgendar = document.getElementById('content-agendar');
     const contentConsultas = document.getElementById('content-consultas');
+    const contentHistorico = document.getElementById('content-historico');
+
+    function hideAllTabs() {
+        tabAgendar.classList.remove('active');
+        tabConsultas.classList.remove('active');
+        if (tabHistorico) tabHistorico.classList.remove('active');
+
+        contentAgendar.classList.add('d-none');
+        contentConsultas.classList.add('d-none');
+        if (contentHistorico) contentHistorico.classList.add('d-none');
+    }
 
     if (tabAgendar && tabConsultas) {
         tabAgendar.addEventListener('click', () => {
+            hideAllTabs();
             tabAgendar.classList.add('active');
-            tabConsultas.classList.remove('active');
             contentAgendar.classList.remove('d-none');
-            contentConsultas.classList.add('d-none');
         });
 
         tabConsultas.addEventListener('click', () => {
+            hideAllTabs();
             tabConsultas.classList.add('active');
-            tabAgendar.classList.remove('active');
             contentConsultas.classList.remove('d-none');
-            contentAgendar.classList.add('d-none');
         });
+        
+        if (tabHistorico) {
+            tabHistorico.addEventListener('click', () => {
+                hideAllTabs();
+                tabHistorico.classList.add('active');
+                contentHistorico.classList.remove('d-none');
+            });
+        }
     }
 
     // --- Lógica Tipo de Consulta (Presencial / Teleconsulta) ---
@@ -30,30 +49,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnTipoPresencial && btnTipoTeleconsulta) {
         btnTipoPresencial.addEventListener('click', function() {
             tipoConsultaAtual = 'Presencial';
-            btnTipoPresencial.classList.replace('btn-outline-secondary', 'btn-primary');
-            btnTipoPresencial.classList.replace('bg-white', 'bg-primary');
-            btnTipoPresencial.style.backgroundColor = '#003366';
-            btnTipoPresencial.style.borderColor = '#003366';
-            btnTipoPresencial.style.color = '#fff';
             
-            btnTipoTeleconsulta.classList.replace('btn-primary', 'btn-outline-secondary');
-            btnTipoTeleconsulta.classList.add('bg-white');
-            btnTipoTeleconsulta.style.backgroundColor = 'transparent';
-            btnTipoTeleconsulta.style.color = '#6c757d';
+            btnTipoPresencial.classList.add('btn-presencial-active');
+            btnTipoPresencial.classList.remove('btn-teleconsulta-inactive');
+            
+            btnTipoTeleconsulta.classList.add('btn-teleconsulta-inactive');
+            btnTipoTeleconsulta.classList.remove('btn-presencial-active');
         });
 
         btnTipoTeleconsulta.addEventListener('click', function() {
             tipoConsultaAtual = 'Teleconsulta';
-            btnTipoTeleconsulta.classList.replace('btn-outline-secondary', 'btn-primary');
-            btnTipoTeleconsulta.classList.remove('bg-white');
-            btnTipoTeleconsulta.style.backgroundColor = '#003366';
-            btnTipoTeleconsulta.style.borderColor = '#003366';
-            btnTipoTeleconsulta.style.color = '#fff';
             
-            btnTipoPresencial.classList.replace('btn-primary', 'btn-outline-secondary');
-            btnTipoPresencial.classList.add('bg-white');
-            btnTipoPresencial.style.backgroundColor = 'transparent';
-            btnTipoPresencial.style.color = '#6c757d';
+            btnTipoTeleconsulta.classList.add('btn-presencial-active');
+            btnTipoTeleconsulta.classList.remove('btn-teleconsulta-inactive');
+            
+            btnTipoPresencial.classList.add('btn-teleconsulta-inactive');
+            btnTipoPresencial.classList.remove('btn-presencial-active');
         });
     }
 
@@ -92,6 +103,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- Lógica Período e Horários Disponíveis ---
+    const selectPeriodo = document.getElementById('select-periodo');
+    const selectHorario = document.getElementById('select-horario');
+
+    const horariosPorPeriodo = {
+        "Manhã": ["08:00", "09:00", "10:00", "11:00"],
+        "Tarde": ["13:00", "14:00", "15:30", "16:00", "17:00"]
+    };
+
+    if (selectPeriodo && selectHorario) {
+        // Inicializa com placeholder disabled
+        selectHorario.innerHTML = '<option selected disabled>Selecione um período primeiro</option>';
+        selectHorario.disabled = true;
+
+        selectPeriodo.addEventListener('change', function() {
+            const periodoSelecionado = this.value;
+            const horarios = horariosPorPeriodo[periodoSelecionado] || [];
+
+            selectHorario.innerHTML = '<option selected disabled>Selecione um horário</option>';
+            
+            if (horarios.length > 0) {
+                selectHorario.disabled = false;
+                horarios.forEach(function(hora) {
+                    const option = document.createElement('option');
+                    option.value = hora;
+                    option.textContent = hora;
+                    selectHorario.appendChild(option);
+                });
+            } else {
+                selectHorario.disabled = true;
+                selectHorario.innerHTML = '<option selected disabled>Nenhum horário disponível</option>';
+            }
+        });
+    }
+
     // --- Lógica do botão Agendar para preencher o Modal ---
     const btnAgendar = document.getElementById('btn-agendar');
     if (btnAgendar) {
@@ -115,7 +161,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    renderizarConsultas();
 });
+
+let idConsultaEmFoco = null;
+
+function renderizarConsultas() {
+    const lista = document.getElementById('listaConsultasAgendadas');
+    if (!lista) return;
+
+    let consultas = JSON.parse(localStorage.getItem('consultasAgendadas') || '[]');
+    
+    // Remove as dinâmicas para recriar
+    const dynamicItems = document.querySelectorAll('.dynamic-consulta');
+    dynamicItems.forEach(item => item.remove());
+
+    consultas.forEach((c, index) => {
+        const div = document.createElement('div');
+        div.className = 'border rounded-4 p-4 mb-3 d-flex justify-content-between align-items-center flex-wrap gap-3 consulta-item dynamic-consulta';
+        div.innerHTML = `
+            <div>
+                <h5 class="fw-bold mb-3" style="color: #002c5c;">Consulta: ${c.especialidade}</h5>
+                <div class="d-flex gap-4 text-secondary flex-wrap">
+                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1" style="font-size: 0.9rem;">
+                        <i class="bi bi-calendar-event me-2 text-primary"></i> ${c.data}
+                    </span>
+                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1" style="font-size: 0.9rem;">
+                        <i class="bi bi-clock me-2 text-primary"></i> às ${c.horario}
+                    </span>
+                    <span class="d-flex align-items-center" style="font-size: 0.9rem;">
+                        <i class="bi bi-geo-alt me-2"></i> ${c.clinica}
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-primary px-4 rounded-3" style="background-color: #0071bc; border-color: #0071bc;" onclick="solicitarRemarcacaoConsulta('${index}', '${c.especialidade}', '${c.clinica}')">Remarcar</button>
+                <button class="btn btn-outline-danger px-4 rounded-3" style="color: #e56b46; border-color: #e56b46;" onclick="cancelarConsulta('${index}')">Desmarcar</button>
+            </div>
+        `;
+        lista.appendChild(div);
+    });
+}
 
 // --- Função Global para Confirmar o Agendamento ---
 function confirmarAgendamento() {
@@ -131,57 +217,111 @@ function confirmarAgendamento() {
     // Formatar data se houver
     let dataFormatada = "Data não informada";
     if (inputData && inputData.value) {
-        const d = new Date(inputData.value + "T12:00:00"); // Add T12 to avoid timezone shift
+        const d = new Date(inputData.value + "T12:00:00");
         dataFormatada = d.toLocaleDateString('pt-BR');
     }
 
-    // Criar o card e adicionar à aba de consultas
-    const contentConsultas = document.getElementById('content-consultas');
-    if (contentConsultas) {
-        const novoCard = document.createElement('div');
-        novoCard.className = "border rounded-4 p-4 d-flex justify-content-between align-items-center flex-wrap gap-3 mt-3";
-        novoCard.innerHTML = `
-            <div>
-                <h5 class="fw-bold mb-3" style="color: #002c5c;">Consulta: ${especialidade}</h5>
-                <div class="d-flex gap-4 text-secondary">
-                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1" style="font-size: 0.9rem;">
-                        <i class="bi bi-calendar-event me-2 text-primary"></i> ${dataFormatada}
-                    </span>
-                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1" style="font-size: 0.9rem;">
-                        <i class="bi bi-clock me-2 text-primary"></i> às ${horario}
-                    </span>
-                    <span class="d-flex align-items-center" style="font-size: 0.9rem;">
-                        <i class="bi bi-geo-alt me-2"></i> ${clinica}
-                    </span>
-                </div>
-            </div>
-            <div class="d-flex gap-2">
-                <button class="btn btn-primary px-4 rounded-3" style="background-color: #0071bc; border-color: #0071bc;">Remarcar</button>
-                <button class="btn btn-outline-danger px-4 rounded-3" style="color: #e56b46; border-color: #e56b46;">Cancelar</button>
-            </div>
-        `;
+    let consultas = JSON.parse(localStorage.getItem('consultasAgendadas') || '[]');
+
+    if (idConsultaEmFoco !== null && idConsultaEmFoco !== 'default') {
+        consultas[idConsultaEmFoco].data = dataFormatada;
+        consultas[idConsultaEmFoco].horario = horario;
+        // opcional: atualizar clinica e especialidade se ele trocou no select, mas a ideia é remarcar a mesma
+        consultas[idConsultaEmFoco].clinica = clinica;
+        consultas[idConsultaEmFoco].especialidade = especialidade;
+    } else {
+        consultas.push({
+            clinica: clinica,
+            especialidade: especialidade,
+            data: dataFormatada,
+            horario: horario
+        });
         
-        // Inserir após o parágrafo "Próximas consultas"
-        const pElement = contentConsultas.querySelector('p.text-secondary');
-        if (pElement && pElement.nextSibling) {
-            contentConsultas.insertBefore(novoCard, pElement.nextSibling);
-        } else {
-            contentConsultas.appendChild(novoCard);
+        // Se estava remarcando o hardcoded, remove da tela
+        if (idConsultaEmFoco === 'default') {
+            const def = document.getElementById('consulta-default');
+            if (def) def.remove();
         }
+    }
 
-        // Alterar para a aba Consultas
-        const tabAgendar = document.getElementById('tab-agendar');
-        const tabConsultas = document.getElementById('tab-consultas');
-        const contentAgendar = document.getElementById('content-agendar');
+    localStorage.setItem('consultasAgendadas', JSON.stringify(consultas));
+    idConsultaEmFoco = null; // reseta
+    
+    // Renderiza a lista de consultas e vai pra aba
+    renderizarConsultas();
+    document.getElementById('tab-consultas').click();
+    
+    setTimeout(() => {
+        alert('Consulta confirmada com sucesso!');
+    }, 100);
+}
 
-        if (tabConsultas) tabConsultas.classList.add('active');
-        if (tabAgendar) tabAgendar.classList.remove('active');
-        if (contentConsultas) contentConsultas.classList.remove('d-none');
-        if (contentAgendar) contentAgendar.classList.add('d-none');
+// Remarcação
+function solicitarRemarcacaoConsulta(id, especialidade, clinica) {
+    idConsultaEmFoco = id;
+    document.getElementById('nomeConsultaRemarcacao').innerText = especialidade + ' na ' + clinica;
+    var modal = new bootstrap.Modal(document.getElementById('modalConfirmarRemarcacaoAgenda'));
+    modal.show();
+}
 
-        // Mostrar o alerta de sucesso
-        setTimeout(() => {
-            alert('Consulta agendada com sucesso!');
-        }, 100); // pequeno delay para garantir que o modal feche antes
+function confirmarRemarcacaoAgenda() {
+    var modalConf = bootstrap.Modal.getInstance(document.getElementById('modalConfirmarRemarcacaoAgenda'));
+    if (modalConf) modalConf.hide();
+    
+    // Switch to agendar tab
+    document.getElementById('tab-agendar').click();
+    
+    // Resetar data, período e horário
+    document.getElementById('input-data').value = "";
+    if (document.getElementById('select-periodo')) {
+        document.getElementById('select-periodo').selectedIndex = 0;
+    }
+    const selectHorario = document.getElementById('select-horario');
+    if (selectHorario) {
+        selectHorario.innerHTML = '<option selected disabled>Selecione um período primeiro</option>';
+        selectHorario.disabled = true;
+    }
+    
+    // Tenta pre-selecionar a clínica e a especialidade se for editar um existente
+    if (idConsultaEmFoco !== null && idConsultaEmFoco !== 'default') {
+        let consultas = JSON.parse(localStorage.getItem('consultasAgendadas') || '[]');
+        if (consultas[idConsultaEmFoco]) {
+            const clinicaPre = consultas[idConsultaEmFoco].clinica;
+            const especPre = consultas[idConsultaEmFoco].especialidade;
+
+            const selectClinica = document.getElementById('select-clinica');
+            const selectEspecialidade = document.getElementById('select-especialidade');
+
+            if (selectClinica) {
+                // Seta o valor da clinica
+                selectClinica.value = clinicaPre;
+                
+                // Dispara o evento change para popular as especialidades
+                const event = new Event('change');
+                selectClinica.dispatchEvent(event);
+                
+                // Agora seleciona a especialidade correta
+                if (selectEspecialidade) {
+                    selectEspecialidade.value = especPre;
+                }
+            }
+        }
+    }
+    
+    alert("Por favor, selecione uma nova data e horário para a sua consulta e clique em Agendar.");
+}
+
+// Desmarcar
+function cancelarConsulta(id) {
+    if (confirm("Tem certeza que deseja desmarcar esta consulta?")) {
+        if (id === 'default') {
+            const def = document.getElementById('consulta-default');
+            if (def) def.remove();
+        } else {
+            let consultas = JSON.parse(localStorage.getItem('consultasAgendadas') || '[]');
+            consultas.splice(id, 1);
+            localStorage.setItem('consultasAgendadas', JSON.stringify(consultas));
+            renderizarConsultas();
+        }
     }
 }
