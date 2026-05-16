@@ -4,43 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Care Plus - Meus Exames</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/agenda.css"> <!-- Reusing tabs CSS -->
+    <link rel="stylesheet" href="css/agenda.css"> 
+    <link rel="stylesheet" href="css/exames.css">
 </head>
 <body class="bg-light">
-
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
         <div class="container">
-            <!-- Brand / Logo -->
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 140" height="45">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 140" height="55">
                     <g fill="#0071bc">
-                        <!-- Background -->
-                        <rect x="0" y="10" width="75" height="120" />
-                        <!-- Heartbeat Line -->
-                        <path d="M 0 80 Q 10 80 20 70 L 30 115 L 45 20 L 55 85 Q 65 80 75 80" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
-                        <!-- Text -->
-                        <text x="90" y="55" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Care Plus</text>
-                        <text x="90" y="105" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Clinic</text>
-                        <text x="90" y="130" font-family="'Inter', sans-serif" font-size="22" font-weight="600" font-style="italic">Part of Bupa</text>
+                        <rect x="0" y="10" width="120" height="120" rx="16" />
+                        <path d="M 0 75 Q 15 75 30 60 L 45 115 L 75 35 L 90 85 Q 105 75 120 75" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                        <text x="140" y="55" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Care Plus</text>
+                        <text x="140" y="105" font-family="'Inter', sans-serif" font-size="52" font-weight="700">Clinic</text>
+                        <text x="140" y="130" font-family="'Inter', sans-serif" font-size="22" font-weight="600" font-style="italic">Part of Bupa</text>
                     </g>
                 </svg>
             </a>
-
-            <!-- Toggle Button for Mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item me-4">
@@ -64,12 +51,10 @@
                         </a>
                     </li>
                 </ul>
-
-                <!-- User Profile -->
                 <div class="d-flex align-items-center">
                     <div class="text-end me-3">
-                        <div class="fw-bold text-dark" style="font-size: 0.9rem;">Amanda L.</div>
-                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end" style="font-size: 0.75rem;">
+                        <div class="fw-bold text-dark font-md user-header-name">Amanda L.</div>
+                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end font-xs">
                             <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
                         </div>
                     </div>
@@ -77,59 +62,49 @@
                         AL
                     </div>
                     <div class="ms-3">
-                        <a href="cadastro.html" class="text-decoration-none fw-bold" style="color: #002c5c; font-size: 0.9rem; border-bottom: 2px solid #002c5c;">Editar<br>Perfil</a>
+                        <a href="cadastro.html" class="text-decoration-none fw-bold font-md border-primary-bottom">Editar<br>Perfil</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-
-    <!-- Main Content -->
     <main class="container my-5">
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
             <h2 class="fw-bold mb-0" style="color: #002c5c;">Meus Exames</h2>
         </div>
-
         <div class="row">
-            <!-- Left Column: Tabs and Content -->
             <div class="col-lg-8">
-                <!-- Tab Buttons -->
                 <div class="d-flex mb-3 gap-3 flex-wrap">
                     <button class="btn tab-btn active" id="tab-agendados" onclick="switchTab('agendados')">Agendados</button>
-                    <button class="btn tab-btn" id="tab-historico" style="border: 1px solid #dee2e6;" onclick="switchTab('historico')">Histórico</button>
-                    <button class="btn tab-btn" id="tab-pedidos" style="border: 1px solid #dee2e6;" onclick="switchTab('pedidos')">Novos Pedidos</button>
-                    <button class="btn tab-btn" id="tab-agendar-exames" style="border: 1px solid #dee2e6;" onclick="switchTab('agendar-exames')">Agendar Exames</button>
+                    <button class="btn tab-btn tab-btn-outline" id="tab-historico" onclick="switchTab('historico')">Histórico</button>
+                    <button class="btn tab-btn tab-btn-outline" id="tab-pedidos" onclick="switchTab('pedidos')">Novos Pedidos</button>
+                    <button class="btn tab-btn tab-btn-outline" id="tab-agendar-exames" onclick="switchTab('agendar-exames')">Agendar Exames</button>
                 </div>
-
-                <!-- Tab Content: Agendados -->
-                <div id="content-agendados" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4" style="min-height: 400px;">
+                <div id="content-agendados" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4">
                     <div id="listaAgendados">
-                        <!-- Default hardcoded item -->
                         <div class="border rounded-4 p-4 mb-3 item-agendado" id="exame-default">
-                            <h5 class="fw-bold mb-3" style="color: #002c5c;">Ressonância Magnética do Crânio</h5>
+                            <h5 class="fw-bold mb-3 text-navy">Ressonância Magnética do Crânio</h5>
                             <div class="d-flex flex-wrap gap-4 text-secondary mb-4">
-                                <span class="d-flex align-items-center" style="font-size: 0.9rem;">
+                                <span class="d-flex align-items-center font-md">
                                     <i class="bi bi-calendar3 me-2"></i> 14 de Jun 2026
                                 </span>
-                                <span class="d-flex align-items-center" style="font-size: 0.9rem;">
+                                <span class="d-flex align-items-center font-md">
                                     <i class="bi bi-clock me-2"></i> às 15:30
                                 </span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                                <span class="d-flex align-items-center text-secondary" style="font-size: 0.9rem;">
+                                <span class="d-flex align-items-center text-secondary font-md">
                                     <i class="bi bi-geo-alt me-2"></i> Clínica Itaim Bibi, Sala 402
                                 </span>
                                 <div class="d-flex gap-2">
-                                    <button class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #0071bc; border-color: #0071bc;" onclick="abrirModalHorario('Ressonância Magnética do Crânio')">Remarcar</button>
-                                    <button class="btn btn-outline-danger px-4 rounded-3 fw-medium" style="color: #e56b46; border-color: #e56b46;" onclick="cancelarAgendamentoFuturoID('default')">Cancelar</button>
+                                    <button class="btn btn-primary px-4 rounded-3 fw-medium bg-secondary-brand border-secondary-brand" onclick="abrirModalHorario('Ressonância Magnética do Crânio')">Remarcar</button>
+                                    <button class="btn btn-outline-danger px-4 rounded-3 fw-medium text-brand-danger border-brand-danger" onclick="cancelarAgendamentoFuturoID('default')">Cancelar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tab Content: Histórico -->
-                <div id="content-historico" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
+                <div id="content-historico" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none">
                     <div class="d-flex gap-3 mb-4 flex-wrap">
                         <div class="flex-grow-1">
                             <label class="form-label text-secondary small">Data</label>
@@ -144,11 +119,10 @@
                             <input type="text" class="form-control rounded-3">
                         </div>
                     </div>
-
                     <div class="border rounded-4 p-3 mb-3">
-                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Hemoglobina completa</h6>
+                        <h6 class="fw-bold mb-2 text-navy">Hemoglobina completa</h6>
                         <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
-                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                            <div class="d-flex gap-4 text-secondary font-sm">
                                 <span class="d-flex align-items-center">
                                     <i class="bi bi-calendar3 me-1"></i> 05 de Out 2025
                                 </span>
@@ -156,16 +130,15 @@
                                     <i class="bi bi-geo-alt me-1"></i> Laboratório Central
                                 </span>
                             </div>
-                            <a href="#" class="text-decoration-none fw-medium" style="color: #002c5c; font-size: 0.85rem;">
+                            <a href="#" class="text-decoration-none fw-medium text-navy font-sm">
                                 <i class="bi bi-arrow-down me-1"></i> Ver Resultado e Laudo
                             </a>
                         </div>
                     </div>
-
                     <div class="border rounded-4 p-3">
-                        <h6 class="fw-bold mb-2" style="color: #002c5c;">Eletrocardiograma</h6>
+                        <h6 class="fw-bold mb-2 text-navy">Eletrocardiograma</h6>
                         <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
-                            <div class="d-flex gap-4 text-secondary" style="font-size: 0.85rem;">
+                            <div class="d-flex gap-4 text-secondary font-sm">
                                 <span class="d-flex align-items-center">
                                     <i class="bi bi-calendar3 me-1"></i> 02 de Fev 2026
                                 </span>
@@ -173,60 +146,53 @@
                                     <i class="bi bi-geo-alt me-1"></i> Clínica Cardiológica
                                 </span>
                             </div>
-                            <a href="#" class="text-decoration-none fw-medium" style="color: #002c5c; font-size: 0.85rem;">
+                            <a href="#" class="text-decoration-none fw-medium text-navy font-sm">
                                 <i class="bi bi-arrow-down me-1"></i> Ver Resultado e Laudo
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tab Content: Novos Pedidos -->
-                <div id="content-pedidos" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
+                <div id="content-pedidos" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none">
                     <div class="border rounded-4 p-4 position-relative overflow-hidden mb-3">
-                        <div class="position-absolute bg-light text-secondary rounded-pill px-2 py-1 fw-bold" style="top: 15px; right: 15px; font-size: 0.75rem;">
+                        <div class="bg-light text-secondary rounded-pill px-2 py-1 fw-bold font-xs xp-badge-absolute">
                             +50 XP
                         </div>
-                        <h5 class="fw-bold mb-3 mt-2" style="color: #002c5c;">Ressonância Magnética do Crânio</h5>
+                        <h5 class="fw-bold mb-3 mt-2 text-navy">Ressonância Magnética do Crânio</h5>
                         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                            <span class="d-flex align-items-center text-secondary" style="font-size: 0.9rem;">
+                            <span class="d-flex align-items-center text-secondary font-md">
                                 <i class="bi bi-person me-2"></i> Dr. Roberto
                             </span>
-                            <button class="btn btn-primary px-4 rounded-3 fw-medium" style="background-color: #0071bc; border-color: #0071bc;" onclick="agendarExame()">Agendar</button>
+                            <button class="btn btn-primary px-4 rounded-3 fw-medium bg-secondary-brand border-secondary-brand" onclick="agendarExame()">Agendar</button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Tab Content: Agendar Exames -->
-                <div id="content-agendar-exames" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none" style="min-height: 400px;">
-                    <!-- Quick Search -->
+                <div id="content-agendar-exames" class="tab-content-section card border-0 shadow-sm rounded-4 p-4 mb-4 d-none">
                     <div class="position-relative mb-4">
-                        <i class="bi bi-search position-absolute text-secondary" style="left: 15px; top: 50%; transform: translateY(-50%);"></i>
-                        <input type="text" id="buscaExames" class="form-control border-1 rounded-pill shadow-sm" style="padding-left: 45px; height: 45px;" placeholder="Localize pelo nome do exame..." onkeyup="filtrarExames()">
+                        <i class="bi bi-search position-absolute text-secondary exam-search-icon"></i>
+                        <input type="text" id="buscaExames" class="form-control border-1 rounded-pill shadow-sm exam-search-input" placeholder="Localize pelo nome do exame..." onkeyup="filtrarExames()">
                     </div>
-
-                    <!-- Atalhos / Categorias -->
                     <h6 class="fw-bold mb-3 text-secondary">Atalhos por Categoria</h6>
                     <div class="row row-cols-2 row-cols-md-4 g-2 mb-4">
                         <div class="col">
-                            <div class="card bg-primary text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer;" onclick="filtrarCategoria('Mulher')">
+                            <div class="card bg-primary text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center category-card" onclick="filtrarCategoria('Mulher')">
                                 <i class="bi bi-gender-female fs-4 mb-1"></i>
                                 <span class="small fw-bold">Saúde da Mulher</span>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: linear-gradient(135deg, #0056b3 0%, #0096FF 100%);" onclick="filtrarCategoria('Homem')">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center category-card bg-gradient-blue" onclick="filtrarCategoria('Homem')">
                                 <i class="bi bi-gender-male fs-4 mb-1"></i>
                                 <span class="small fw-bold">Saúde do Homem</span>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: #e56b46;" onclick="filtrarCategoria('Sangue')">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center category-card bg-brand-danger" onclick="filtrarCategoria('Sangue')">
                                 <i class="bi bi-droplet-half fs-4 mb-1"></i>
                                 <span class="small fw-bold">Exames de Sangue</span>
                             </div>
                         </div>
                         <div class="col">
-                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center" style="cursor: pointer; background: #6c757d;" onclick="filtrarCategoria('Radiologia')">
+                            <div class="card text-white border-0 rounded-3 p-3 h-100 shadow-sm text-center category-card bg-secondary" onclick="filtrarCategoria('Radiologia')">
                                 <i class="bi bi-person-bounding-box fs-4 mb-1"></i>
                                 <span class="small fw-bold">Radiologia / Imagem</span>
                             </div>
@@ -235,173 +201,90 @@
                             <button class="btn btn-outline-secondary btn-sm rounded-pill w-100" onclick="filtrarCategoria('Todos')">Mostrar Todos</button>
                         </div>
                     </div>
-
-                    <!-- Lista de Exames -->
                     <h6 class="fw-bold mb-3 text-secondary">Selecione para agendar</h6>
                     <div class="row row-cols-1 g-3" id="listaExamesAgendamento">
-                        <!-- Imagem / Radiologia -->
-                        <div class="col item-exame" data-cat="Radiologia">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Radiografia (Raio-X)')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Radiografia (Raio-X)</h6>
-                                <p class="small text-secondary mb-0">Tórax, coluna, membros e articulações.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia Mulher Homem">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ultrassonografia (Ecografia)')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ultrassonografia (Ecografia)</h6>
-                                <p class="small text-secondary mb-0">Abdominal total, pélvica, obstétrica, tireoide e mamas.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Tomografia Computadorizada')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Tomografia Computadorizada</h6>
-                                <p class="small text-secondary mb-0">Crânio, tórax, abdômen e articulações.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ressonância Magnética')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ressonância Magnética</h6>
-                                <p class="small text-secondary mb-0">Alta definição para cérebro, coluna, joelho e tecidos moles.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Mamografia Digital')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Mamografia Digital</h6>
-                                <p class="small text-secondary mb-0">Rastreamento do câncer de mama.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Densitometria Óssea')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Densitometria Óssea</h6>
-                                <p class="small text-secondary mb-0">Avaliação de osteoporose.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Radiologia">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ecocardiograma Transtorácico')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Ecocardiograma Transtorácico</h6>
-                                <p class="small text-secondary mb-0">Ultrassom do coração (estrutura e fluxo).</p>
-                            </div>
-                        </div>
-
-                        <!-- Cardiológicos -->
-                        <div class="col item-exame" data-cat="Homem Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Eletrocardiograma (ECG)')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Eletrocardiograma (ECG)</h6>
-                                <p class="small text-secondary mb-0">Avaliação do ritmo cardíaco em repouso.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Homem Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Teste Ergométrico')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Teste Ergométrico</h6>
-                                <p class="small text-secondary mb-0">Teste de esforço na esteira.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Holter 24 horas')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Holter 24 horas</h6>
-                                <p class="small text-secondary mb-0">Monitoramento contínuo do ritmo cardíaco.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('MAPA')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">MAPA</h6>
-                                <p class="small text-secondary mb-0">Monitorização Ambulatorial da Pressão Arterial (24h).</p>
-                            </div>
-                        </div>
-
-                        <!-- Sangue / Outros -->
-                        <div class="col item-exame" data-cat="Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Preventivo (Papanicolau)')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Preventivo (Papanicolau)</h6>
-                                <p class="small text-secondary mb-0">Rastreamento de câncer do colo do útero.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Sangue Homem">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('PSA (Livre e Total)')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">PSA (Livre e Total)</h6>
-                                <p class="small text-secondary mb-0">Exame de sangue para rastreamento de alterações na próstata.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Hemograma Completo')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Hemograma Completo</h6>
-                                <p class="small text-secondary mb-0">Avaliação geral de células sanguíneas.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Glicemia em Jejum')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Glicemia em Jejum</h6>
-                                <p class="small text-secondary mb-0">Avaliação de açúcar no sangue.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Sangue Mulher Homem">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Perfil Lipídico')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Perfil Lipídico</h6>
-                                <p class="small text-secondary mb-0">Colesterol Total, HDL, LDL e Triglicerídeos.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Endoscopia Digestiva Alta')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Endoscopia Digestiva Alta</h6>
-                                <p class="small text-secondary mb-0">Avaliação de estômago e esôfago.</p>
-                            </div>
-                        </div>
-                        <div class="col item-exame" data-cat="Homem Mulher">
-                            <div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Colonoscopia')">
-                                <h6 class="fw-bold mb-1" style="color: #002c5c;">Colonoscopia</h6>
-                                <p class="small text-secondary mb-0">Avaliação e prevenção.</p>
-                            </div>
-                        </div>
+                        <!-- SANGUE -->
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Hemograma Completo')"><h6 class="fw-bold mb-1 text-navy">Hemograma Completo</h6><p class="small text-secondary mb-0">Avaliação geral de células sanguíneas.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Glicemia de Jejum')"><h6 class="fw-bold mb-1 text-navy">Glicemia de Jejum</h6><p class="small text-secondary mb-0">Avaliação de açúcar no sangue.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Hemoglobina Glicada (HbA1c)')"><h6 class="fw-bold mb-1 text-navy">Hemoglobina Glicada (HbA1c)</h6><p class="small text-secondary mb-0">Controle do diabetes.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Colesterol Total')"><h6 class="fw-bold mb-1 text-navy">Colesterol Total</h6><p class="small text-secondary mb-0">Avaliação dos níveis de colesterol.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('HDL Colesterol')"><h6 class="fw-bold mb-1 text-navy">HDL Colesterol</h6><p class="small text-secondary mb-0">Avaliação do bom colesterol.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('LDL Colesterol')"><h6 class="fw-bold mb-1 text-navy">LDL Colesterol</h6><p class="small text-secondary mb-0">Avaliação do mau colesterol.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Triglicerídeos')"><h6 class="fw-bold mb-1 text-navy">Triglicerídeos</h6><p class="small text-secondary mb-0">Avaliação das gorduras no sangue.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Creatinina')"><h6 class="fw-bold mb-1 text-navy">Creatinina</h6><p class="small text-secondary mb-0">Avaliação da função renal.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ureia')"><h6 class="fw-bold mb-1 text-navy">Ureia</h6><p class="small text-secondary mb-0">Avaliação da função renal.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('TGO (AST)')"><h6 class="fw-bold mb-1 text-navy">TGO (AST)</h6><p class="small text-secondary mb-0">Avaliação da função hepática.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('TGP (ALT)')"><h6 class="fw-bold mb-1 text-navy">TGP (ALT)</h6><p class="small text-secondary mb-0">Avaliação da função hepática.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('TSH')"><h6 class="fw-bold mb-1 text-navy">TSH</h6><p class="small text-secondary mb-0">Avaliação da tireoide.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('T4 Livre')"><h6 class="fw-bold mb-1 text-navy">T4 Livre</h6><p class="small text-secondary mb-0">Avaliação da tireoide.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Vitamina D (25-hidroxivitamina D)')"><h6 class="fw-bold mb-1 text-navy">Vitamina D (25-hidroxivitamina D)</h6><p class="small text-secondary mb-0">Avaliação da vitamina D.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Vitamina B12')"><h6 class="fw-bold mb-1 text-navy">Vitamina B12</h6><p class="small text-secondary mb-0">Avaliação da vitamina B12.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ferritina')"><h6 class="fw-bold mb-1 text-navy">Ferritina</h6><p class="small text-secondary mb-0">Avaliação dos estoques de ferro.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Potássio')"><h6 class="fw-bold mb-1 text-navy">Potássio</h6><p class="small text-secondary mb-0">Eletrólitos no sangue.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Sódio')"><h6 class="fw-bold mb-1 text-navy">Sódio</h6><p class="small text-secondary mb-0">Eletrólitos no sangue.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('PCR (Proteína C-Reativa)')"><h6 class="fw-bold mb-1 text-navy">PCR (Proteína C-Reativa)</h6><p class="small text-secondary mb-0">Marcador de inflamação.</p></div></div>
+                        <div class="col item-exame" data-cat="Sangue"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ácido Úrico')"><h6 class="fw-bold mb-1 text-navy">Ácido Úrico</h6><p class="small text-secondary mb-0">Avaliação metabólica.</p></div></div>
+                        <!-- HOMEM EXCLUSIVE -->
+                        <div class="col item-exame" data-cat="Homem"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Toque Retal (exame clínico)')"><h6 class="fw-bold mb-1 text-navy">Toque Retal (exame clínico)</h6><p class="small text-secondary mb-0">Avaliação da próstata.</p></div></div>
+                        <div class="col item-exame" data-cat="Homem"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Exame de Urina (EAS)')"><h6 class="fw-bold mb-1 text-navy">Exame de Urina (EAS)</h6><p class="small text-secondary mb-0">Avaliação do trato urinário.</p></div></div>
+                        <!-- MULHER EXCLUSIVE -->
+                        <div class="col item-exame" data-cat="Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Papanicolau (Preventivo do colo do útero)')"><h6 class="fw-bold mb-1 text-navy">Papanicolau (Preventivo do colo do útero)</h6><p class="small text-secondary mb-0">Prevenção do colo uterino.</p></div></div>
+                        <div class="col item-exame" data-cat="Mulher Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Mamografia')"><h6 class="fw-bold mb-1 text-navy">Mamografia</h6><p class="small text-secondary mb-0">Rastreamento de câncer de mama.</p></div></div>
+                        <div class="col item-exame" data-cat="Mulher Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ultrassom Transvaginal (Pélvico)')"><h6 class="fw-bold mb-1 text-navy">Ultrassom Transvaginal (Pélvico)</h6><p class="small text-secondary mb-0">Avaliação pélvica.</p></div></div>
+                        <div class="col item-exame" data-cat="Mulher Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ultrassom de Mamas')"><h6 class="fw-bold mb-1 text-navy">Ultrassom de Mamas</h6><p class="small text-secondary mb-0">Avaliação das mamas.</p></div></div>
+                        <div class="col item-exame" data-cat="Mulher Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Densitometria Óssea')"><h6 class="fw-bold mb-1 text-navy">Densitometria Óssea</h6><p class="small text-secondary mb-0">Avaliação de osteoporose.</p></div></div>
+                        <div class="col item-exame" data-cat="Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Exame de Urina (EAS e Urocultura)')"><h6 class="fw-bold mb-1 text-navy">Exame de Urina (EAS e Urocultura)</h6><p class="small text-secondary mb-0">Avaliação do trato urinário.</p></div></div>
+                        <!-- HOMEM E MULHER -->
+                        <div class="col item-exame" data-cat="Homem Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Exame de Fezes (Pesquisa de Sangue Oculto)')"><h6 class="fw-bold mb-1 text-navy">Exame de Fezes (Pesquisa de Sangue Oculto)</h6><p class="small text-secondary mb-0">Avaliação intestinal.</p></div></div>
+                        <div class="col item-exame" data-cat="Homem Mulher Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ultrassom de Abdome Total')"><h6 class="fw-bold mb-1 text-navy">Ultrassom de Abdome Total</h6><p class="small text-secondary mb-0">Avaliação abdominal completa.</p></div></div>
+                        <div class="col item-exame" data-cat="Homem Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Eletrocardiograma (ECG)')"><h6 class="fw-bold mb-1 text-navy">Eletrocardiograma (ECG)</h6><p class="small text-secondary mb-0">Avaliação do ritmo cardíaco.</p></div></div>
+                        <div class="col item-exame" data-cat="Homem Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Teste Ergométrico')"><h6 class="fw-bold mb-1 text-navy">Teste Ergométrico</h6><p class="small text-secondary mb-0">Teste de esforço na esteira.</p></div></div>
+                        <div class="col item-exame" data-cat="Homem Mulher"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Colonoscopia')"><h6 class="fw-bold mb-1 text-navy">Colonoscopia</h6><p class="small text-secondary mb-0">Avaliação e prevenção intestinal.</p></div></div>
+                        <!-- RETAIN OTHERS JUST IN CASE FOR RADIOLOGIA -->
+                        <div class="col item-exame" data-cat="Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Radiografia (Raio-X)')"><h6 class="fw-bold mb-1 text-navy">Radiografia (Raio-X)</h6><p class="small text-secondary mb-0">Tórax, coluna, membros e articulações.</p></div></div>
+                        <div class="col item-exame" data-cat="Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Tomografia Computadorizada')"><h6 class="fw-bold mb-1 text-navy">Tomografia Computadorizada</h6><p class="small text-secondary mb-0">Crânio, tórax, abdômen e articulações.</p></div></div>
+                        <div class="col item-exame" data-cat="Radiologia"><div class="card border border-light shadow-sm rounded-3 p-3 exam-card" style="cursor: pointer;" onclick="abrirModalHorario('Ressonância Magnética')"><h6 class="fw-bold mb-1 text-navy">Ressonância Magnética</h6><p class="small text-secondary mb-0">Alta definição para cérebro, coluna, joelho e tecidos moles.</p></div></div>
                     </div>
                 </div>
             </div>
-
-            <!-- Right Column: Info -->
             <div class="col-lg-4 mt-4 mt-lg-0 ps-lg-4">
-                <!-- Status de Cuidado -->
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
-                    <div class="d-flex align-items-center mb-3 fw-bold fs-5" style="color: #002c5c;">
+                    <div class="d-flex align-items-center mb-3 fw-bold fs-5 text-navy">
                         <i class="bi bi-award me-2 fs-4"></i> Status de Cuidado
                     </div>
-                    <div class="d-flex justify-content-between text-secondary mb-1 fw-medium" style="font-size: 0.9rem;">
+                    <div class="d-flex justify-content-between text-secondary mb-1 fw-medium font-md">
                         <span>Nível Prata</span>
                         <span class="text-warning">Rumo ao Ouro</span>
                     </div>
-                    <div class="progress mb-2" style="height: 10px; border-radius: 5px;">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 80%; background: linear-gradient(90deg, #e0e0e0 0%, #d4af37 100%);" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress mb-2 h-10 rounded-pill">
+                        <div class="progress-bar progress-bar-gradient w-80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <p class="text-secondary mb-0" style="font-size: 0.8rem;">80% concluído para alcançar o nível Ouro.</p>
+                    <p class="text-secondary mb-0 font-xs">80% concluído para alcançar o nível Ouro.</p>
                 </div>
-
-                <!-- Score -->
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 position-relative overflow-hidden">
                     <h5 class="fw-bold mb-3 text-secondary">Score</h5>
                     <div class="d-flex align-items-baseline mb-2">
-                        <span class="fw-bold me-1" style="font-size: 2.5rem; color: #002c5c;">1.250</span>
+                        <span class="fw-bold me-1 score-display-large">1.250</span>
                         <span class="text-warning fw-bold fs-5">XP</span>
                     </div>
-                    <p class="text-secondary mb-0" style="font-size: 0.9rem; z-index: 1;">Utilize seus pontos para resgatar benefícios na rede parceira.</p>
-                    <i class="bi bi-stars text-warning position-absolute opacity-25" style="font-size: 5rem; top: 10px; right: 10px; z-index: 0;"></i>
+                    <p class="text-secondary mb-0 font-md z-index-1">Utilize seus pontos para resgatar benefícios na rede parceira.</p>
+                    <i class="bi bi-stars text-warning position-absolute opacity-25 score-star-bg"></i>
                 </div>
-
-                <!-- Alertas e Avisos -->
                 <div class="card border-0 shadow-sm rounded-4 p-4">
                     <h5 class="fw-medium mb-3 text-secondary">Alertas e Avisos</h5>
-                    <div class="alert mb-0 d-flex align-items-start" style="background-color: #fff9e6; border: 1px solid #ffe8a1; color: #5c470a; border-radius: 12px;">
+                    <div class="alert mb-0 d-flex align-items-start alert-custom-warning">
                         <i class="bi bi-exclamation-triangle text-warning me-3 fs-5 mt-1"></i>
-                        <span style="font-size: 0.9rem;">Jejum de 8h para a Ressonância do dia 14/06/2026</span>
+                        <span class="font-md">Jejum de 8h para a Ressonância do dia 14/06/2026</span>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <!-- Modal Escolher Data e Hora -->
     <div class="modal fade" id="modalEscolherHorario" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-4 border-0 shadow">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="fw-bold mb-0" style="color: #002c5c;">Agendar <span id="spanNomeExameHorario" class="text-primary"></span></h5>
+                    <h5 class="fw-bold mb-0 text-navy">Agendar <span id="spanNomeExameHorario" class="text-primary"></span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
@@ -426,16 +309,14 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal Confirmar Remarcação -->
     <div class="modal fade" id="modalConfirmarRemarcacao" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-4 border-0 shadow">
                 <div class="modal-body text-center p-5">
                     <div class="mb-4">
-                        <i class="bi bi-question-circle text-warning" style="font-size: 4rem;"></i>
+                        <i class="bi bi-question-circle text-warning modal-icon-display"></i>
                     </div>
-                    <h4 class="fw-bold mb-3" style="color: #002c5c;">Remarcar Exame?</h4>
+                    <h4 class="fw-bold mb-3 text-navy">Remarcar Exame?</h4>
                     <p class="text-secondary mb-4">Tem certeza que deseja remarcar o seu agendamento de <strong id="nomeExameRemarcacao"></strong>?</p>
                     <div class="d-flex gap-3 justify-content-center">
                         <button type="button" class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-bold" data-bs-dismiss="modal">Não</button>
@@ -445,25 +326,22 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal de Confirmação Simples -->
     <div class="modal fade" id="modalAgendamento" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded-4 border-0 shadow">
                 <div class="modal-body text-center p-5">
                     <div class="mb-4">
-                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                        <i class="bi bi-check-circle-fill text-success modal-icon-display"></i>
                     </div>
-                    <h4 class="fw-bold mb-3" style="color: #002c5c;">Agendamento Confirmado!</h4>
-                    <p class="text-secondary mb-4">O seu exame <strong id="modalNomeExameAgendado"></strong> foi agendado para o futuro e já consta no seu histórico.</p>
+                    <h4 class="fw-bold mb-3 text-navy">Agendamento Confirmado!</h4>
+                    <p class="text-secondary mb-4">O seu exame <strong id="modalNomeExameAgendado"></strong> foi agendado para the futuro e já consta no seu histórico.</p>
                     <button type="button" class="btn btn-primary px-4 py-2 rounded-pill w-100 fw-bold" data-bs-dismiss="modal" onclick="switchTab('agendados')">Ver Meus Exames</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/global.js"></script>
     <script src="js/exames.js"></script>
 </body>
 </html>

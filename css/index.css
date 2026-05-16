@@ -1,10 +1,7 @@
-/* Alert styling */
 .custom-alert {
     background-color: #fff9e6;
     border: 1px solid #f2e2c4;
 }
-
-/* Custom Progress Bar with Gradient */
 .custom-progress-bar {
     background: linear-gradient(90deg, #b0c4de 0%, #d4af37 100%);
     border-radius: 5px;
@@ -12,31 +9,23 @@
 .progress {
     border-radius: 5px;
 }
-
-/* Toggle Switch Styling */
 .action-toggle-container {
     transition: all 0.3s ease;
     cursor: pointer;
     width: fit-content;
 }
-
 .action-toggle-container.bg-primary {
     box-shadow: 0 4px 6px rgba(0, 44, 92, 0.2);
 }
-
 .action-toggle-container.bg-light {
     background-color: #e9ecef !important;
     border-color: #dee2e6 !important;
 }
-
-/* Customize the Bootstrap switch */
 .custom-switch {
     width: 2.5em !important;
     height: 1.25em !important;
     cursor: pointer;
 }
-
-/* Specific styling for the switch inside the dark primary container */
 .bg-primary .custom-switch:not(:checked) {
     background-color: rgba(255, 255, 255, 0.3);
     border-color: transparent;
@@ -52,12 +41,32 @@
 .bg-primary .form-check-input:checked[type=checkbox] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23002c5c'/%3e%3c/svg%3e");
 }
-
-/* Action Cards */
 .action-card {
     transition: all 0.2s ease-in-out;
 }
 .action-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+}
+.text-gold-alt { color: #d63384; }
+.bg-path-gray { background-color: #d8dde1; }
+.dashboard-title {
+    color: var(--primary-color);
+}
+.section-title {
+    color: var(--dark-navy);
+}
+.balance-value {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.xp-tag {
+    font-size: 1rem;
+    color: var(--gold);
+}
+.modal-title-custom {
+    color: var(--primary-color);
+}
+.data-section-title {
+    color: #495057;
 }

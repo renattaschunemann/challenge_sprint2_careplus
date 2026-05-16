@@ -1,0 +1,29 @@
+.text-navy {
+    color: var(--primary-color) !important;
+}
+.edit-icon {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.edit-icon:hover {
+    color: var(--primary-color) !important;
+}
+.form-control-readonly {
+    background-color: #fdfdfd !important;
+}
+.score-display {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.score-star-bg {
+    font-size: 5rem;
+    top: 10px;
+    right: 10px;
+    z-index: 0;
+}
+.progress-bar-gradient {
+    background: linear-gradient(90deg, #e0e0e0 0%, var(--gold) 100%) !important;
+}
+.z-index-1 {
+    z-index: 1;
+}
