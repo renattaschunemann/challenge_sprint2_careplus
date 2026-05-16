@@ -1,0 +1,62 @@
+.tab-content-section {
+    min-height: 400px;
+    transition: all 0.3s ease;
+}
+.item-agendado {
+    border: 1px solid var(--border-gray);
+    transition: transform 0.2s ease;
+}
+.item-agendado:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.xp-badge-absolute {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.exam-search-icon {
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.exam-search-input {
+    padding-left: 45px;
+    height: 45px;
+}
+.category-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+.bg-gradient-blue {
+    background: linear-gradient(135deg, #0056b3 0%, #0096FF 100%) !important;
+}
+.bg-brand-danger {
+    background-color: #e56b46 !important;
+}
+.exam-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.exam-card:hover {
+    border-color: var(--secondary-color) !important;
+    background-color: #f8f9fc;
+}
+.score-display-large {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+.alert-custom-warning {
+    background-color: #fff9e6;
+    border: 1px solid #ffe8a1;
+    color: #5c470a;
+    border-radius: 12px;
+}
+.modal-icon-display {
+    font-size: 4rem;
+}
+.min-h-400 { min-height: 400px; }

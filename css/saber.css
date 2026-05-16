@@ -1,0 +1,25 @@
+.content-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+.banner-blue {
+    background-color: var(--secondary-color);
+    color: white;
+}
+.card-img-cover {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+.xp-badge {
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+}
+.score-display-large {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}

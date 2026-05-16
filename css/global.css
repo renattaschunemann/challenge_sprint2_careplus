@@ -1,29 +1,50 @@
+:root {
+    --primary-color: #002c5c;
+    --secondary-color: #0071bc;
+    --dark-navy: #001f3f;
+    --gold: #d4af37;
+    --light-gray: #f8f9fc;
+    --border-gray: #dee2e6;
+    --text-muted: #6c757d;
+    --success-green: #198754;
+    --warning-yellow: #ffc107;
+}
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f8f9fc !important;
+    background-color: var(--light-gray) !important;
+    color: #333;
 }
-
-/* Typography Colors */
-.text-primary {
-    color: #002c5c !important;
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.text-secondary-brand { color: var(--secondary-color) !important; }
+.bg-secondary-brand { background-color: var(--secondary-color) !important; }
+.text-navy { color: var(--primary-color) !important; }
+.text-dark-navy { color: var(--dark-navy) !important; }
+.text-gold { color: var(--gold) !important; }
+.bg-gold { background-color: var(--gold) !important; }
+.font-xs { font-size: 0.75rem !important; }
+.font-sm { font-size: 0.85rem !important; }
+.font-md { font-size: 0.95rem !important; }
+.font-lg { font-size: 1.05rem !important; }
+.font-xl { font-size: 1.25rem !important; }
+.avatar-sm { width: 32px; height: 32px; flex-shrink: 0; }
+.avatar-md { width: 40px; height: 40px; flex-shrink: 0; }
+.avatar-lg { width: 48px; height: 48px; flex-shrink: 0; }
+.icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
-.bg-primary {
-    background-color: #002c5c !important;
+.border-primary-bottom {
+    border-bottom: 2px solid var(--primary-color);
 }
-.text-warning {
-    color: #d4af37 !important; /* Gold tone from image */
-}
-.bg-warning {
-    background-color: #d4af37 !important;
-}
-
-/* Nav Link Hover states */
 .navbar-nav .nav-link {
     transition: color 0.2s ease;
 }
 .navbar-nav .nav-link:hover {
-    color: #002c5c !important;
+    color: var(--primary-color) !important;
 }
 .navbar-nav .nav-link.active {
-    color: #002c5c !important;
+    color: var(--primary-color) !important;
 }
