@@ -12,7 +12,8 @@
 .action-toggle-container {
     transition: all 0.3s ease;
     cursor: pointer;
-    width: fit-content;
+    width: 100%;
+    max-width: fit-content;
 }
 .action-toggle-container.bg-primary {
     box-shadow: 0 4px 6px rgba(0, 44, 92, 0.2);
@@ -69,4 +70,11 @@
 }
 .data-section-title {
     color: #495057;
+}
+
+@media (max-width: 768px) {
+    .action-toggle-container {
+        max-width: 100% !important;
+        justify-content: space-between !important;
+    }
 }
