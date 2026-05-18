@@ -1,255 +1,455 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Care Plus - Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
-</head>
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="img/logo.png" alt="Care Plus Logo" height="80" class="d-inline-block align-text-top">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item me-4">
-                        <a class="nav-link active fw-medium text-dark d-flex align-items-center" href="index.html">
-                            Início
-                        </a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="agenda.html">
-                            Minha Agenda
-                        </a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="exames.html">
-                            Meus exames
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-medium text-secondary d-flex align-items-center" href="saber.html">
-                            Saber +
-                        </a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <div class="text-end me-3">
-                        <div class="fw-bold text-dark font-md user-header-name">Amanda L.</div>
-                        <div class="text-warning fw-bold d-flex align-items-center justify-content-end font-xs">
-                            <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
-                        </div>
-                    </div>
-                    <a href="cadastro.html" class="text-decoration-none" title="Ver Perfil">
-                        <div class="avatar-md bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold">
-                            AL
-                        </div>
-                    </a>
-                </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="bg-light">
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="img/logo.png"
+            alt="Care Plus Logo"
+            height="80"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item me-4">
+              <a
+                class="nav-link active fw-medium text-dark d-flex align-items-center"
+                href="index.html"
+              >
+                Início
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="agenda.html"
+              >
+                Minha Agenda
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="exames.html"
+              >
+                Meus exames
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="saber.html"
+              >
+                Saber +
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <div class="text-end me-3">
+              <div class="fw-bold text-dark font-md user-header-name">
+                Amanda L.
+              </div>
+              <div
+                class="text-warning fw-bold d-flex align-items-center justify-content-end font-xs"
+              >
+                <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
+              </div>
             </div>
+            <a
+              href="cadastro.html"
+              class="text-decoration-none"
+              title="Ver Perfil"
+            >
+              <div
+                class="avatar-md bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold"
+              >
+                AL
+              </div>
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
     <main class="container my-5">
-        <h1 class="fw-bold mb-4 dashboard-title">Sua Saúde, Amanda</h1>
-        <div class="row g-4">
-            <div class="col-lg-7">
-                <div class="card border-0 shadow-sm rounded-4 p-2">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-start mb-4">
-                            <div class="icon-box bg-light avatar-lg me-3 mt-1">
-                                <i class="bi bi-heart-pulse text-primary fs-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="fw-bold mb-2 section-title">Consulta: Cardiologia com Dr. Roberto</h3>
-                                <div class="d-flex text-secondary font-md flex-wrap gap-2">
-                                    <div class="me-4 d-flex align-items-center m-0">
-                                        <i class="bi bi-clock me-2"></i> Hoje às 15:30
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-geo-alt me-2"></i> Clínica Central
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="alert custom-alert rounded-3 d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-3 p-3" role="alert">
-                            <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <i class="bi bi-exclamation-triangle text-warning fs-4 me-3"></i>
-                                <div class="font-md">
-                                    <strong class="text-warning">Trânsito intenso detectado no trajeto.</strong> Evite atrasos:
-                                </div>
-                            </div>
-                            <div class="action-toggle-container bg-primary text-white rounded-pill px-3 py-2 d-flex align-items-center" id="btn-telemedicina">
-                                <i class="bi bi-camera-video me-2"></i>
-                                <span class="fw-medium me-3 font-md">Mudar para Telemedicina</span>
-                                <div class="form-check form-switch m-0 ms-1">
-                                    <input class="form-check-input custom-switch" type="checkbox" role="switch" id="toggleTelemedicina" checked>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-end mt-2">
-                            <div class="action-toggle-container bg-light text-secondary rounded-pill px-3 py-2 d-flex align-items-center border" id="btn-presencial">
-                                <i class="bi bi-camera-video me-2"></i>
-                                <span class="fw-medium me-3 font-md">Confirmar Presencial</span>
-                                <div class="form-check form-switch m-0 ms-1">
-                                    <input class="form-check-input custom-switch" type="checkbox" role="switch" id="togglePresencial">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <h1 class="fw-bold mb-4 dashboard-title">Sua Saúde, Amanda</h1>
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm rounded-4 p-2">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-start mb-4">
+                <div class="icon-box bg-light avatar-lg me-3 mt-1">
+                  <i class="bi bi-heart-pulse text-primary fs-4"></i>
                 </div>
-                <div class="row mt-3 g-3">
-                    <div class="col-md-7">
-                        <div class="card border-0 shadow-sm rounded-4 h-100 p-1">
-                            <div class="card-body p-3">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h6 class="fw-bold m-0 section-title font-lg">Previsão de Trajeto</h6>
-                                    <div class="bg-info bg-opacity-10 avatar-sm icon-box text-secondary-brand">
-                                        <i class="bi bi-cursor-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="rounded-3 p-3 mb-3 d-flex align-items-start bg-path-gray">
-                                    <i class="bi bi-geo-alt text-dark me-2 mt-1"></i>
-                                    <div>
-                                        <div class="fw-bold section-title font-md">Clínica Itaim Bibi</div>
-                                        <div class="text-secondary font-xs">Av. Brigadeiro Faria Lima, 3064</div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center font-sm">
-                                    <span class="text-secondary">Tempo de deslocamento</span>
-                                    <span class="fw-bold text-gold-alt">~ 45min (Intenso)</span>
-                                </div>
-                            </div>
-                        </div>
+                <div>
+                  <h3 class="fw-bold mb-2 section-title">
+                    Consulta: Cardiologia com Dr. Roberto
+                  </h3>
+                  <div class="d-flex text-secondary font-md flex-wrap gap-2">
+                    <div class="me-4 d-flex align-items-center m-0">
+                      <i class="bi bi-clock me-2"></i> Hoje às 15:30
                     </div>
-                    <div class="col-md-5 d-flex flex-column gap-3">
-                        <div class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card" style="cursor: pointer;" onclick="window.location.href='agenda.html'">
-                            <div class="d-flex align-items-center">
-                                <div class="bg-info bg-opacity-10 avatar-sm icon-box text-navy me-2">
-                                    <i class="bi bi-calendar-check"></i>
-                                </div>
-                                <span class="fw-bold section-title font-md">Agendar Retorno</span>
-                            </div>
-                            <i class="bi bi-chevron-right text-secondary"></i>
-                        </div>
-                        <div class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card" style="cursor: pointer;" onclick="window.location.href='exames.html?tab=agendar-exames'">
-                            <div class="d-flex align-items-center">
-                                <div class="bg-info bg-opacity-10 avatar-sm icon-box text-navy me-2">
-                                    <i class="bi bi-file-earmark-medical"></i>
-                                </div>
-                                <span class="fw-bold section-title font-md">Agendar Exames</span>
-                            </div>
-                            <i class="bi bi-chevron-right text-secondary"></i>
-                        </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-geo-alt me-2"></i> Clínica Central
                     </div>
+                  </div>
                 </div>
+              </div>
+              <div
+                class="alert custom-alert rounded-3 d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-3 p-3"
+                role="alert"
+              >
+                <div class="d-flex align-items-center mb-3 mb-md-0">
+                  <i
+                    class="bi bi-exclamation-triangle text-warning fs-4 me-3"
+                  ></i>
+                  <div class="font-md">
+                    <strong class="text-warning"
+                      >Trânsito intenso detectado no trajeto.</strong
+                    >
+                    Evite atrasos:
+                  </div>
+                </div>
+                <div
+                  class="action-toggle-container bg-primary text-white rounded-pill px-3 py-2 d-flex align-items-center"
+                  id="btn-telemedicina"
+                >
+                  <i class="bi bi-camera-video me-2"></i>
+                  <span class="fw-medium me-3 font-md"
+                    >Mudar para Telemedicina</span
+                  >
+                  <div class="form-check form-switch m-0 ms-1">
+                    <input
+                      class="form-check-input custom-switch"
+                      type="checkbox"
+                      role="switch"
+                      id="toggleTelemedicina"
+                      checked
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end mt-2">
+                <div
+                  class="action-toggle-container bg-light text-secondary rounded-pill px-3 py-2 d-flex align-items-center border"
+                  id="btn-presencial"
+                >
+                  <i class="bi bi-camera-video me-2"></i>
+                  <span class="fw-medium me-3 font-md"
+                    >Confirmar Presencial</span
+                  >
+                  <div class="form-check form-switch m-0 ms-1">
+                    <input
+                      class="form-check-input custom-switch"
+                      type="checkbox"
+                      role="switch"
+                      id="togglePresencial"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-lg-5 d-flex flex-column gap-4">
-                <div class="card border-0 shadow-sm rounded-4 p-2">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-4">
-                            <i class="bi bi-award fs-5 me-2 text-navy"></i>
-                            <h5 class="fw-bold m-0 section-title">Status de Cuidado</h5>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2 fw-bold font-md">
-                            <span class="text-secondary">Nível Prata</span>
-                            <span class="text-warning">Rumo ao Ouro</span>
-                        </div>
-                        <div class="progress mb-3" style="height: 10px; background-color: #e9ecef;">
-                            <div class="progress-bar custom-progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <p class="text-secondary m-0 font-sm">80% concluído para alcançar o nível Ouro.</p>
+          </div>
+          <div class="row mt-3 g-3">
+            <div class="col-md-7">
+              <div class="card border-0 shadow-sm rounded-4 h-100 p-1">
+                <div class="card-body p-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <h6 class="fw-bold m-0 section-title font-lg">
+                      Previsão de Trajeto
+                    </h6>
+                    <div
+                      class="bg-info bg-opacity-10 avatar-sm icon-box text-secondary-brand"
+                    >
+                      <i class="bi bi-cursor-fill"></i>
                     </div>
-                </div>
-                <div class="card border-0 shadow-sm rounded-4 p-2 h-100" style="cursor: pointer;" onclick="window.location.href='recompensas.html'">
-                    <div class="card-body p-4 position-relative overflow-hidden">
-                        <i class="bi bi-stars position-absolute text-warning opacity-25" style="top: 20px; right: 20px; font-size: 4rem;"></i>
-                        <h5 class="fw-bold mb-3 text-secondary">Care Coins Balance</h5>
-                        <div class="d-flex align-items-baseline mb-3">
-                            <span class="fw-bold balance-value">1.250</span>
-                            <span class="fw-bold xp-tag ms-1">XP</span>
-                        </div>
-                        <p class="text-secondary m-0 font-md w-85">
-                            Utilize seus pontos para resgatar benefícios na rede parceira.
-                        </p>
+                  </div>
+                  <div
+                    class="rounded-3 p-3 mb-3 d-flex align-items-start bg-path-gray"
+                  >
+                    <i class="bi bi-geo-alt text-dark me-2 mt-1"></i>
+                    <div>
+                      <div class="fw-bold section-title font-md">
+                        Clínica Itaim Bibi
+                      </div>
+                      <div class="text-secondary font-xs">
+                        Av. Brigadeiro Faria Lima, 3064
+                      </div>
                     </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center font-sm"
+                  >
+                    <span class="text-secondary">Tempo de deslocamento</span>
+                    <span class="fw-bold text-gold-alt">~ 45min (Intenso)</span>
+                  </div>
                 </div>
+              </div>
             </div>
+            <div class="col-md-5 d-flex flex-column gap-3">
+              <div
+                class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card"
+                style="cursor: pointer"
+                onclick="window.location.href = 'agenda.html'"
+              >
+                <div class="d-flex align-items-center">
+                  <div
+                    class="bg-info bg-opacity-10 avatar-sm icon-box text-navy me-2"
+                  >
+                    <i class="bi bi-calendar-check"></i>
+                  </div>
+                  <span class="fw-bold section-title font-md"
+                    >Agendar Retorno</span
+                  >
+                </div>
+                <i class="bi bi-chevron-right text-secondary"></i>
+              </div>
+              <div
+                class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card"
+                style="cursor: pointer"
+                onclick="
+                  window.location.href = 'exames.html?tab=agendar-exames'
+                "
+              >
+                <div class="d-flex align-items-center">
+                  <div
+                    class="bg-info bg-opacity-10 avatar-sm icon-box text-navy me-2"
+                  >
+                    <i class="bi bi-file-earmark-medical"></i>
+                  </div>
+                  <span class="fw-bold section-title font-md"
+                    >Agendar Exames</span
+                  >
+                </div>
+                <i class="bi bi-chevron-right text-secondary"></i>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="col-lg-5 d-flex flex-column gap-4">
+          <div class="card border-0 shadow-sm rounded-4 p-2">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-4">
+                <i class="bi bi-award fs-5 me-2 text-navy"></i>
+                <h5 class="fw-bold m-0 section-title">Status de Cuidado</h5>
+              </div>
+              <div class="d-flex justify-content-between mb-2 fw-bold font-md">
+                <span class="text-secondary">Nível Prata</span>
+                <span class="text-warning">Rumo ao Ouro</span>
+              </div>
+              <div
+                class="progress mb-3"
+                style="height: 10px; background-color: #e9ecef"
+              >
+                <div
+                  class="progress-bar custom-progress-bar"
+                  role="progressbar"
+                  style="width: 80%"
+                  aria-valuenow="80"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <p class="text-secondary m-0 font-sm">
+                80% concluído para alcançar o nível Ouro.
+              </p>
+            </div>
+          </div>
+          <div
+            class="card border-0 shadow-sm rounded-4 p-2 h-100"
+            style="cursor: pointer"
+            onclick="window.location.href = 'recompensas.html'"
+          >
+            <div class="card-body p-4 position-relative overflow-hidden">
+              <i
+                class="bi bi-stars position-absolute text-warning opacity-25"
+                style="top: 20px; right: 20px; font-size: 4rem"
+              ></i>
+              <h5 class="fw-bold mb-3 text-secondary">Care Coins Balance</h5>
+              <div class="d-flex align-items-baseline mb-3">
+                <span class="fw-bold balance-value">1.250</span>
+                <span class="fw-bold xp-tag ms-1">XP</span>
+              </div>
+              <p class="text-secondary m-0 font-md w-85">
+                Utilize seus pontos para resgatar benefícios na rede parceira.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-    <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 rounded-4 shadow">
-                <div class="modal-header border-0 pb-0">
-                    <h4 class="modal-title fw-bold modal-title-custom" id="modalCadastroLabel">Sua Saúde, Seus Dados</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div
+      class="modal fade"
+      id="modalCadastro"
+      tabindex="-1"
+      aria-labelledby="modalCadastroLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 rounded-4 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h4
+              class="modal-title fw-bold modal-title-custom"
+              id="modalCadastroLabel"
+            >
+              Sua Saúde, Seus Dados
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-4">
+            <div class="card border-0 bg-light rounded-4 p-3 mb-4">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="fw-bold m-0 data-section-title">Dados pessoais</h5>
+                <i class="bi bi-pencil-fill text-secondary"></i>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-secondary font-md">Nome</label>
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  value="Amanda L."
+                  readonly
+                />
+              </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label text-secondary font-md"
+                    >Data de Nascimento</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control rounded-3"
+                    value="01/01/1990"
+                    readonly
+                  />
                 </div>
-                <div class="modal-body p-4">
-                    <div class="card border-0 bg-light rounded-4 p-3 mb-4">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="fw-bold m-0 data-section-title">Dados pessoais</h5>
-                            <i class="bi bi-pencil-fill text-secondary"></i>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label text-secondary font-md">Nome</label>
-                            <input type="text" class="form-control rounded-3" value="Amanda L." readonly>
-                        </div>
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-secondary font-md">Data de Nascimento</label>
-                                <input type="text" class="form-control rounded-3" value="01/01/1990" readonly>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-secondary font-md">CPF</label>
-                                <input type="text" class="form-control rounded-3" value="123.456.789-00" readonly>
-                            </div>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-secondary font-md">Endereço</label>
-                                <input type="text" class="form-control rounded-3" value="Rua Exemplo, 123" readonly>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-secondary font-md">Contato</label>
-                                <input type="text" class="form-control rounded-3" value="(11) 99999-9999" readonly>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 bg-light rounded-4 p-3">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h5 class="fw-bold m-0 data-section-title">Histórico e Preferências</h5>
-                            <i class="bi bi-pencil-fill text-secondary"></i>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label text-secondary font-md">Alergias Medicamentosas</label>
-                            <input type="text" class="form-control rounded-3" value="Nenhuma conhecida" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label text-secondary font-md">Forma de contato preferencial</label>
-                            <input type="text" class="form-control rounded-3" value="WhatsApp" readonly>
-                        </div>
-                        <div>
-                            <label class="form-label text-secondary font-md">Doenças Crônicas Conhecidas</label>
-                            <input type="text" class="form-control rounded-3" value="Asma leve" readonly>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                  <label class="form-label text-secondary font-md">CPF</label>
+                  <input
+                    type="text"
+                    class="form-control rounded-3"
+                    value="123.456.789-00"
+                    readonly
+                  />
                 </div>
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label text-secondary font-md"
+                    >Endereço</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control rounded-3"
+                    value="Rua Exemplo, 123"
+                    readonly
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label text-secondary font-md"
+                    >Contato</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control rounded-3"
+                    value="(11) 99999-9999"
+                    readonly
+                  />
+                </div>
+              </div>
             </div>
+            <div class="card border-0 bg-light rounded-4 p-3">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="fw-bold m-0 data-section-title">
+                  Histórico e Preferências
+                </h5>
+                <i class="bi bi-pencil-fill text-secondary"></i>
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-secondary font-md"
+                  >Alergias Medicamentosas</label
+                >
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  value="Nenhuma conhecida"
+                  readonly
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label text-secondary font-md"
+                  >Forma de contato preferencial</label
+                >
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  value="WhatsApp"
+                  readonly
+                />
+              </div>
+              <div>
+                <label class="form-label text-secondary font-md"
+                  >Doenças Crônicas Conhecidas</label
+                >
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  value="Asma leve"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <footer class="custom-footer">
-        © 2026 - Care Plus Medicina Assistencial LTDA
+      © 2026 - Care Plus Medicina Assistencial LTDA
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/global.js"></script>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
