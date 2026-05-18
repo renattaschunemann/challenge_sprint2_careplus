@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #002c5c;
-  --secondary-color: #0071bc;
+  --primary-color: #00335b;
+  --secondary-color: #0079c8;
   --dark-navy: #001f3f;
   --gold: #d4af37;
   --light-gray: #f8f9fc;
@@ -36,6 +36,26 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 /* Utilitários mobile first */
