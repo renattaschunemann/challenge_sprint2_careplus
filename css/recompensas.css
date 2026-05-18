@@ -1,13 +1,39 @@
 .banner-points {
-    background: linear-gradient(135deg, #ffffff 0%, #f1f8ff 100%);
-    border: 2px solid #e2f0fc !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8ff 100%);
+  border: 2px solid #e2f0fc !important;
+}
+
+.banner-points .stars-icon {
+  top: 10%;
+  right: 10%;
+  font-size: 8rem;
+}
+
+.banner-points .award-icon {
+  bottom: 10%;
+  left: 10%;
+  font-size: 6rem;
 }
 
 .brinde-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .brinde-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.brinde-card .card-img-top {
+  height: 200px;
+}
+
+.brinde-card .bi {
+  font-size: 5rem;
+}
+
+.modal-body .bi {
+  font-size: 4rem;
 }
