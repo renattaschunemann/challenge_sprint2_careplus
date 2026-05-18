@@ -171,6 +171,8 @@ const historicoExames = [
     { nome: "Glicemia de Jejum", data: "15/03/2025", local: "Laboratório Central" },
     { nome: "Mamografia", data: "10/11/2024", local: "Clínica Mulher & Vida" },
     { nome: "Papanicolau", data: "10/11/2024", local: "Clínica Mulher & Vida" },
+    { nome: "Papanicolau", data: "12/10/2025", local: "Clínica Mulher & Vida" },
+    { nome: "Papanicolau", data: "08/04/2026", local: "Clínica Mulher & Vida" },
     { nome: "Raio-X de Tórax", data: "18/07/2024", local: "Laboratório Central" },
     { nome: "Exame de Urina (EAS)", data: "22/01/2024", local: "Laboratório Central" },
     { nome: "Ressonância Magnética de Joelho", data: "05/09/2024", local: "Clínica Itaim Bibi" }
