@@ -178,7 +178,18 @@ const historicoExames = [
     { nome: "Ressonância Magnética de Joelho", data: "05/09/2024", local: "Clínica Itaim Bibi" },
     { nome: "Exame de Sangue (Hemograma)", data: "14/05/2026", local: "Laboratório Central" },
     { nome: "Ultrassom Transvaginal", data: "15/09/2025", local: "Clínica Mulher & Vida" },
-    { nome: "Exame de Vista (Oftalmologia)", data: "12/03/2024", local: "Clínica de Olhos Paulista" }
+    { nome: "Exame de Vista (Oftalmologia)", data: "12/03/2024", local: "Clínica de Olhos Paulista" },
+    // 10 Novos Exames Diferentes
+    { nome: "Hemoglobina Completa", data: "05/01/2026", local: "Laboratório Central" },
+    { nome: "Mamografia Bilateral", data: "03/05/2026", local: "Clínica Mulher & Vida" },
+    { nome: "Ultrassom Pélvico Transvaginal", data: "18/06/2026", local: "Clínica Mulher & Vida" },
+    { nome: "Teste Ergométrico Cardiovascular", data: "10/02/2025", local: "Clínica Cardiológica" },
+    { nome: "Radiografia de Tórax (Raio-X)", data: "22/11/2025", local: "Laboratório Central" },
+    { nome: "Endoscopia Digestiva Alta", data: "14/09/2024", local: "Clínica Gastro Sul" },
+    { nome: "Exame de PSA (Próstata)", data: "05/07/2025", local: "Laboratório Central" },
+    { nome: "Densitometria Óssea", data: "19/04/2024", local: "Clínica Itaim Bibi" },
+    { nome: "Exame de Audiometria", data: "30/08/2024", local: "Clínica Ouvir Bem" },
+    { nome: "Ressonância Magnética da Coluna", data: "27/12/2025", local: "Clínica Itaim Bibi" }
 ];
 
 function parseDataBR(dataStr) {
@@ -211,8 +222,13 @@ function renderizarHistorico(itens) {
         `;
         return;
     }
+
+    // Ordenar do mais recente para o mais antigo antes de renderizar
+    const itensOrdenados = [...itens].sort((a, b) => {
+        return parseDataBR(b.data) - parseDataBR(a.data);
+    });
     
-    itens.forEach(exame => {
+    itensOrdenados.forEach(exame => {
         const partes = exame.data.split('/');
         let dataFormatada = exame.data;
         if (partes.length === 3) {
