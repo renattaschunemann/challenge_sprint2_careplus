@@ -245,6 +245,22 @@ function confirmarAgendamento() {
   }
   localStorage.setItem("consultasAgendadas", JSON.stringify(consultas));
   idConsultaEmFoco = null;
+
+  if (selectClinica) selectClinica.selectedIndex = 0;
+  if (selectEspecialidade) {
+    selectEspecialidade.innerHTML = "<option selected disabled>Selecione uma especialidade</option>";
+    selectEspecialidade.disabled = true;
+  }
+  if (inputData) inputData.value = "";
+  
+  const selectPeriodo = document.getElementById("select-periodo");
+  if (selectPeriodo) selectPeriodo.selectedIndex = 0;
+  
+  if (selectHorario) {
+    selectHorario.innerHTML = "<option selected disabled>Selecione um período primeiro</option>";
+    selectHorario.disabled = true;
+  }
+
   renderizarConsultas();
   document.getElementById("tab-consultas").click();
   setTimeout(() => {
@@ -382,7 +398,6 @@ function renderizarHistoricoConsultas() {
   if (!lista) return;
   lista.innerHTML = "";
 
-  // Ordenar do mais recente para o mais antigo
   const ordenadas = [...historicoConsultas].sort((a, b) => {
     return parseDataBR(b.data) - parseDataBR(a.data);
   });

@@ -41,6 +41,14 @@ function renderizarAgendados() {
   let agendamentos = JSON.parse(
     localStorage.getItem("agendamentosExames") || "[]",
   );
+
+  const def = document.getElementById("exame-default");
+  if (def) {
+    agendamentos.length > 0
+      ? def.classList.add("d-none")
+      : def.classList.remove("d-none");
+  }
+
   const dynamicItems = document.querySelectorAll(".dynamic-agendado");
   dynamicItems.forEach((item) => item.remove());
   agendamentos.forEach((agendamento, index) => {
@@ -128,9 +136,16 @@ function confirmarAgendamentoComHorario() {
   let agendamentos = JSON.parse(
     localStorage.getItem("agendamentosExames") || "[]",
   );
-  if (idEmFoco !== null) {
+  if (idEmFoco !== null && idEmFoco !== "default") {
     agendamentos[idEmFoco].data = dataFormatada;
     agendamentos[idEmFoco].hora = hora;
+    agendamentos[idEmFoco].nome = exameEmFoco;
+  } else if (idEmFoco === "default") {
+    agendamentos.unshift({
+      nome: exameEmFoco,
+      data: dataFormatada,
+      hora: hora,
+    });
   } else {
     agendamentos.push({
       nome: exameEmFoco,
@@ -139,6 +154,7 @@ function confirmarAgendamentoComHorario() {
     });
   }
   localStorage.setItem("agendamentosExames", JSON.stringify(agendamentos));
+  idEmFoco = null;
   renderizarAgendados();
   document.getElementById("modalNomeExameAgendado").innerText = exameEmFoco;
   var modalSucesso = new bootstrap.Modal(
@@ -182,8 +198,6 @@ function cancelarAgendamentoFuturoID(id) {
     }
   }
 }
-
-// --- HISTÓRICO DE EXAMES REALIZADOS (2024, 2025, 2026) ---
 const historicoExames = [
   {
     nome: "Hemoglobina Completa",
@@ -323,7 +337,6 @@ function renderizarHistorico(itens) {
     return;
   }
 
-  // Ordenar do mais recente para o mais antigo antes de renderizar
   const itensOrdenados = [...itens].sort((a, b) => {
     return parseDataBR(b.data) - parseDataBR(a.data);
   });
@@ -383,11 +396,10 @@ function filtrarHistorico() {
   const dataFim = dataFimStr ? parseDataISO(dataFimStr) : null;
 
   const filtrados = historicoExames.filter((exame) => {
-    // Filtro por nome
+
     const bateNome = exame.nome.toLowerCase().includes(query);
     if (!bateNome) return false;
 
-    // Filtro por data
     if (dataInicio || dataFim) {
       const dataExame = parseDataBR(exame.data);
       if (dataInicio && dataExame < dataInicio) return false;
