@@ -146,7 +146,7 @@
                   id="btn-telemedicina"
                 >
                   <i class="bi bi-camera-video me-2"></i>
-                  <span class="fw-medium me-3 font-md"
+                  <span class="fw-medium me-3 font-sm"
                     >Mudar para Telemedicina</span
                   >
                   <div class="form-check form-switch m-0 ms-1">
@@ -155,7 +155,6 @@
                       type="checkbox"
                       role="switch"
                       id="toggleTelemedicina"
-                      checked
                     />
                   </div>
                 </div>
@@ -165,8 +164,8 @@
                   class="action-toggle-container bg-light text-secondary rounded-pill px-3 py-2 d-flex align-items-center border"
                   id="btn-presencial"
                 >
-                  <i class="bi bi-camera-video me-2"></i>
-                  <span class="fw-medium me-3 font-md"
+                  <i class="bi bi-geo-alt-fill me-2"></i>
+                  <span class="fw-medium me-3 font-sm"
                     >Confirmar Presencial</span
                   >
                   <div class="form-check form-switch m-0 ms-1">
@@ -223,7 +222,7 @@
               <div
                 class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card"
                 style="cursor: pointer"
-                onclick="window.location.href = 'agenda.html'"
+                onclick="window.location.href = 'pages/agenda.html'"
               >
                 <div class="d-flex align-items-center">
                   <div
@@ -241,7 +240,7 @@
                 class="card border-0 shadow-sm rounded-4 p-3 flex-row align-items-center justify-content-between h-50 action-card"
                 style="cursor: pointer"
                 onclick="
-                  window.location.href = 'exames.html?tab=agendar-exames'
+                  window.location.href = 'pages/exames.html?tab=agendar-exames'
                 "
               >
                 <div class="d-flex align-items-center">
@@ -291,7 +290,7 @@
           <div
             class="card border-0 shadow-sm rounded-4 p-2 h-100"
             style="cursor: pointer"
-            onclick="window.location.href = 'recompensas.html'"
+            onclick="window.location.href = 'pages/recompensas.html'"
           >
             <div class="card-body p-4 position-relative overflow-hidden">
               <i
@@ -311,140 +310,6 @@
         </div>
       </div>
     </main>
-    <div
-      class="modal fade"
-      id="modalCadastro"
-      tabindex="-1"
-      aria-labelledby="modalCadastroLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 rounded-4 shadow">
-          <div class="modal-header border-0 pb-0">
-            <h4
-              class="modal-title fw-bold modal-title-custom"
-              id="modalCadastroLabel"
-            >
-              Sua Saúde, Seus Dados
-            </h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body p-4">
-            <div class="card border-0 bg-light rounded-4 p-3 mb-4">
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold m-0 data-section-title">Dados pessoais</h5>
-                <i class="bi bi-pencil-fill text-secondary"></i>
-              </div>
-              <div class="mb-3">
-                <label class="form-label text-secondary font-md">Nome</label>
-                <input
-                  type="text"
-                  class="form-control rounded-3"
-                  value="Amanda L."
-                  readonly
-                />
-              </div>
-              <div class="row g-3 mb-3">
-                <div class="col-md-6">
-                  <label class="form-label text-secondary font-md"
-                    >Data de Nascimento</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control rounded-3"
-                    value="01/01/1990"
-                    readonly
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label text-secondary font-md">CPF</label>
-                  <input
-                    type="text"
-                    class="form-control rounded-3"
-                    value="123.456.789-00"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label text-secondary font-md"
-                    >Endereço</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control rounded-3"
-                    value="Rua Exemplo, 123"
-                    readonly
-                  />
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label text-secondary font-md"
-                    >Contato</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control rounded-3"
-                    value="(11) 99999-9999"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="card border-0 bg-light rounded-4 p-3">
-              <div
-                class="d-flex justify-content-between align-items-center mb-3"
-              >
-                <h5 class="fw-bold m-0 data-section-title">
-                  Histórico e Preferências
-                </h5>
-                <i class="bi bi-pencil-fill text-secondary"></i>
-              </div>
-              <div class="mb-3">
-                <label class="form-label text-secondary font-md"
-                  >Alergias Medicamentosas</label
-                >
-                <input
-                  type="text"
-                  class="form-control rounded-3"
-                  value="Nenhuma conhecida"
-                  readonly
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label text-secondary font-md"
-                  >Forma de contato preferencial</label
-                >
-                <input
-                  type="text"
-                  class="form-control rounded-3"
-                  value="WhatsApp"
-                  readonly
-                />
-              </div>
-              <div>
-                <label class="form-label text-secondary font-md"
-                  >Doenças Crônicas Conhecidas</label
-                >
-                <input
-                  type="text"
-                  class="form-control rounded-3"
-                  value="Asma leve"
-                  readonly
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <footer class="custom-footer">
       © 2026 - Care Plus Medicina Assistencial LTDA
     </footer>
