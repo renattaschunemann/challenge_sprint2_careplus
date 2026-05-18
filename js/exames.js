@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switchTab(tabParam);
     }
     renderizarAgendados();
+    renderizarHistorico(historicoExames);
 });
 function renderizarAgendados() {
     const lista = document.getElementById('listaAgendados');
@@ -159,4 +160,106 @@ function cancelarAgendamentoFuturoID(id) {
             renderizarAgendados();
         }
     }
+}
+
+// --- HISTÓRICO DE EXAMES REALIZADOS (2024, 2025, 2026) ---
+const historicoExames = [
+    { nome: "Hemoglobina Completa", data: "05/10/2025", local: "Laboratório Central" },
+    { nome: "Eletrocardiograma (ECG)", data: "02/02/2026", local: "Clínica Cardiológica" },
+    { nome: "Colesterol Total e Frações", data: "12/08/2025", local: "Laboratório Central" },
+    { nome: "Ultrassom de Abdome Total", data: "24/05/2025", local: "Clínica Itaim Bibi" },
+    { nome: "Glicemia de Jejum", data: "15/03/2025", local: "Laboratório Central" },
+    { nome: "Mamografia", data: "10/11/2024", local: "Clínica Mulher & Vida" },
+    { nome: "Papanicolau", data: "10/11/2024", local: "Clínica Mulher & Vida" },
+    { nome: "Raio-X de Tórax", data: "18/07/2024", local: "Laboratório Central" },
+    { nome: "Exame de Urina (EAS)", data: "22/01/2024", local: "Laboratório Central" },
+    { nome: "Ressonância Magnética de Joelho", data: "05/09/2024", local: "Clínica Itaim Bibi" }
+];
+
+function parseDataBR(dataStr) {
+    const partes = dataStr.split('/');
+    if (partes.length === 3) {
+        return new Date(partes[2], partes[1] - 1, partes[0]);
+    }
+    return new Date(dataStr);
+}
+
+function parseDataISO(dataStr) {
+    const partes = dataStr.split('-');
+    if (partes.length === 3) {
+        return new Date(partes[0], partes[1] - 1, partes[2]);
+    }
+    return new Date(dataStr);
+}
+
+function renderizarHistorico(itens) {
+    const lista = document.getElementById('listaHistorico');
+    if (!lista) return;
+    lista.innerHTML = '';
+    
+    if (itens.length === 0) {
+        lista.innerHTML = `
+            <div class="text-center py-5 text-secondary">
+                <i class="bi bi-search fs-3 mb-2 d-block text-muted"></i>
+                Nenhum exame encontrado para os critérios de busca.
+            </div>
+        `;
+        return;
+    }
+    
+    itens.forEach(exame => {
+        const partes = exame.data.split('/');
+        let dataFormatada = exame.data;
+        if (partes.length === 3) {
+            const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+            const mesIndex = parseInt(partes[1], 10) - 1;
+            dataFormatada = `${partes[0]} de ${meses[mesIndex]} ${partes[2]}`;
+        }
+
+        const div = document.createElement('div');
+        div.className = 'border rounded-4 p-3 mb-3';
+        div.innerHTML = `
+            <h6 class="fw-bold mb-2 text-navy">${exame.nome}</h6>
+            <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                <div class="d-flex gap-4 text-secondary font-sm">
+                    <span class="d-flex align-items-center">
+                        <i class="bi bi-calendar3 me-1"></i> ${dataFormatada}
+                    </span>
+                    <span class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt me-1"></i> ${exame.local}
+                    </span>
+                </div>
+                <a href="#" class="text-decoration-none fw-medium text-navy font-sm" onclick="alert('Download do laudo de ${exame.nome} iniciado...'); return false;">
+                    <i class="bi bi-arrow-down me-1"></i> Ver Resultado e Laudo
+                </a>
+            </div>
+        `;
+        lista.appendChild(div);
+    });
+}
+
+function filtrarHistorico() {
+    const query = document.getElementById('historicoBuscaTipo').value.toLowerCase();
+    const dataInicioStr = document.getElementById('historicoDataInicio').value;
+    const dataFimStr = document.getElementById('historicoDataFim').value;
+    
+    const dataInicio = dataInicioStr ? parseDataISO(dataInicioStr) : null;
+    const dataFim = dataFimStr ? parseDataISO(dataFimStr) : null;
+    
+    const filtrados = historicoExames.filter(exame => {
+        // Filtro por nome
+        const bateNome = exame.nome.toLowerCase().includes(query);
+        if (!bateNome) return false;
+        
+        // Filtro por data
+        if (dataInicio || dataFim) {
+            const dataExame = parseDataBR(exame.data);
+            if (dataInicio && dataExame < dataInicio) return false;
+            if (dataFim && dataExame > dataFim) return false;
+        }
+        
+        return true;
+    });
+    
+    renderizarHistorico(filtrados);
 }
