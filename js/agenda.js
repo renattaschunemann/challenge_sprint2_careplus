@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     renderizarConsultas();
+    renderizarHistoricoConsultas();
 });
 let idConsultaEmFoco = null;
 function renderizarConsultas() {
@@ -249,4 +250,63 @@ function cancelarConsulta(id) {
             renderizarConsultas();
         }
     }
+}
+
+// --- HISTÓRICO DE CONSULTAS REALIZADAS ---
+const historicoConsultas = [
+    { especialidade: "Ginecologia", medico: "Dra. Cláudia", data: "12/03/2026", clinica: "Saúde da Mulher" },
+    { especialidade: "Oftalmologia", medico: "Dr. Marcos", data: "05/02/2026", clinica: "SP Saúde" },
+    { especialidade: "Oftalmologia", medico: "Dr. Marcos", data: "15/10/2025", clinica: "SP Saúde" },
+    { especialidade: "Ginecologia", medico: "Dra. Cláudia", data: "20/09/2024", clinica: "Saúde da Mulher" },
+    { especialidade: "Ginecologia", medico: "Dra. Cláudia", data: "15/04/2024", clinica: "Saúde da Mulher" },
+    { especialidade: "Oftalmologia", medico: "Dr. Marcos", data: "10/01/2024", clinica: "SP Saúde" },
+    { especialidade: "Clínica Geral", medico: "Dra. Ana", data: "10/01/2026", clinica: "Bem Estar Clínica" },
+    { especialidade: "Dermatologia", medico: "Dr. Carlos", data: "15/11/2025", clinica: "Vida Plus" }
+];
+
+function parseDataBR(dataStr) {
+    const partes = dataStr.split('/');
+    if (partes.length === 3) {
+        return new Date(partes[2], partes[1] - 1, partes[0]);
+    }
+    return new Date(dataStr);
+}
+
+function renderizarHistoricoConsultas() {
+    const lista = document.getElementById('listaHistoricoConsultas');
+    if (!lista) return;
+    lista.innerHTML = '';
+    
+    // Ordenar do mais recente para o mais antigo
+    const ordenadas = [...historicoConsultas].sort((a, b) => {
+        return parseDataBR(b.data) - parseDataBR(a.data);
+    });
+    
+    ordenadas.forEach(c => {
+        const partes = c.data.split('/');
+        let dataFormatada = c.data;
+        if (partes.length === 3) {
+            const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+            const mesIndex = parseInt(partes[1], 10) - 1;
+            dataFormatada = `${partes[0]} de ${meses[mesIndex]} ${partes[2]}`;
+        }
+        
+        const div = document.createElement('div');
+        div.className = 'border rounded-4 p-3 mb-3';
+        div.innerHTML = `
+            <h6 class="fw-bold mb-2 text-brand-primary">${c.especialidade} com ${c.medico}</h6>
+            <div class="d-flex justify-content-between align-items-end flex-wrap gap-2">
+                <div class="d-flex gap-4 text-secondary font-sm">
+                    <span class="d-flex align-items-center">
+                        <i class="bi bi-calendar3 me-1"></i> ${dataFormatada}
+                    </span>
+                    <span class="d-flex align-items-center">
+                        <i class="bi bi-geo-alt me-1"></i> ${c.clinica}
+                    </span>
+                </div>
+                <span class="badge bg-success text-white rounded-pill px-3 py-1">Realizada</span>
+            </div>
+        `;
+        lista.appendChild(div);
+    });
 }
