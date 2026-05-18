@@ -175,7 +175,10 @@ const historicoExames = [
     { nome: "Papanicolau", data: "08/04/2026", local: "Clínica Mulher & Vida" },
     { nome: "Raio-X de Tórax", data: "18/07/2024", local: "Laboratório Central" },
     { nome: "Exame de Urina (EAS)", data: "22/01/2024", local: "Laboratório Central" },
-    { nome: "Ressonância Magnética de Joelho", data: "05/09/2024", local: "Clínica Itaim Bibi" }
+    { nome: "Ressonância Magnética de Joelho", data: "05/09/2024", local: "Clínica Itaim Bibi" },
+    { nome: "Exame de Sangue (Hemograma)", data: "14/05/2026", local: "Laboratório Central" },
+    { nome: "Ultrassom Transvaginal", data: "15/09/2025", local: "Clínica Mulher & Vida" },
+    { nome: "Exame de Vista (Oftalmologia)", data: "12/03/2024", local: "Clínica de Olhos Paulista" }
 ];
 
 function parseDataBR(dataStr) {
