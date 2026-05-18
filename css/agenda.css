@@ -32,14 +32,16 @@
     background-color: #005a96 !important;
     border-color: #005a96 !important;
 }
-.btn-outline-brand-danger {
+.btn-outline-brand-danger, .btn-outline-danger {
     color: #e56b46 !important;
     border-color: #e56b46 !important;
     background-color: transparent !important;
+    transition: all 0.2s ease;
 }
-.btn-outline-brand-danger:hover {
-    background-color: #e56b46 !important;
-    color: white !important;
+.btn-outline-brand-danger:hover, .btn-outline-danger:hover {
+    background-color: rgba(229, 107, 70, 0.1) !important;
+    color: #e56b46 !important;
+    border-color: #e56b46 !important;
 }
 .btn-presencial-active {
     background-color: #003366 !important;
