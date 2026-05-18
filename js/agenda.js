@@ -155,7 +155,7 @@ function renderizarConsultas() {
             </div>
             <div class="d-flex gap-2">
                 <button class="btn btn-primary px-4 rounded-3 bg-secondary-brand border-secondary-brand" onclick="solicitarRemarcacaoConsulta('${index}', '${c.especialidade}', '${c.clinica}')">Remarcar</button>
-                <button class="btn btn-outline-danger px-4 rounded-3 text-brand-danger border-brand-danger" onclick="cancelarConsulta('${index}')">Desmarcar</button>
+                <button class="btn btn-outline-brand-danger px-4 rounded-3" onclick="cancelarConsulta('${index}')">Desmarcar</button>
             </div>
         `;
         lista.appendChild(div);
