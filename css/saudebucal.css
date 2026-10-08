@@ -36,34 +36,93 @@
   padding: 1.5rem;
 }
 
+/* Padronização simétrica dos Cards */
 .procedure-card {
   background-color: #ffffff;
-  border: 1px solid #e2edfb;
-  border-radius: 0.75rem;
-  min-height: 240px;
+  border: 1.5px solid #d4e5f9;
+  border-radius: 0.85rem;
+  height: 310px; /* Altura padronizada idêntica para todos os cards */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  padding: 1.25rem;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 51, 91, 0.04);
 }
 
+/* Destaque com sombreamento forte ao passar o mouse (Hover) */
 .procedure-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 51, 91, 0.08);
-  border-color: #0079c8;
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 51, 91, 0.16) !important;
+  border-color: #0079c8 !important;
+}
+
+.procedure-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .procedure-card-title {
   color: #00335b;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.35;
+  min-height: 2.8rem; /* Alinha títulos de 1 ou 2 linhas perfeitamente */
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .procedure-card-text {
   color: #556270;
-  font-size: 0.88rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Trunca textos longos em 5 linhas com reticências */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.btn-toggle-expand {
+  background: none;
+  border: none;
+  color: #0079c8;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.btn-toggle-expand:hover {
+  text-decoration: underline;
+  color: #00335b;
+}
+
+/* Estado Expandido do Card */
+.procedure-card.expanded {
+  height: auto;
+  min-height: 310px;
+  z-index: 10;
+  box-shadow: 0 16px 32px rgba(0, 51, 91, 0.2) !important;
+}
+
+.procedure-card.expanded .procedure-card-text {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .badge-specialty {

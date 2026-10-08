@@ -158,6 +158,20 @@ function especialidadeOuProc(esp, proc) {
   return esp;
 }
 
+// Function to expand/collapse card text while keeping symmetry
+function toggleExpandCard(btn) {
+  const card = btn.closest(".procedure-card");
+  if (!card) return;
+  const isExpanded = card.classList.contains("expanded");
+  if (isExpanded) {
+    card.classList.remove("expanded");
+    btn.innerHTML = 'Ver mais <i class="bi bi-chevron-down ms-1"></i>';
+  } else {
+    card.classList.add("expanded");
+    btn.innerHTML = 'Ver menos <i class="bi bi-chevron-up ms-1"></i>';
+  }
+}
+
 // Function to filter procedures by Specialty Pill
 function filtrarEspecialidadeOdonto(categoria, btnElement) {
   const pills = document.querySelectorAll(".specialty-pill-btn");
