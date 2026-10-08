@@ -1,0 +1,116 @@
+/* Estilos específicos para a página de Saúde Bucal */
+
+.dental-hero-card {
+  background: linear-gradient(135deg, #00335b 0%, #005691 100%);
+  color: white;
+}
+
+.specialty-pill-btn {
+  background-color: #ffffff;
+  color: #00335b;
+  border: 1px solid #d1e3f8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50rem;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.specialty-pill-btn:hover {
+  background-color: #e6f2ff;
+  border-color: #0079c8;
+  color: #00335b;
+}
+
+.specialty-pill-btn.active {
+  background-color: #00335b;
+  color: #ffffff;
+  border-color: #00335b;
+  box-shadow: 0 4px 12px rgba(0, 51, 91, 0.2);
+}
+
+.procedure-grid-container {
+  background-color: #eef6ff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+}
+
+.procedure-card {
+  background-color: #ffffff;
+  border: 1px solid #e2edfb;
+  border-radius: 0.75rem;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.procedure-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 51, 91, 0.08);
+  border-color: #0079c8;
+}
+
+.procedure-card-title {
+  color: #00335b;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.procedure-card-text {
+  color: #556270;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.badge-specialty {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35em 0.75em;
+  border-radius: 50rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-ortodontia {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.badge-periodontia {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.badge-endodontia {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.badge-implantodontia {
+  background-color: #f3e5f5;
+  color: #4a148c;
+}
+
+.badge-odontopediatria {
+  background-color: #fce4ec;
+  color: #880e4f;
+}
+
+.badge-protese {
+  background-color: #e0f7fa;
+  color: #006064;
+}
+
+.badge-estetica {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.dental-feature-card {
+  border-left: 4px solid #0079c8;
+  background-color: #ffffff;
+}

@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Care Plus - Saúde Bucal & Odontologia</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="bg-light">
+    <!-- Navbar Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../index.html">
+          <img
+            src="../img/logo.png"
+            alt="Logo da Care Plus"
+            height="72"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item me-4">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="../index.html"
+              >
+                Início
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="agenda.html"
+              >
+                Minha Agenda
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="exames.html"
+              >
+                Meus exames
+              </a>
+            </li>
+            <li class="nav-item me-4">
+              <a
+                class="nav-link active fw-medium text-dark d-flex align-items-center"
+                href="saude-bucal.html"
+              >
+                Saúde Bucal
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link fw-medium text-secondary d-flex align-items-center"
+                href="saber.html"
+              >
+                Saber +
+              </a>
+            </li>
+          </ul>
+          <a
+            href="cadastro.html"
+            class="text-decoration-none"
+            title="Ver Perfil"
+          >
+            <div class="d-flex align-items-center">
+              <div class="text-end me-3">
+                <div class="fw-bold text-dark font-md user-header-name">
+                  Amanda L.
+                </div>
+                <div
+                  class="text-warning fw-bold d-flex align-items-center justify-content-end font-xs"
+                >
+                  <i class="bi bi-shield-check me-1"></i> PREMIUM GOLD
+                </div>
+              </div>
+              <div
+                class="avatar-md bg-primary text-white rounded-circle d-flex justify-content-center align-items-center fw-bold"
+              >
+                AL
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container my-5">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div>
+          <h2 class="fw-bold text-brand-primary m-0">Saúde Bucal & Odontologia</h2>
+          <p class="text-secondary font-md mt-1 mb-0">
+            Encontre especialidades odontológicas, conheça tratamentos e agende suas consultas.
+          </p>
+        </div>
+        <span class="badge bg-primary text-white px-3 py-2 rounded-pill font-xs shadow-sm">
+          <i class="bi bi-shield-fill-check me-1"></i> Rede Odontológica Care Plus
+        </span>
+      </div>
+
+      <div class="row">
+        <!-- Main Content Area -->
+        <div class="col-lg-8">
+          <!-- Main Tabs -->
+          <div class="d-flex mb-4 gap-2 flex-wrap">
+            <button class="btn tab-btn active" id="tab-procedimentos">
+              Especialidades & Tratamentos
+            </button>
+            <button class="btn tab-btn" id="tab-agendar">
+              Agendar Consulta
+            </button>
+            <button class="btn tab-btn" id="tab-consultas">
+              Minhas Consultas
+            </button>
+          </div>
+
+          <!-- TAB 1: PROCEDIMENTOS E ESPECIALIDADES -->
+          <div
+            class="card border-0 shadow-sm rounded-4 p-4 mb-4 tab-content-panel active"
+            id="content-procedimentos"
+          >
+            <!-- Specialties Summary Accordion/Grid -->
+            <h5 class="fw-bold text-navy mb-3">
+              <i class="bi bi-grid-fill me-2 text-primary"></i>Especialidades Odontológicas
+            </h5>
+
+            <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+              <!-- Ortodontia -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Ortodontia</h6>
+                    <span class="badge badge-specialty badge-ortodontia">Alinhamento</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que trata o reposicionamento dos dentes através de uso de aparelhos ortodônticos e/ou ortopédicos.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Periodontia -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Periodontia</h6>
+                    <span class="badge badge-specialty badge-periodontia">Gengiva</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que cuida da saúde e estética gengival.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Endodontia -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Endodontia</h6>
+                    <span class="badge badge-specialty badge-endodontia">Canal</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que realiza tratamentos e retratamentos endodônticos.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Implantodontia -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Implantodontia</h6>
+                    <span class="badge badge-specialty badge-implantodontia">Implantes</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que realiza tratamentos de reabilitação com implantes dentários.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Odontopediatria -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Odontopediatria</h6>
+                    <span class="badge badge-specialty badge-odontopediatria">Infantil</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Cuida da saúde bucal de crianças desde o nascimento.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Prótese / Reabilitação Oral -->
+              <div class="col">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Prótese / Reabilitação Oral</h6>
+                    <span class="badge badge-specialty badge-protese">Reabilitação</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que visa repor dentes perdidos com uso de próteses, restaurações em cerâmica e implantes, buscando devolver estética e função ao paciente.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Estética -->
+              <div class="col-12">
+                <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold text-navy m-0">Estética Odontológica</h6>
+                    <span class="badge badge-specialty badge-estetica">Sorriso</span>
+                  </div>
+                  <p class="font-xs text-secondary mb-0">
+                    Especialidade que trabalha buscando uma melhor harmonia do sorriso.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4 text-muted" />
+
+            <!-- Filters & Search Bar for Procedures Cards -->
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+              <h5 class="fw-bold text-navy m-0">Catálogo de Procedimentos</h5>
+              <div class="position-relative w-100 max-w-300">
+                <input
+                  type="text"
+                  id="buscaOdonto"
+                  class="form-control form-control-sm rounded-pill ps-4 border"
+                  placeholder="Localizar procedimento..."
+                  onkeyup="buscarProcedimentosOdonto()"
+                />
+                <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-2 text-muted font-xs"></i>
+              </div>
+            </div>
+
+            <!-- Specialty Filter Pills -->
+            <div class="d-flex gap-2 flex-wrap mb-4">
+              <button
+                class="specialty-pill-btn active"
+                onclick="filtrarEspecialidadeOdonto('Todas', this)"
+              >
+                Todas
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Ortodontia', this)"
+              >
+                Ortodontia
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Periodontia', this)"
+              >
+                Periodontia
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Endodontia', this)"
+              >
+                Endodontia
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Implantodontia', this)"
+              >
+                Implantodontia
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Odontopediatria', this)"
+              >
+                Odontopediatria
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Prótese', this)"
+              >
+                Prótese
+              </button>
+              <button
+                class="specialty-pill-btn"
+                onclick="filtrarEspecialidadeOdonto('Estética', this)"
+              >
+                Estética
+              </button>
+            </div>
+
+            <!-- PROCEDURE CARDS GRID (Matching User's Uploaded Image) -->
+            <div class="procedure-grid-container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3" id="gridProcedimentosOdonto">
+                <!-- Aparelho fixo autoligado -->
+                <div class="col procedure-card-col" data-specialty="Ortodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Aparelho fixo autoligado
+                      </h6>
+                      <p class="procedure-card-text">
+                        É um aparelho fixo que oferece melhor resultado ao paciente pois é utilizada uma técnica que não necessita a troca das famosas “borrachinhas” do aparelho convencional. O tratamento é mais ágil e com melhor acabamento do que com o aparelho fixo convencional.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Aparelho fixo autoligado', 'Ortodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Clareamento dental -->
+                <div class="col procedure-card-col" data-specialty="Estética">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Clareamento dental
+                      </h6>
+                      <p class="procedure-card-text">
+                        É um tratamento indicado para branqueamento dental, sem causar nenhum dano à estrutura dentária.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Clareamento dental', 'Estética')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tratamento periodontal -->
+                <div class="col procedure-card-col" data-specialty="Periodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Tratamento periodontal
+                      </h6>
+                      <p class="procedure-card-text">
+                        Consiste em técnicas de limpeza dentária mais aprofundada, visando devolver saúde aos tecidos periodontais.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Tratamento periodontal', 'Periodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Coroas em cerâmica -->
+                <div class="col procedure-card-col" data-specialty="Prótese">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Coroas em cerâmica
+                      </h6>
+                      <p class="procedure-card-text">
+                        São peças individualizadas feitas em cerâmica dental com o objetivo de repor a coroa natural do dente.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Coroas em cerâmica', 'Prótese')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Extração dentária -->
+                <div class="col procedure-card-col" data-specialty="Prótese">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Extração dentária
+                      </h6>
+                      <p class="procedure-card-text">
+                        Dentes podem ter indicação de extração por diversos motivos: fraturas, cáries, falta de espaço etc.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Extração dentária', 'Prótese')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Facetas -->
+                <div class="col procedure-card-col" data-specialty="Estética">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Facetas
+                      </h6>
+                      <p class="procedure-card-text">
+                        São estruturas finas de porcelana que, aderidas à estrutura dental, mudam a forma e a cor do sorriso, trazendo uma maior harmonia para a face como um todo.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Facetas', 'Estética')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Gengivoplastia -->
+                <div class="col procedure-card-col" data-specialty="Periodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Gengivoplastia
+                      </h6>
+                      <p class="procedure-card-text">
+                        Consiste em uma técnica cirúrgica que tem como objetivo melhorar o contorno gengival e, consequentemente, a estética do sorriso.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Gengivoplastia', 'Periodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Implante dentário -->
+                <div class="col procedure-card-col" data-specialty="Implantodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Implante dentário
+                      </h6>
+                      <p class="procedure-card-text">
+                        É uma solução para substituir um ou vários dentes perdidos. A técnica utilizada consiste na instalação de um pino de titânio fixado nos ossos maxilares para substituir a raiz do dente.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Implante dentário', 'Implantodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lentes de contato -->
+                <div class="col procedure-card-col" data-specialty="Estética">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Lentes de contato
+                      </h6>
+                      <p class="procedure-card-text">
+                        São estruturas de porcelana extremamente finas (entre 0,2 e 0,4 mm de espessura) utilizadas para alterar a forma e o contorno dos dentes.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Lentes de contato', 'Estética')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Limpeza dental -->
+                <div class="col procedure-card-col" data-specialty="Estética">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Limpeza dental
+                      </h6>
+                      <p class="procedure-card-text">
+                        Tratamento periódico realizado para remoção de placa bacteriana, tártaro e manchas nos dentes, com indicação de ser realizada 2 vezes ao ano.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Limpeza dental', 'Estética')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Onlays / Inlays em cerâmica -->
+                <div class="col procedure-card-col" data-specialty="Prótese">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Onlays / Inlays em cerâmica
+                      </h6>
+                      <p class="procedure-card-text">
+                        São peças individualizadas feitas em cerâmica dental com o objetivo de repor parte da coroa natural do dente.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Onlays / Inlays em cerâmica', 'Prótese')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Ortopedia funcional dos Maxilares -->
+                <div class="col procedure-card-col" data-specialty="Ortodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Ortopedia funcional dos Maxilares
+                      </h6>
+                      <p class="procedure-card-text">
+                        Tem como objetivo direcionar o correto crescimento dos ossos da face em crianças entre 4 e 12 anos, melhorando o desenvolvimento do sistema estomatognático.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Ortopedia funcional dos Maxilares', 'Ortodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Protocolo sobre Implantes -->
+                <div class="col procedure-card-col" data-specialty="Implantodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Protocolo sobre Implantes
+                      </h6>
+                      <p class="procedure-card-text">
+                        É um dos tratamentos mais modernos para a reposição dos dentes perdidos da odontologia estética/funcional atual.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Protocolo sobre Implantes', 'Implantodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Reabilitação oral -->
+                <div class="col procedure-card-col" data-specialty="Prótese">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Reabilitação oral
+                      </h6>
+                      <p class="procedure-card-text">
+                        É um tratamento multidisciplinar que visa devolver ao paciente estética e função. Normalmente envolve diversas especialidades.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Reabilitação oral', 'Prótese')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Retratamento endodôntico -->
+                <div class="col procedure-card-col" data-specialty="Endodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Retratamento endodôntico
+                      </h6>
+                      <p class="procedure-card-text">
+                        Procedimento realizado quando a limpeza dos canais não é efetiva e o tratamento de canal precisa ser refeito.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Retratamento endodôntico', 'Endodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tratamento endodôntico -->
+                <div class="col procedure-card-col" data-specialty="Endodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Tratamento endodôntico
+                      </h6>
+                      <p class="procedure-card-text">
+                        Vulgo “tratamento de canal”, este procedimento visa a limpeza e desinfecção dos canais radiculares, proporcionando ausência de dor e possibilitando a reabilitação do dente.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Tratamento endodôntico', 'Endodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Odontopediatria Preventiva -->
+                <div class="col procedure-card-col" data-specialty="Odontopediatria">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Odontopediatria Preventiva
+                      </h6>
+                      <p class="procedure-card-text">
+                        Acompanhamento do desenvolvimento bucal infantil, aplicação de selantes e prevenção de cáries desde os primeiros anos de vida.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Odontopediatria Preventiva', 'Odontopediatria')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Enxerto Gengival -->
+                <div class="col procedure-card-col" data-specialty="Periodontia">
+                  <div class="card p-3 procedure-card">
+                    <div>
+                      <h6 class="procedure-card-title mb-3">
+                        Enxerto Gengival
+                      </h6>
+                      <p class="procedure-card-text">
+                        Técnica cirúrgica para recobrir raízes expostas, protegendo a gengiva e reduzindo a sensibilidade dentária.
+                      </p>
+                    </div>
+                    <div class="mt-3 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Enxerto Gengival', 'Periodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: AGENDAR CONSULTA -->
+          <div
+            class="card border-0 shadow-sm rounded-4 p-4 mb-4 tab-content-panel d-none"
+            id="content-agendar"
+          >
+            <div class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <div>
+                <label class="form-label text-secondary mb-2">Modalidade da Consulta</label>
+                <div class="d-flex gap-3 flex-wrap">
+                  <button
+                    type="button"
+                    id="btn-tipo-presencial-odonto"
+                    class="btn px-3 py-2 fw-medium rounded-3 btn-presencial-active"
+                  >
+                    <i class="bi bi-building me-1"></i> Presencial
+                  </button>
+                  <button
+                    type="button"
+                    id="btn-tipo-teleconsulta-odonto"
+                    class="btn px-3 py-2 fw-medium rounded-3 btn-teleconsulta-inactive"
+                  >
+                    <i class="bi bi-camera-video me-1"></i> Teleconsulta Odonto
+                  </button>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm text-sm">
+                +50 xp
+              </span>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-secondary">Especialidade Odontológica</label>
+              <select
+                id="select-especialidade-odonto"
+                class="form-select rounded-3 py-2 border-input-custom"
+              >
+                <option selected disabled>Selecione uma especialidade</option>
+                <option value="Ortodontia">Ortodontia</option>
+                <option value="Periodontia">Periodontia</option>
+                <option value="Endodontia">Endodontia</option>
+                <option value="Implantodontia">Implantodontia</option>
+                <option value="Odontopediatria">Odontopediatria</option>
+                <option value="Prótese">Prótese / Reabilitação Oral</option>
+                <option value="Estética">Estética Odontológica</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-secondary">Procedimento / Motivo da Consulta</label>
+              <input
+                type="text"
+                id="input-procedimento-odonto"
+                class="form-control rounded-3 py-2 border-input-custom"
+                placeholder="Ex: Aparelho fixo autoligado, Limpeza dental, Avaliação de canal..."
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-secondary">Dentista Credenciado / Clínica</label>
+              <select
+                id="select-dentista-odonto"
+                class="form-select rounded-3 py-2 border-input-custom"
+                disabled
+              >
+                <option selected disabled>Selecione a especialidade primeiro</option>
+              </select>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label text-secondary">Data Preferencial</label>
+                <input
+                  type="date"
+                  id="input-data-odonto"
+                  class="form-control rounded-3 py-2 border-input-custom"
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-secondary">Período</label>
+                <select
+                  id="select-periodo-odonto"
+                  class="form-select rounded-3 py-2 border-input-custom"
+                >
+                  <option selected disabled>Selecione o período</option>
+                  <option value="Manhã">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-secondary">Horários Disponíveis</label>
+                <select
+                  id="select-horario-odonto"
+                  class="form-select rounded-3 py-2 border-input-custom"
+                  disabled
+                >
+                  <option selected disabled>Selecione o período primeiro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end align-items-center mt-3">
+              <button
+                id="btn-agendar-odonto"
+                type="button"
+                class="btn btn-brand-primary px-5 py-2 fw-medium rounded-3"
+                data-bs-toggle="modal"
+                data-bs-target="#confirmacaoModalOdonto"
+              >
+                Agendar Consulta Odontológica
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 3: MINHAS CONSULTAS -->
+          <div
+            class="card border-0 shadow-sm rounded-4 p-4 mb-4 tab-content-panel d-none"
+            id="content-consultas"
+          >
+            <h5 class="fw-bold mb-3 text-brand-primary">Consultas Odontológicas Agendadas</h5>
+            <div id="listaConsultasOdonto">
+              <!-- Default initial appointment item -->
+              <div
+                class="border rounded-4 p-4 mb-3 d-flex justify-content-between align-items-center flex-wrap gap-3 consulta-item bg-white shadow-sm"
+                id="consulta-odonto-default"
+              >
+                <div>
+                  <span class="badge bg-primary text-white mb-2 font-xs">Ortodontia</span>
+                  <h5 class="fw-bold mb-2 text-navy">
+                    Aparelho Fixo Autoligado - Manutenção
+                  </h5>
+                  <div class="d-flex gap-3 text-secondary flex-wrap font-md">
+                    <span class="d-flex align-items-center bg-light rounded-pill px-3 py-1 font-sm">
+                      <i class="bi bi-clock me-2 text-primary"></i> Amanhã às 10:00
+                    </span>
+                    <span class="d-flex align-items-center font-sm">
+                      <i class="bi bi-person-badge me-2 text-primary"></i> Dra. Patricia Lima
+                    </span>
+                    <span class="d-flex align-items-center font-sm">
+                      <i class="bi bi-geo-alt me-2"></i> Care Plus Odonto Paulista
+                    </span>
+                  </div>
+                </div>
+                <div class="d-flex flex-column flex-md-row gap-2">
+                  <button
+                    class="btn btn-brand-primary px-4 rounded-3"
+                    onclick="solicitarRemarcacaoOdonto('default', 'Aparelho Fixo Autoligado', 'Dra. Patricia Lima')"
+                  >
+                    Remarcar
+                  </button>
+                  <button
+                    class="btn btn-outline-brand-danger px-4 rounded-3"
+                    onclick="cancelarConsultaOdonto('default')"
+                  >
+                    Desmarcar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+
+            <h5 class="fw-bold mb-3 text-secondary">Histórico de Tratamentos Realizados</h5>
+            <div id="listaHistoricoOdonto">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (Col-lg-4) -->
+        <div class="col-lg-4 mt-4 mt-lg-0 ps-lg-4">
+          <!-- Status de Cuidado -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+            <div class="d-flex align-items-center mb-3 fw-bold fs-5 text-brand-primary">
+              <i class="bi bi-award me-2 fs-4"></i> Status de Cuidado
+            </div>
+            <div class="d-flex justify-content-between text-secondary mb-1 fw-medium text-sm">
+              <span>Nível Prata</span>
+              <span class="text-warning">Rumo ao Ouro</span>
+            </div>
+            <div class="progress mb-2 progress-custom">
+              <div
+                class="progress-bar custom-progress-bar"
+                role="progressbar"
+                aria-valuenow="80"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              ></div>
+            </div>
+            <p class="text-secondary mb-0 text-xs-alt">
+              80% concluído para alcançar o nível Ouro.
+            </p>
+          </div>
+
+          <!-- Score Card -->
+          <div
+            class="card border-0 shadow-sm rounded-4 p-4 mb-4 position-relative overflow-hidden card-reward"
+            onclick="window.location.href = 'recompensas.html'"
+          >
+            <h5 class="fw-bold mb-3 text-secondary">Score</h5>
+            <div class="d-flex align-items-baseline mb-2">
+              <span class="fw-bold me-1 score-value">1.250</span>
+              <span class="text-warning fw-bold fs-5">XP</span>
+            </div>
+            <p class="text-secondary mb-0 score-text">
+              Utilize seus pontos para resgatar benefícios na rede parceira.
+            </p>
+            <i
+              class="bi bi-stars text-warning position-absolute opacity-25 score-icon-bg"
+            ></i>
+          </div>
+
+          <!-- Emergency Odonto Card -->
+          <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+            <div class="d-flex align-items-center mb-3">
+              <div class="avatar-sm bg-danger text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                <i class="bi bi-telephone-outbound-fill"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold text-navy mb-0">Urgência Odontológica 24h</h6>
+                <span class="font-xs text-secondary">Atendimento imediato</span>
+              </div>
+            </div>
+            <p class="font-xs text-secondary mb-3">
+              Em caso de dor aguda, trauma ou emergência dental, ligue diretamente para a nossa central exclusiva.
+            </p>
+            <a href="tel:08007700000" class="btn btn-outline-danger btn-sm rounded-pill w-100 fw-bold">
+              0800 770 0000
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Chat Button -->
+    <button
+      class="btn btn-primary rounded-circle position-fixed bottom-0 end-0 m-4 shadow-lg d-flex justify-content-center align-items-center p-0 fab-btn"
+    >
+      <i class="bi bi-chat-fill text-white fs-3"></i>
+    </button>
+
+    <!-- Modal Confirmar Agendamento -->
+    <div
+      class="modal fade"
+      id="confirmacaoModalOdonto"
+      tabindex="-1"
+      aria-labelledby="confirmacaoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4 shadow">
+          <div class="modal-header border-0 pb-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center p-4 pt-0">
+            <i class="bi bi-calendar-check text-primary mb-3 modal-icon-lg"></i>
+            <h4 class="fw-bold mb-3 text-brand-primary">
+              Confirmar Agendamento Odontológico
+            </h4>
+            <p class="text-secondary fs-6 mb-4" id="modal-mensagem-odonto">
+              Confirma o agendamento de <strong id="modal-especialidade-odonto">Consulta Odontológica</strong>, no horário <strong id="modal-horario-odonto">selecionado</strong> com o(a) especialista <strong id="modal-dentista-odonto">indicado(a)</strong>?
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <button
+                type="button"
+                class="btn btn-outline-secondary px-4 py-2 rounded-3 fw-medium"
+                data-bs-dismiss="modal"
+              >
+                Não confirmo
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary px-4 py-2 rounded-3 fw-medium"
+                data-bs-dismiss="modal"
+                onclick="confirmarAgendamentoOdonto()"
+              >
+                Confirmo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Confirmar Remarcação -->
+    <div class="modal fade" id="modalConfirmarRemarcacaoOdonto" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-body text-center p-5">
+            <div class="mb-4">
+              <i class="bi bi-question-circle text-warning modal-icon-xl"></i>
+            </div>
+            <h4 class="fw-bold mb-3 text-brand-primary">Remarcar Consulta Odontológica?</h4>
+            <p class="text-secondary mb-4">
+              Tem certeza que deseja remarcar <strong id="nomeConsultaOdontoRemarcacao">esta consulta</strong>?
+            </p>
+            <div class="d-flex gap-3 justify-content-center">
+              <button
+                type="button"
+                class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-bold"
+                data-bs-dismiss="modal"
+              >
+                Não
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary px-4 py-2 rounded-pill fw-bold"
+                onclick="confirmarRemarcacaoOdonto()"
+              >
+                Sim
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="custom-footer">
+      © 2026 - Care Plus Medicina Assistencial LTDA
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/saudebucal.js"></script>
+  </body>
+</html>
