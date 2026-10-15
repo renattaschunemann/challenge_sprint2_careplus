@@ -1,0 +1,436 @@
+/* ==========================================================================
+   Care Plus - Sistema de Tema Escuro (Dark Mode)
+   Apresenta alto contraste, excelente legibilidade e visual premium
+   ========================================================================== */
+
+/* Transições suaves ao alternar tema */
+body,
+.card,
+.navbar,
+.modal-content,
+.form-control,
+.form-select,
+.btn,
+.custom-alert,
+.alert {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Botão de Alternar Tema na Navbar */
+.btn-theme-toggle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1.5px solid rgba(0, 51, 91, 0.2);
+  background-color: #ffffff;
+  color: #00335b;
+  font-size: 1.15rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-toggle:hover {
+  background-color: #f0f7ff;
+  border-color: #0079c8;
+  color: #0079c8;
+  transform: rotate(15deg) scale(1.05);
+}
+
+/* ==========================================================================
+   Estilos quando o tema escuro estiver ativo (data-theme="dark" ou body.dark-theme)
+   ========================================================================== */
+
+[data-theme="dark"],
+[data-bs-theme="dark"] {
+  --primary-color: #38bdf8;
+  --secondary-color: #0ea5e9;
+  --dark-navy: #f8fafc;
+  --light-gray: #0b1326;
+  --border-gray: #1e3153;
+  --text-muted: #94a3b8;
+}
+
+[data-theme="dark"] body,
+[data-bs-theme="dark"] body,
+body.dark-theme {
+  background-color: #0a1120 !important;
+  color: #e2e8f0 !important;
+}
+
+/* Navbar no Modo Escuro */
+[data-theme="dark"] .navbar,
+[data-bs-theme="dark"] .navbar,
+.dark-theme .navbar {
+  background-color: #0f1a30 !important;
+  border-color: #1a2a47 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .navbar-brand img,
+[data-bs-theme="dark"] .navbar-brand img,
+.dark-theme .navbar-brand img {
+  filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+}
+
+[data-theme="dark"] .nav-link,
+[data-bs-theme="dark"] .nav-link,
+.dark-theme .nav-link {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-bs-theme="dark"] .nav-link:hover,
+.dark-theme .nav-link:hover {
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .nav-link.active,
+[data-bs-theme="dark"] .nav-link.active,
+.dark-theme .nav-link.active {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .user-header-name,
+[data-bs-theme="dark"] .user-header-name,
+.dark-theme .user-header-name {
+  color: #f8fafc !important;
+}
+
+/* Botão de Tema no Modo Escuro */
+[data-theme="dark"] .btn-theme-toggle,
+[data-bs-theme="dark"] .btn-theme-toggle,
+.dark-theme .btn-theme-toggle {
+  background-color: #172644;
+  border-color: #2b4370;
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
+}
+
+[data-theme="dark"] .btn-theme-toggle:hover,
+[data-bs-theme="dark"] .btn-theme-toggle:hover,
+.dark-theme .btn-theme-toggle:hover {
+  background-color: #1f335b;
+  color: #fef08a;
+  transform: rotate(-15deg) scale(1.08);
+}
+
+/* Cards e Contêineres no Modo Escuro */
+[data-theme="dark"] .card,
+[data-bs-theme="dark"] .card,
+.dark-theme .card {
+  background-color: #13203a !important;
+  border: 1px solid #1e3153 !important;
+  color: #f1f5f9 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="dark"] .card:hover,
+[data-bs-theme="dark"] .card:hover,
+.dark-theme .card:hover {
+  border-color: #2b4776 !important;
+}
+
+/* Tipografia e Títulos */
+[data-theme="dark"] .dashboard-title,
+[data-bs-theme="dark"] .dashboard-title,
+.dark-theme .dashboard-title,
+[data-theme="dark"] .section-title,
+[data-bs-theme="dark"] .section-title,
+.dark-theme .section-title,
+[data-theme="dark"] .text-brand-primary,
+[data-bs-theme="dark"] .text-brand-primary,
+.dark-theme .text-brand-primary,
+[data-theme="dark"] .text-navy,
+[data-bs-theme="dark"] .text-navy,
+.dark-theme .text-navy,
+[data-theme="dark"] .text-dark-navy,
+[data-bs-theme="dark"] .text-dark-navy,
+.dark-theme .text-dark-navy,
+[data-theme="dark"] .text-dark,
+[data-bs-theme="dark"] .text-dark,
+.dark-theme .text-dark,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .text-secondary,
+[data-bs-theme="dark"] .text-secondary,
+.dark-theme .text-secondary,
+[data-theme="dark"] .text-muted,
+[data-bs-theme="dark"] .text-muted,
+.dark-theme .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .bg-light,
+[data-bs-theme="dark"] .bg-light,
+.dark-theme .bg-light {
+  background-color: #172644 !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .bg-path-gray,
+[data-bs-theme="dark"] .bg-path-gray,
+.dark-theme .bg-path-gray {
+  background-color: #182845 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Alertas Personalizados */
+[data-theme="dark"] .custom-alert,
+[data-bs-theme="dark"] .custom-alert,
+.dark-theme .custom-alert,
+[data-theme="dark"] .alert-custom-warning,
+[data-bs-theme="dark"] .alert-custom-warning,
+.dark-theme .alert-custom-warning {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #fef3c7 !important;
+}
+
+[data-theme="dark"] .custom-alert strong,
+[data-bs-theme="dark"] .custom-alert strong,
+.dark-theme .custom-alert strong {
+  color: #fbbf24 !important;
+}
+
+/* Inputs, Selects e Formulários */
+[data-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-control,
+.dark-theme .form-control,
+[data-theme="dark"] .form-select,
+[data-bs-theme="dark"] .form-select,
+.dark-theme .form-select {
+  background-color: #162440 !important;
+  border-color: #233a61 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-control:focus,
+.dark-theme .form-control:focus,
+[data-theme="dark"] .form-select:focus,
+[data-bs-theme="dark"] .form-select:focus,
+.dark-theme .form-select:focus {
+  background-color: #1b2c4e !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25) !important;
+}
+
+[data-theme="dark"] .form-control-readonly,
+[data-bs-theme="dark"] .form-control-readonly,
+.dark-theme .form-control-readonly {
+  background-color: #111d33 !important;
+  color: #94a3b8 !important;
+  border-color: #1e3153 !important;
+}
+
+/* Modais */
+[data-theme="dark"] .modal-content,
+[data-bs-theme="dark"] .modal-content,
+.dark-theme .modal-content {
+  background-color: #111e36 !important;
+  border: 1px solid #233a61 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .btn-close,
+[data-bs-theme="dark"] .btn-close,
+.dark-theme .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Botões de Ação e Tabs */
+[data-theme="dark"] .tab-btn,
+[data-bs-theme="dark"] .tab-btn,
+.dark-theme .tab-btn {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .tab-btn:hover,
+[data-bs-theme="dark"] .tab-btn:hover,
+.dark-theme .tab-btn:hover {
+  background-color: #182845 !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .tab-btn.active,
+[data-bs-theme="dark"] .tab-btn.active,
+.dark-theme .tab-btn.active {
+  background-color: #0079c8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary,
+[data-bs-theme="dark"] .btn-outline-secondary,
+.dark-theme .btn-outline-secondary {
+  border-color: #2b4370 !important;
+  color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover,
+[data-bs-theme="dark"] .btn-outline-secondary:hover,
+.dark-theme .btn-outline-secondary:hover {
+  background-color: #1f335b !important;
+  color: #ffffff !important;
+}
+
+/* Botões de Telemedicina / Presencial */
+[data-theme="dark"] .action-toggle-container.bg-light,
+[data-bs-theme="dark"] .action-toggle-container.bg-light,
+.dark-theme .action-toggle-container.bg-light {
+  background-color: #1a2a47 !important;
+  border-color: #2b4169 !important;
+  color: #cbd5e1 !important;
+}
+
+/* Saúde Bucal - Específico */
+[data-theme="dark"] .procedure-grid-container,
+[data-bs-theme="dark"] .procedure-grid-container,
+.dark-theme .procedure-grid-container {
+  background-color: #0e182b !important;
+  border: 1px solid #1c2e4f;
+}
+
+[data-theme="dark"] .procedure-card,
+[data-bs-theme="dark"] .procedure-card,
+.dark-theme .procedure-card {
+  background-color: #14223d !important;
+  border-color: #21375d !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .procedure-card:hover,
+[data-bs-theme="dark"] .procedure-card:hover,
+.dark-theme .procedure-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4) !important;
+  border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .specialty-pill-btn,
+[data-bs-theme="dark"] .specialty-pill-btn,
+.dark-theme .specialty-pill-btn {
+  background-color: #162440 !important;
+  color: #cbd5e1 !important;
+  border-color: #24395e !important;
+}
+
+[data-theme="dark"] .specialty-pill-btn:hover,
+[data-bs-theme="dark"] .specialty-pill-btn:hover,
+.dark-theme .specialty-pill-btn:hover {
+  background-color: #1e335a !important;
+  color: #38bdf8 !important;
+  border-color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .specialty-pill-btn.active,
+[data-bs-theme="dark"] .specialty-pill-btn.active,
+.dark-theme .specialty-pill-btn.active {
+  background-color: #0079c8 !important;
+  color: #ffffff !important;
+  border-color: #0079c8 !important;
+}
+
+/* Recompensas - Específico */
+[data-theme="dark"] .banner-points,
+[data-bs-theme="dark"] .banner-points,
+.dark-theme .banner-points {
+  background: linear-gradient(135deg, #13223e 0%, #1b3056 100%) !important;
+  border-color: #274373 !important;
+}
+
+[data-theme="dark"] .brinde-card,
+[data-bs-theme="dark"] .brinde-card,
+.dark-theme .brinde-card {
+  background-color: #14223d !important;
+  border-color: #21375d !important;
+}
+
+/* Meus Exames - Específico */
+[data-theme="dark"] .exam-card,
+[data-bs-theme="dark"] .exam-card,
+.dark-theme .exam-card,
+[data-theme="dark"] .category-card,
+[data-bs-theme="dark"] .category-card,
+.dark-theme .category-card {
+  background-color: #14223d !important;
+  border-color: #21375d !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .exam-card:hover,
+[data-bs-theme="dark"] .exam-card:hover,
+.dark-theme .exam-card:hover {
+  background-color: #1c2e50 !important;
+  border-color: #38bdf8 !important;
+}
+
+/* Saber+ - Específico */
+[data-theme="dark"] .content-card,
+[data-bs-theme="dark"] .content-card,
+.dark-theme .content-card {
+  background-color: #14223d !important;
+  border-color: #21375d !important;
+}
+
+/* Footer no Modo Escuro */
+[data-theme="dark"] .custom-footer,
+[data-bs-theme="dark"] .custom-footer,
+.dark-theme .custom-footer {
+  background-color: #080f1d !important;
+  border-top: 1px solid #16243d;
+  color: #94a3b8 !important;
+}
+
+/* Climatempo & Modais de Transporte no Modo Escuro */
+[data-theme="dark"] .climatempo-widget-card,
+[data-bs-theme="dark"] .climatempo-widget-card,
+.dark-theme .climatempo-widget-card {
+  background: linear-gradient(135deg, #101c33 0%, #162645 100%) !important;
+  border-color: #1e3357 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .transport-modal-btn,
+[data-bs-theme="dark"] .transport-modal-btn,
+.dark-theme .transport-modal-btn {
+  background-color: #15223a !important;
+  border-color: #21375d !important;
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .transport-modal-btn:hover,
+[data-bs-theme="dark"] .transport-modal-btn:hover,
+.dark-theme .transport-modal-btn:hover {
+  background-color: #1b2c4c !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .transport-modal-btn.active,
+[data-bs-theme="dark"] .transport-modal-btn.active,
+.dark-theme .transport-modal-btn.active {
+  background-color: #0079c8 !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] #smart-recommendation-box,
+[data-bs-theme="dark"] #smart-recommendation-box,
+.dark-theme #smart-recommendation-box {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #d1fae5 !important;
+}
