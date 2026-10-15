@@ -189,39 +189,109 @@
   color: #f57f17;
 }
 
+/* Cards de Especialidades: contorno fino, ícone "recortando" a borda superior */
+.specialty-grid {
+  --bs-gutter-y: 2.5rem;
+  padding-top: 1.25rem;
+}
+
 .dental-feature-card {
-  border-left: 4px solid #0079c8;
-  background-color: #ffffff;
+  position: relative;
+  padding: 2.25rem 1.5rem 1.5rem !important;
+  border: 1.5px solid #4a6a8a !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.dental-feature-card h6 {
+  color: #0079c8 !important;
+  font-weight: 500 !important;
+  font-size: 1.2rem;
+}
+
+.dental-feature-card p {
+  color: #2b3a4a !important;
+  font-size: 0.88rem !important;
+  line-height: 1.6;
+}
+
+.specialty-icon {
+  position: absolute;
+  top: -22px;
+  left: 14px;
+  width: 52px;
+  height: 44px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* mesma cor do fundo da seção: "corta" a borda */
+  color: #00335b;
+}
+
+.specialty-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 /* Hover: card sobe, cresce levemente e ganha destaque azul */
 .dental-feature-card:hover {
   transform: translateY(-6px) scale(1.03);
   border-color: #0079c8 !important;
-  border-left-width: 6px !important;
   background-color: #f4f9ff !important;
   box-shadow: 0 14px 28px rgba(0, 51, 91, 0.18) !important;
 }
 
-.dental-feature-card i {
-  display: inline-block;
-  transition: transform 0.3s ease;
+.dental-feature-card:hover .specialty-icon {
+  color: #0079c8;
 }
 
-.dental-feature-card:hover i {
-  transform: scale(1.2) rotate(-8deg);
+.dental-feature-card:hover .specialty-icon svg {
+  transform: scale(1.15) rotate(-8deg);
+}
+
+/* Tema escuro */
+.dark-theme .dental-feature-card,
+[data-theme="dark"] .dental-feature-card {
+  border-color: #3a5a85 !important;
+}
+.dark-theme .dental-feature-card:hover,
+[data-theme="dark"] .dental-feature-card:hover {
+  background-color: #1c2e50 !important;
+  border-color: #38bdf8 !important;
+}
+.dark-theme .dental-feature-card p,
+[data-theme="dark"] .dental-feature-card p {
+  color: #cbd5e1 !important;
+}
+.dark-theme .dental-feature-card h6,
+[data-theme="dark"] .dental-feature-card h6,
+.dark-theme .specialty-icon,
+[data-theme="dark"] .specialty-icon {
+  color: #38bdf8 !important;
+}
+.dark-theme .specialty-icon,
+[data-theme="dark"] .specialty-icon {
+  background-color: #13203a;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .dental-feature-card,
-  .dental-feature-card i {
+  .specialty-icon svg {
     transition: none;
   }
   .dental-feature-card:hover,
-  .dental-feature-card:hover i {
+  .dental-feature-card:hover .specialty-icon svg {
     transform: none;
   }
 }
