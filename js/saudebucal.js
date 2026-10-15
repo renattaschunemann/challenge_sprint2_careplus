@@ -365,9 +365,9 @@ function renderizarHistoricoOdonto() {
 
   const historicoSample = [
     {
-      especialidade: "Estética",
+      especialidade: "Periodontia",
       procedimento: "Limpeza Dental (Profilaxia)",
-      dentista: "Dra. Mariana Fonseca",
+      dentista: "Dr. Bruno Alves",
       data: "10/01/2026",
       clinica: "Care Plus Odonto Central"
     },
