@@ -1,0 +1,686 @@
+/* ==========================================================================
+   Care Plus - Google Maps, Trânsito e Previsão de Rotas
+   ========================================================================== */
+
+.maps-card-wrapper {
+  background: var(--bs-card-bg, #ffffff);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0, 51, 91, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 51, 91, 0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .maps-card-wrapper,
+[data-bs-theme="dark"] .maps-card-wrapper {
+  background: #13203a;
+  border-color: #1e3153;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Badge de Tráfego */
+.traffic-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.traffic-badge-intense {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+[data-theme="dark"] .traffic-badge-intense,
+[data-bs-theme="dark"] .traffic-badge-intense {
+  background-color: rgba(185, 28, 28, 0.25);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.traffic-badge-moderate {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+[data-theme="dark"] .traffic-badge-moderate,
+[data-bs-theme="dark"] .traffic-badge-moderate {
+  background-color: rgba(180, 83, 9, 0.25);
+  color: #fde68a;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.traffic-badge-fluid {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+[data-theme="dark"] .traffic-badge-fluid,
+[data-bs-theme="dark"] .traffic-badge-fluid {
+  background-color: rgba(21, 128, 61, 0.25);
+  color: #86efac;
+  border-color: rgba(34, 197, 94, 0.4);
+}
+
+.traffic-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: trafficPulse 2s infinite;
+}
+
+@keyframes trafficPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* Container do Mapa Interativo */
+.interactive-map-viewport {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #e5e9ec;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  user-select: none;
+  cursor: grab;
+}
+
+.interactive-map-viewport:active {
+  cursor: grabbing;
+}
+
+[data-theme="dark"] .interactive-map-viewport,
+[data-bs-theme="dark"] .interactive-map-viewport {
+  background-color: #111a2e;
+  border-color: #1e3153;
+}
+
+/* Controles Flutuantes do Mapa */
+.map-floating-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.map-control-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #00335b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.map-control-btn:hover {
+  background-color: #00335b;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .map-control-btn,
+[data-bs-theme="dark"] .map-control-btn {
+  background-color: rgba(19, 32, 58, 0.95);
+  color: #e2e8f0;
+  border-color: #273e66;
+}
+
+[data-theme="dark"] .map-control-btn:hover,
+[data-bs-theme="dark"] .map-control-btn:hover {
+  background-color: #0079c8;
+  color: #ffffff;
+}
+
+.map-control-btn.active {
+  background-color: #0079c8;
+  color: #ffffff;
+  border-color: #0079c8;
+}
+
+/* Legenda de Trânsito no Mapa */
+.map-traffic-legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .map-traffic-legend,
+[data-bs-theme="dark"] .map-traffic-legend {
+  background-color: rgba(17, 26, 46, 0.92);
+  border-color: #23375b;
+  color: #cbd5e1;
+}
+
+.traffic-line-sample {
+  display: inline-block;
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.traffic-green { background-color: #22c55e; }
+.traffic-yellow { background-color: #f59e0b; }
+.traffic-red { background-color: #ef4444; }
+
+/* Alfinete / Pin no Mapa */
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  cursor: pointer;
+  z-index: 15;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -110%) scale(1.1);
+  z-index: 25;
+}
+
+.pin-icon-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: linear-gradient(135deg, #0079c8 0%, #00335b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 51, 91, 0.4);
+  border: 2px solid #ffffff;
+}
+
+.pin-icon-inner {
+  transform: rotate(45deg);
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  margin-left: -22px;
+  border-radius: 50%;
+  background: rgba(0, 121, 200, 0.35);
+  animation: pinPulseWave 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes pinPulseWave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.pin-origin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 14;
+}
+
+.origin-marker-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35);
+}
+
+/* Card Flutuante de Informação do Alfinete */
+.pin-tooltip-card {
+  position: absolute;
+  bottom: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  z-index: 30;
+  animation: fadeInTooltip 0.25s ease-out;
+}
+
+[data-theme="dark"] .pin-tooltip-card,
+[data-bs-theme="dark"] .pin-tooltip-card {
+  background-color: #172644;
+  border-color: #243a63;
+  color: #f1f5f9;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Lista de Rotas Interativas */
+.route-card-item {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background-color: rgba(0, 51, 91, 0.03);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.route-card-item:hover {
+  background-color: rgba(0, 121, 200, 0.08);
+  border-color: rgba(0, 121, 200, 0.2);
+}
+
+.route-card-item.active {
+  background-color: rgba(0, 121, 200, 0.1);
+  border-color: #0079c8;
+}
+
+[data-theme="dark"] .route-card-item,
+[data-bs-theme="dark"] .route-card-item {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .route-card-item:hover,
+[data-bs-theme="dark"] .route-card-item:hover {
+  background-color: rgba(0, 121, 200, 0.15);
+  border-color: rgba(0, 121, 200, 0.4);
+}
+
+[data-theme="dark"] .route-card-item.active,
+[data-bs-theme="dark"] .route-card-item.active {
+  background-color: rgba(0, 121, 200, 0.2);
+  border-color: #38bdf8;
+}
+
+/* Painel do Melhor Horário de Saída */
+.departure-forecast-box {
+  background: linear-gradient(135deg, rgba(0, 51, 91, 0.06) 0%, rgba(0, 121, 200, 0.12) 100%);
+  border: 1px solid rgba(0, 121, 200, 0.25);
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .departure-forecast-box,
+[data-bs-theme="dark"] .departure-forecast-box {
+  background: linear-gradient(135deg, rgba(0, 31, 63, 0.4) 0%, rgba(0, 121, 200, 0.2) 100%);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.departure-time-highlight {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #00335b;
+  line-height: 1;
+}
+
+[data-theme="dark"] .departure-time-highlight,
+[data-bs-theme="dark"] .departure-time-highlight {
+  color: #38bdf8;
+}
+
+/* Botão Abrir no Google Maps */
+.btn-google-maps {
+  background-color: #1a73e8;
+  color: #ffffff !important;
+  font-weight: 600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-google-maps:hover {
+  background-color: #1557b0;
+  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.45);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* SVG do mapa interativo vetorial */
+.svg-map-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.route-polyline {
+  stroke-dasharray: 8, 4;
+  animation: dashAnimation 30s linear infinite;
+}
+
+@keyframes dashAnimation {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* ==========================================================================
+   Modais de Transporte Alternativos (Metrô, Ônibus, Carro, Bicicleta)
+   ========================================================================== */
+
+.transport-modal-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .transport-modal-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.transport-modal-btn {
+  padding: 8px 6px;
+  min-width: 0;
+  width: 100%;
+  border-radius: 12px;
+  border: 1.5px solid rgba(0, 51, 91, 0.1);
+  background-color: #ffffff;
+  color: #00335b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  text-align: center;
+}
+
+.transport-modal-btn .badge {
+  white-space: nowrap;
+}
+
+.transport-modal-btn:hover {
+  border-color: #0079c8;
+  background-color: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+.transport-modal-btn * {
+  pointer-events: none;
+}
+
+.transport-modal-btn.active {
+  background-color: #00335b;
+  border-color: #00335b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 51, 91, 0.2);
+}
+
+.transport-modal-btn.recommended {
+  border-color: #10b981;
+}
+
+.transport-modal-btn.recommended::after {
+  content: "Mais Rápido";
+  position: absolute;
+  top: -8px;
+  right: 6px;
+  background-color: #10b981;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 50rem;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+}
+
+/* ==========================================================================
+   Cartografia Realista do Mapa (Estilo Google Maps)
+   ========================================================================== */
+
+.map-bg-land {
+  fill: #f5f4f0;
+}
+[data-theme="dark"] .map-bg-land,
+[data-bs-theme="dark"] .map-bg-land {
+  fill: #131c2b;
+}
+
+.map-park {
+  fill: #d3ebd2;
+}
+[data-theme="dark"] .map-park,
+[data-bs-theme="dark"] .map-park {
+  fill: #193325;
+}
+
+.map-water {
+  fill: #aad3df;
+}
+[data-theme="dark"] .map-water,
+[data-bs-theme="dark"] .map-water {
+  fill: #0c2942;
+}
+
+.map-street-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  fill: #5f6368;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  user-select: none;
+}
+[data-theme="dark"] .map-street-label,
+[data-bs-theme="dark"] .map-street-label {
+  fill: #9aa0a6;
+}
+
+.map-district-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  fill: #9aa0a6;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  pointer-events: none;
+  opacity: 0.7;
+}
+[data-theme="dark"] .map-district-label,
+[data-bs-theme="dark"] .map-district-label {
+  fill: #5f6b82;
+}
+
+.map-metro-line {
+  stroke-dasharray: 6, 3;
+}
+
+
+[data-theme="dark"] .transport-modal-btn,
+[data-bs-theme="dark"] .transport-modal-btn {
+  background-color: #162440;
+  border-color: #233a61;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .transport-modal-btn:hover,
+[data-bs-theme="dark"] .transport-modal-btn:hover {
+  background-color: #1e335a;
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+[data-theme="dark"] .transport-modal-btn.active,
+[data-bs-theme="dark"] .transport-modal-btn.active {
+  background-color: #0079c8;
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Widget Climatempo (Previsão do Tempo & Impacto no Trânsito)
+   ========================================================================== */
+
+.climatempo-widget-card {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e2f0fc 100%);
+  border: 1.5px solid #c7e2f9;
+  border-radius: 14px;
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .climatempo-widget-card,
+[data-bs-theme="dark"] .climatempo-widget-card {
+  background: linear-gradient(135deg, #101c33 0%, #172847 100%);
+  border-color: #21375d;
+  color: #f1f5f9;
+}
+
+.climatempo-brand-badge {
+  background-color: #005691;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.weather-temp-display {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #00335b;
+  line-height: 1;
+}
+
+[data-theme="dark"] .weather-temp-display,
+[data-bs-theme="dark"] .weather-temp-display {
+  color: #38bdf8;
+}
+
+.weather-warning-pill {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: #b91c1c;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+
+[data-theme="dark"] .weather-warning-pill,
+[data-bs-theme="dark"] .weather-warning-pill {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-smart-telemedicina {
+  background: linear-gradient(135deg, #0079c8 0%, #00335b 100%);
+  color: #ffffff !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50rem;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 51, 91, 0.25);
+}
+
+.btn-smart-telemedicina:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 51, 91, 0.35);
+}
+
+/* Toast de Simulação Acadêmica */
+.demo-toast-popup {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #00335b;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  animation: slideInToast 0.3s ease-out;
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
