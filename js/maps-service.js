@@ -471,7 +471,7 @@
                   <button type="button" class="transport-modal-btn ${modal.id === modalAtivoId ? 'active' : ''} ${modal.recomendado ? 'recommended' : ''}" data-modal-id="${modal.id}">
                     <i class="bi ${modal.icone} fs-5"></i>
                     <span class="fw-bold font-xs">${modal.nome}</span>
-                    <span class="badge ${modal.recomendado ? 'bg-success' : 'bg-light text-dark'} font-xs">${modal.duracao} min</span>
+                    <span class="badge ${modal.recomendado ? 'bg-success' : 'maps-badge-default'} font-xs">${modal.duracao} min</span>
                   </button>
                 `).join('')}
               </div>
@@ -501,7 +501,7 @@
               </p>
 
               <!-- Seletor do Horário da Consulta para Simulação Dinâmica -->
-              <div class="d-flex align-items-center justify-content-between bg-white bg-opacity-75 p-2 rounded-3 border font-xs">
+              <div class="d-flex align-items-center justify-content-between maps-time-selector-row p-2 rounded-3 border font-xs">
                 <span class="text-secondary">Horário da consulta:</span>
                 <div class="d-flex align-items-center gap-1">
                   <input type="time" class="form-control form-control-sm border-0 py-0 px-1 fw-bold text-navy" id="input-horario-consulta" value="${CLINICA_DESTINO.horarioConsulta}" style="width: 80px;">
@@ -510,7 +510,7 @@
             </div>
 
             <!-- Detalhes do Meio de Transporte Escolhido -->
-            <div class="card border p-3 rounded-4 bg-light shadow-sm">
+            <div class="maps-transport-detail-card border p-3 rounded-4 shadow-sm">
               <div class="d-flex align-items-center justify-content-between mb-2">
                 <div class="d-flex align-items-center gap-2">
                   <div class="avatar-sm rounded-circle bg-primary text-white d-flex align-items-center justify-content-center">

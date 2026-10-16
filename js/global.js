@@ -18,33 +18,41 @@
     }
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-    // ==========================================
-    // 1. SISTEMA DE TEMA ESCURO / CLARO
-    // ==========================================
+// Definir funções globais imediatamente no window para estarem disponíveis a qualquer momento
+(function() {
     const THEME_KEY = 'careplus_theme';
 
     window.applyCarePlusTheme = function(theme) {
+        const isDark = theme === 'dark';
+        
+        // Sincronizar tanto no <html> (documentElement) quanto no <body>
         document.documentElement.setAttribute('data-theme', theme);
         document.documentElement.setAttribute('data-bs-theme', theme);
-        if (document.body) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark-theme');
-            } else {
-                document.body.classList.remove('dark-theme');
-            }
-        }
-        localStorage.setItem(THEME_KEY, theme);
+        document.documentElement.classList.toggle('dark-theme', isDark);
 
-        // Atualizar ícones em todos os botões de toggle de tema
-        const toggleButtons = document.querySelectorAll('.theme-toggle-btn, #btnThemeToggle');
+        if (document.body) {
+            document.body.setAttribute('data-theme', theme);
+            document.body.setAttribute('data-bs-theme', theme);
+            document.body.classList.toggle('dark-theme', isDark);
+        }
+
+        try {
+            localStorage.setItem(THEME_KEY, theme);
+        } catch (e) {
+            console.warn('Não foi possível salvar o tema no localStorage:', e);
+        }
+
+        // Atualizar ícones em todos os botões de alternância de tema
+        const toggleButtons = document.querySelectorAll('.btn-theme-toggle, .theme-toggle-btn, #btnThemeToggle');
         toggleButtons.forEach(btn => {
-            if (theme === 'dark') {
+            if (isDark) {
                 btn.innerHTML = '<i class="bi bi-sun-fill text-warning"></i>';
                 btn.setAttribute('title', 'Mudar para tema claro');
+                btn.setAttribute('aria-label', 'Mudar para tema claro');
             } else {
                 btn.innerHTML = '<i class="bi bi-moon-stars-fill text-primary"></i>';
                 btn.setAttribute('title', 'Mudar para tema escuro');
+                btn.setAttribute('aria-label', 'Mudar para tema escuro');
             }
         });
 
@@ -53,22 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.toggleCarePlusTheme = function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 
+                             localStorage.getItem(THEME_KEY) || 
+                             'light';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         window.applyCarePlusTheme(newTheme);
     };
 
-    // Vincular botões de tema existentes
-    const toggleButtons = document.querySelectorAll('.theme-toggle-btn, #btnThemeToggle');
-    toggleButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Delegação de eventos global para alternar o tema com 1 clique sem recarregar
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-theme-toggle, .theme-toggle-btn, #btnThemeToggle');
+        if (btn) {
             e.preventDefault();
             window.toggleCarePlusTheme();
-        });
+        }
     });
+})();
 
-    // Aplicar estado inicial nos ícones
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+document.addEventListener('DOMContentLoaded', () => {
+    // Sincronizar estado inicial com body carregado
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 
+                         localStorage.getItem('careplus_theme') || 
+                         'light';
     window.applyCarePlusTheme(currentTheme);
 
     // ==========================================

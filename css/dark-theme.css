@@ -1,6 +1,7 @@
 /* ==========================================================================
    Care Plus - Sistema de Tema Escuro (Dark Mode)
-   Apresenta alto contraste, excelente legibilidade e visual premium
+   Otimizado para conforto visual, alta legibilidade e respeito absoluto
+   à identidade visual e cores azul institucional da Care Plus.
    ========================================================================== */
 
 /* Transições suaves ao alternar tema */
@@ -12,11 +13,18 @@ body,
 .form-select,
 .btn,
 .custom-alert,
-.alert {
+.alert,
+.dental-feature-card,
+.procedure-card,
+.consulta-item,
+.item-agendado,
+.action-toggle-container,
+.banner-points,
+.brinde-card {
   transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Botão de Alternar Tema na Navbar */
+/* Botão de Alternar Tema na Navbar (Estado Claro) */
 .btn-theme-toggle {
   width: 42px;
   height: 42px;
@@ -42,39 +50,72 @@ body,
 }
 
 /* ==========================================================================
-   Estilos quando o tema escuro estiver ativo (data-theme="dark" ou body.dark-theme)
+   Estilos quando o tema escuro estiver ativo (data-theme="dark" ou .dark-theme)
    ========================================================================== */
 
+:root[data-theme="dark"],
+:root[data-bs-theme="dark"],
 [data-theme="dark"],
-[data-bs-theme="dark"] {
+[data-bs-theme="dark"],
+.dark-theme {
   --primary-color: #38bdf8;
   --secondary-color: #0ea5e9;
   --dark-navy: #f8fafc;
-  --light-gray: #0b1326;
-  --border-gray: #1e3153;
+  --light-gray: #090e17;
+  --border-gray: #1e3357;
   --text-muted: #94a3b8;
+  --bs-body-bg: #090e17;
+  --bs-body-color: #f1f5f9;
+  --bs-card-bg: #121e34;
+  --bs-card-border-color: #1e3357;
+  --bs-card-color: #f1f5f9;
+  --bs-border-color: #1e3357;
+  --bs-tertiary-bg: #162440;
 }
 
+/* Background do Body no Modo Escuro - Azul Noturno Ergonômico */
 [data-theme="dark"] body,
 [data-bs-theme="dark"] body,
-body.dark-theme {
-  background-color: #0a1120 !important;
-  color: #e2e8f0 !important;
+body.dark-theme,
+.dark-theme body {
+  background-color: #090e17 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Prevenção de elementos brancos acidentais do Bootstrap */
+[data-theme="dark"] .bg-white,
+[data-bs-theme="dark"] .bg-white,
+.dark-theme .bg-white {
+  background-color: #121e34 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .bg-light,
+[data-bs-theme="dark"] .bg-light,
+.dark-theme .bg-light {
+  background-color: #162440 !important;
+  color: #cbd5e1 !important;
 }
 
 /* Navbar no Modo Escuro */
 [data-theme="dark"] .navbar,
 [data-bs-theme="dark"] .navbar,
 .dark-theme .navbar {
-  background-color: #0f1a30 !important;
-  border-color: #1a2a47 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: #0b1322 !important;
+  border-color: #1a2a44 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
+/* Logo da Care Plus integrado elegantemente no Modo Escuro */
 [data-theme="dark"] .navbar-brand img,
 [data-bs-theme="dark"] .navbar-brand img,
 .dark-theme .navbar-brand img {
-  filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  filter: none !important;
 }
 
 [data-theme="dark"] .nav-link,
@@ -124,19 +165,19 @@ body.dark-theme {
 [data-theme="dark"] .card,
 [data-bs-theme="dark"] .card,
 .dark-theme .card {
-  background-color: #13203a !important;
-  border: 1px solid #1e3153 !important;
+  background-color: #121e34 !important;
+  border: 1px solid #1e3357 !important;
   color: #f1f5f9 !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28) !important;
 }
 
 [data-theme="dark"] .card:hover,
 [data-bs-theme="dark"] .card:hover,
 .dark-theme .card:hover {
-  border-color: #2b4776 !important;
+  border-color: #274372 !important;
 }
 
-/* Tipografia e Títulos */
+/* Tipografia, Títulos e Textos */
 [data-theme="dark"] .dashboard-title,
 [data-bs-theme="dark"] .dashboard-title,
 .dark-theme .dashboard-title,
@@ -160,8 +201,20 @@ body.dark-theme {
 [data-theme="dark"] h3,
 [data-theme="dark"] h4,
 [data-theme="dark"] h5,
-[data-theme="dark"] h6 {
+[data-theme="dark"] h6,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6 {
   color: #f8fafc !important;
+}
+
+[data-theme="dark"] .text-primary,
+[data-bs-theme="dark"] .text-primary,
+.dark-theme .text-primary {
+  color: #38bdf8 !important;
 }
 
 [data-theme="dark"] .text-secondary,
@@ -173,21 +226,48 @@ body.dark-theme {
   color: #94a3b8 !important;
 }
 
-[data-theme="dark"] .bg-light,
-[data-bs-theme="dark"] .bg-light,
-.dark-theme .bg-light {
-  background-color: #172644 !important;
-  color: #e2e8f0 !important;
-}
-
 [data-theme="dark"] .bg-path-gray,
 [data-bs-theme="dark"] .bg-path-gray,
 .dark-theme .bg-path-gray {
-  background-color: #182845 !important;
+  background-color: #172847 !important;
   color: #f1f5f9 !important;
 }
 
-/* Alertas Personalizados */
+/* Bordas universais no modo escuro */
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-start,
+[data-theme="dark"] .border-end,
+.dark-theme .border,
+.dark-theme .border-top,
+.dark-theme .border-bottom,
+.dark-theme .border-start,
+.dark-theme .border-end {
+  border-color: #1e3357 !important;
+}
+
+/* Barras de Progresso (Status de Cuidado) - Fundo escuro azulado suave */
+[data-theme="dark"] .progress,
+[data-bs-theme="dark"] .progress,
+.dark-theme .progress,
+[data-theme="dark"] .progress-custom,
+[data-bs-theme="dark"] .progress-custom,
+.dark-theme .progress-custom {
+  background-color: #172847 !important;
+  border: 1px solid #223a63;
+}
+
+[data-theme="dark"] .custom-progress-bar,
+.dark-theme .custom-progress-bar,
+[data-theme="dark"] .progress-gradient,
+.dark-theme .progress-gradient,
+[data-theme="dark"] .progress-bar-gradient,
+.dark-theme .progress-bar-gradient {
+  background: linear-gradient(90deg, #0ea5e9 0%, #fbbf24 100%) !important;
+}
+
+/* Alertas Personalizados - Tom ambar/ouro suave sobre fundo escuro */
 [data-theme="dark"] .custom-alert,
 [data-bs-theme="dark"] .custom-alert,
 .dark-theme .custom-alert,
@@ -195,14 +275,21 @@ body.dark-theme {
 [data-bs-theme="dark"] .alert-custom-warning,
 .dark-theme .alert-custom-warning {
   background-color: rgba(245, 158, 11, 0.12) !important;
-  border-color: rgba(245, 158, 11, 0.35) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
   color: #fef3c7 !important;
 }
 
 [data-theme="dark"] .custom-alert strong,
 [data-bs-theme="dark"] .custom-alert strong,
-.dark-theme .custom-alert strong {
+.dark-theme .custom-alert strong,
+[data-theme="dark"] .alert-custom-warning strong,
+.dark-theme .alert-custom-warning strong {
   color: #fbbf24 !important;
+}
+
+[data-theme="dark"] .alert-custom-warning *,
+.dark-theme .alert-custom-warning * {
+  color: #fef3c7 !important;
 }
 
 /* Inputs, Selects e Formulários */
@@ -212,8 +299,8 @@ body.dark-theme {
 [data-theme="dark"] .form-select,
 [data-bs-theme="dark"] .form-select,
 .dark-theme .form-select {
-  background-color: #162440 !important;
-  border-color: #233a61 !important;
+  background-color: #14223a !important;
+  border-color: #20365b !important;
   color: #f8fafc !important;
 }
 
@@ -223,7 +310,7 @@ body.dark-theme {
 [data-theme="dark"] .form-select:focus,
 [data-bs-theme="dark"] .form-select:focus,
 .dark-theme .form-select:focus {
-  background-color: #1b2c4e !important;
+  background-color: #182a47 !important;
   border-color: #38bdf8 !important;
   color: #ffffff !important;
   box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25) !important;
@@ -232,18 +319,26 @@ body.dark-theme {
 [data-theme="dark"] .form-control-readonly,
 [data-bs-theme="dark"] .form-control-readonly,
 .dark-theme .form-control-readonly {
-  background-color: #111d33 !important;
+  background-color: #0f192b !important;
   color: #94a3b8 !important;
-  border-color: #1e3153 !important;
+  border-color: #1b2e4d !important;
 }
 
 /* Modais */
 [data-theme="dark"] .modal-content,
 [data-bs-theme="dark"] .modal-content,
 .dark-theme .modal-content {
-  background-color: #111e36 !important;
-  border: 1px solid #233a61 !important;
+  background-color: #111d33 !important;
+  border: 1px solid #1e3357 !important;
   color: #f1f5f9 !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer,
+.dark-theme .modal-header,
+.dark-theme .modal-footer {
+  border-color: #1e3357 !important;
 }
 
 [data-theme="dark"] .btn-close,
@@ -257,12 +352,13 @@ body.dark-theme {
 [data-bs-theme="dark"] .tab-btn,
 .dark-theme .tab-btn {
   color: #94a3b8 !important;
+  background-color: transparent !important;
 }
 
 [data-theme="dark"] .tab-btn:hover,
 [data-bs-theme="dark"] .tab-btn:hover,
 .dark-theme .tab-btn:hover {
-  background-color: #182845 !important;
+  background-color: #192a47 !important;
   color: #38bdf8 !important;
 }
 
@@ -270,6 +366,42 @@ body.dark-theme {
 [data-bs-theme="dark"] .tab-btn.active,
 .dark-theme .tab-btn.active {
   background-color: #0079c8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 121, 200, 0.35) !important;
+}
+
+[data-theme="dark"] .btn-brand-primary,
+[data-bs-theme="dark"] .btn-brand-primary,
+.dark-theme .btn-brand-primary,
+[data-theme="dark"] .btn-primary:not(.btn-theme-toggle),
+.dark-theme .btn-primary:not(.btn-theme-toggle) {
+  background-color: #0079c8 !important;
+  border-color: #0ea5e9 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-brand-primary:hover,
+[data-bs-theme="dark"] .btn-brand-primary:hover,
+.dark-theme .btn-brand-primary:hover,
+[data-theme="dark"] .btn-primary:not(.btn-theme-toggle):hover,
+.dark-theme .btn-primary:not(.btn-theme-toggle):hover {
+  background-color: #0284c7 !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
+}
+
+[data-theme="dark"] .btn-outline-primary,
+[data-bs-theme="dark"] .btn-outline-primary,
+.dark-theme .btn-outline-primary {
+  border-color: #0ea5e9 !important;
+  color: #38bdf8 !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover,
+[data-bs-theme="dark"] .btn-outline-primary:hover,
+.dark-theme .btn-outline-primary:hover {
+  background-color: #0079c8 !important;
+  border-color: #0079c8 !important;
   color: #ffffff !important;
 }
 
@@ -287,50 +419,148 @@ body.dark-theme {
   color: #ffffff !important;
 }
 
-/* Botões de Telemedicina / Presencial */
+/* Botões de Telemedicina / Presencial na Index */
 [data-theme="dark"] .action-toggle-container.bg-light,
 [data-bs-theme="dark"] .action-toggle-container.bg-light,
 .dark-theme .action-toggle-container.bg-light {
-  background-color: #1a2a47 !important;
-  border-color: #2b4169 !important;
-  color: #cbd5e1 !important;
+  background-color: #15243f !important;
+  border-color: #21385e !important;
+  color: #94a3b8 !important;
 }
 
-/* Saúde Bucal - Específico */
+[data-theme="dark"] .action-toggle-container.bg-primary,
+[data-bs-theme="dark"] .action-toggle-container.bg-primary,
+.dark-theme .action-toggle-container.bg-primary {
+  background-color: #0079c8 !important;
+  border-color: #0ea5e9 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 121, 200, 0.4) !important;
+}
+
+/* ==========================================================================
+   Saúde Bucal - Otimização Completa de Componentes no Dark Mode
+   ========================================================================== */
+
+/* Cards de Destaque das Especialidades Odontológicas (Removendo o Branco) */
+[data-theme="dark"] .dental-feature-card,
+[data-bs-theme="dark"] .dental-feature-card,
+.dark-theme .dental-feature-card {
+  background-color: #14223d !important;
+  border: 1px solid #1e3357 !important;
+  border-left: 4px solid #0079c8 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .dental-feature-card:hover,
+[data-bs-theme="dark"] .dental-feature-card:hover,
+.dark-theme .dental-feature-card:hover {
+  background-color: #192a4a !important;
+  border-color: #2a497a !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Badges de Especialidades com Fundo Escurecido Suave */
+[data-theme="dark"] .badge-ortodontia,
+.dark-theme .badge-ortodontia {
+  background-color: rgba(14, 165, 233, 0.18) !important;
+  color: #38bdf8 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-periodontia,
+.dark-theme .badge-periodontia {
+  background-color: rgba(34, 197, 94, 0.18) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-endodontia,
+.dark-theme .badge-endodontia {
+  background-color: rgba(249, 115, 22, 0.18) !important;
+  color: #fb923c !important;
+  border: 1px solid rgba(251, 146, 60, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-implantodontia,
+.dark-theme .badge-implantodontia {
+  background-color: rgba(168, 85, 247, 0.18) !important;
+  color: #c084fc !important;
+  border: 1px solid rgba(192, 132, 252, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-odontopediatria,
+.dark-theme .badge-odontopediatria {
+  background-color: rgba(236, 72, 153, 0.18) !important;
+  color: #f472b6 !important;
+  border: 1px solid rgba(244, 114, 182, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-protese,
+.dark-theme .badge-protese {
+  background-color: rgba(6, 182, 212, 0.18) !important;
+  color: #22d3ee !important;
+  border: 1px solid rgba(34, 211, 238, 0.35) !important;
+}
+
+[data-theme="dark"] .badge-estetica,
+.dark-theme .badge-estetica {
+  background-color: rgba(234, 179, 8, 0.18) !important;
+  color: #facc15 !important;
+  border: 1px solid rgba(250, 204, 21, 0.35) !important;
+}
+
+/* Grid e Cards de Procedimentos Odonto */
 [data-theme="dark"] .procedure-grid-container,
 [data-bs-theme="dark"] .procedure-grid-container,
 .dark-theme .procedure-grid-container {
-  background-color: #0e182b !important;
-  border: 1px solid #1c2e4f;
+  background-color: #0b1424 !important;
+  border: 1px solid #1a2c48 !important;
 }
 
 [data-theme="dark"] .procedure-card,
 [data-bs-theme="dark"] .procedure-card,
 .dark-theme .procedure-card {
-  background-color: #14223d !important;
-  border-color: #21375d !important;
+  background-color: #13213a !important;
+  border: 1.5px solid #1e3357 !important;
   color: #f1f5f9 !important;
 }
 
 [data-theme="dark"] .procedure-card:hover,
 [data-bs-theme="dark"] .procedure-card:hover,
 .dark-theme .procedure-card:hover {
+  background-color: #172847 !important;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4) !important;
   border-color: #38bdf8 !important;
 }
 
+[data-theme="dark"] .procedure-card-title,
+.dark-theme .procedure-card-title {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .procedure-card-text,
+.dark-theme .procedure-card-text {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] .btn-toggle-expand,
+.dark-theme .btn-toggle-expand {
+  color: #38bdf8 !important;
+}
+
+/* Pílulas de filtro de especialidade */
 [data-theme="dark"] .specialty-pill-btn,
 [data-bs-theme="dark"] .specialty-pill-btn,
 .dark-theme .specialty-pill-btn {
-  background-color: #162440 !important;
+  background-color: #15243f !important;
   color: #cbd5e1 !important;
-  border-color: #24395e !important;
+  border-color: #21385e !important;
 }
 
 [data-theme="dark"] .specialty-pill-btn:hover,
 [data-bs-theme="dark"] .specialty-pill-btn:hover,
 .dark-theme .specialty-pill-btn:hover {
-  background-color: #1e335a !important;
+  background-color: #1c2e4e !important;
   color: #38bdf8 !important;
   border-color: #38bdf8 !important;
 }
@@ -343,46 +573,115 @@ body.dark-theme {
   border-color: #0079c8 !important;
 }
 
-/* Recompensas - Específico */
+/* Consultas Agendadas e Histórico (Agenda, Saúde Bucal e Exames) */
+[data-theme="dark"] .consulta-item,
+[data-bs-theme="dark"] .consulta-item,
+.dark-theme .consulta-item,
+[data-theme="dark"] .item-agendado,
+[data-bs-theme="dark"] .item-agendado,
+.dark-theme .item-agendado {
+  background-color: #13213a !important;
+  border: 1px solid #1e3357 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .consulta-item:hover,
+.dark-theme .consulta-item:hover,
+[data-theme="dark"] .item-agendado:hover,
+.dark-theme .item-agendado:hover {
+  border-color: #2a497a !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Badges e Tags de XP / Gamificação */
+[data-theme="dark"] .xp-badge,
+[data-bs-theme="dark"] .xp-badge,
+.dark-theme .xp-badge,
+[data-theme="dark"] .xp-badge-absolute,
+[data-bs-theme="dark"] .xp-badge-absolute,
+.dark-theme .xp-badge-absolute {
+  background-color: #172847 !important;
+  color: #fbbf24 !important;
+  border: 1px solid #274372 !important;
+}
+
+/* ==========================================================================
+   Recompensas - Específico
+   ========================================================================== */
 [data-theme="dark"] .banner-points,
 [data-bs-theme="dark"] .banner-points,
 .dark-theme .banner-points {
-  background: linear-gradient(135deg, #13223e 0%, #1b3056 100%) !important;
-  border-color: #274373 !important;
+  background: linear-gradient(135deg, #0e1b33 0%, #15294e 100%) !important;
+  border: 2px solid #203b6d !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
 [data-theme="dark"] .brinde-card,
 [data-bs-theme="dark"] .brinde-card,
 .dark-theme .brinde-card {
-  background-color: #14223d !important;
-  border-color: #21375d !important;
+  background-color: #13213a !important;
+  border: 1px solid #1e3357 !important;
+  color: #f1f5f9 !important;
 }
 
-/* Meus Exames - Específico */
+[data-theme="dark"] .brinde-card .card-img-top,
+[data-bs-theme="dark"] .brinde-card .card-img-top,
+.dark-theme .brinde-card .card-img-top {
+  background-color: #182845 !important;
+}
+
+/* ==========================================================================
+   Meus Exames - Específico
+   ========================================================================== */
 [data-theme="dark"] .exam-card,
 [data-bs-theme="dark"] .exam-card,
 .dark-theme .exam-card,
 [data-theme="dark"] .category-card,
 [data-bs-theme="dark"] .category-card,
 .dark-theme .category-card {
-  background-color: #14223d !important;
-  border-color: #21375d !important;
+  background-color: #13213a !important;
+  border-color: #1e3357 !important;
   color: #f1f5f9 !important;
 }
 
 [data-theme="dark"] .exam-card:hover,
 [data-bs-theme="dark"] .exam-card:hover,
-.dark-theme .exam-card:hover {
-  background-color: #1c2e50 !important;
+.dark-theme .exam-card:hover,
+[data-theme="dark"] .category-card:hover,
+.dark-theme .category-card:hover {
+  background-color: #1a2c4e !important;
   border-color: #38bdf8 !important;
 }
 
-/* Saber+ - Específico */
+/* ==========================================================================
+   Saber+ - Específico
+   ========================================================================== */
 [data-theme="dark"] .content-card,
 [data-bs-theme="dark"] .content-card,
 .dark-theme .content-card {
-  background-color: #14223d !important;
-  border-color: #21375d !important;
+  background-color: #13213a !important;
+  border: 1px solid #1e3357 !important;
+  color: #f1f5f9 !important;
+}
+
+[data-theme="dark"] .content-card:hover,
+[data-bs-theme="dark"] .content-card:hover,
+.dark-theme .content-card:hover {
+  border-color: #2a497a !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+[data-theme="dark"] .banner-blue,
+[data-bs-theme="dark"] .banner-blue,
+.dark-theme .banner-blue {
+  background: linear-gradient(135deg, #005691 0%, #0079c8 100%) !important;
+}
+
+/* Floating Action Button (FAB) */
+[data-theme="dark"] .fab-btn,
+.dark-theme .fab-btn {
+  background-color: #0079c8 !important;
+  box-shadow: 0 4px 18px rgba(0, 121, 200, 0.45) !important;
 }
 
 /* Footer no Modo Escuro */
@@ -390,7 +689,7 @@ body.dark-theme {
 [data-bs-theme="dark"] .custom-footer,
 .dark-theme .custom-footer {
   background-color: #080f1d !important;
-  border-top: 1px solid #16243d;
+  border-top: 1px solid #14223a !important;
   color: #94a3b8 !important;
 }
 
