@@ -11,6 +11,120 @@
   transition: all 0.3s ease;
 }
 
+.modal-trajeto-dialog {
+  width: calc(100% - 2rem);
+  max-width: 1080px;
+}
+
+.modal-trajeto-content {
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+}
+
+.modal-trajeto-body {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.modal-trajeto .maps-card-wrapper {
+  padding: 1rem !important;
+  margin-bottom: 0 !important;
+}
+
+.modal-trajeto .modal-body .bi {
+  font-size: inherit;
+}
+
+.modal-trajeto .climatempo-widget-card .display-6 .bi {
+  font-size: 1.8rem;
+}
+
+.modal-trajeto .interactive-map-viewport {
+  height: 250px;
+}
+
+.modal-trajeto .weather-warning-pill .bi {
+  font-size: 1.25rem;
+}
+
+.modal-trajeto .btn-smart-telemedicina .bi {
+  font-size: 1.1rem;
+}
+
+.modal-trajeto .map-floating-controls {
+  align-items: center;
+}
+
+.modal-trajeto .map-control-btn {
+  box-sizing: border-box;
+  flex: 0 0 32px;
+  width: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  height: 32px;
+  min-height: 32px;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.modal-trajeto .btn-google-maps {
+  min-height: 40px;
+  padding: 0.55rem 0.85rem;
+  line-height: 1.2;
+}
+
+.modal-trajeto .transport-modal-btn {
+  min-height: 76px;
+}
+
+.modal-trajeto .transport-modal-btn .bi {
+  font-size: 1rem;
+}
+
+.modal-trajeto .map-pin .bi {
+  font-size: 1rem;
+}
+
+.modal-trajeto .pin-icon-wrap {
+  width: 36px;
+  height: 36px;
+}
+
+.modal-trajeto .pin-pulse {
+  width: 36px;
+  height: 36px;
+  margin-top: -18px;
+  margin-left: -18px;
+}
+
+@media (max-width: 575.98px) {
+  .modal-trajeto-dialog {
+    width: calc(100% - 1rem);
+  }
+
+  .modal-trajeto-content {
+    max-height: calc(100vh - 1rem);
+  }
+
+  .modal-trajeto .interactive-map-viewport {
+    height: 210px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .modal-trajeto .maps-card-wrapper > .row.g-3 > .col-lg-7 {
+    width: 58.333333%;
+  }
+
+  .modal-trajeto .maps-card-wrapper > .row.g-3 > .col-lg-5 {
+    width: 41.666667%;
+  }
+
+  .modal-trajeto .transport-modal-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 [data-theme="dark"] .maps-card-wrapper,
 [data-bs-theme="dark"] .maps-card-wrapper {
   background: #13203a;
@@ -683,4 +797,3 @@
     transform: translateY(0);
   }
 }
-

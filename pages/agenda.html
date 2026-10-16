@@ -444,16 +444,16 @@
     </div>
 
     <!-- Modal Previsão de Trajeto & Trânsito (Google Maps) -->
-    <div class="modal fade" id="modalTrajetoGoogleMaps" tabindex="-1" aria-labelledby="modalTrajetoLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content rounded-4 border-0 shadow-lg">
+    <div class="modal fade modal-trajeto" id="modalTrajetoGoogleMaps" tabindex="-1" aria-labelledby="modalTrajetoLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-trajeto-dialog">
+        <div class="modal-content modal-trajeto-content rounded-4 border-0 shadow-lg">
           <div class="modal-header border-0 pb-0 pt-4 px-4">
             <h5 class="modal-title fw-bold text-navy" id="modalTrajetoLabel">
               <i class="bi bi-geo-alt-fill text-danger me-2"></i> Trajeto & Trânsito em Tempo Real
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
           </div>
-          <div class="modal-body p-4">
+          <div class="modal-body modal-trajeto-body p-3 p-md-4">
             <div id="careplus-maps-root"></div>
           </div>
         </div>
