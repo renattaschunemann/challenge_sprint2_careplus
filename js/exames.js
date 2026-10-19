@@ -26,7 +26,80 @@ function agendarExame() {
 }
 let exameEmFoco = "";
 let idEmFoco = null;
+
+function formatarDataAtualBR(diasOffset = 0) {
+  const d = new Date();
+  if (diasOffset !== 0) d.setDate(d.getDate() + diasOffset);
+  const dia = String(d.getDate()).padStart(2, "0");
+  const mes = String(d.getMonth() + 1).padStart(2, "0");
+  const ano = d.getFullYear();
+  return `${dia}/${mes}/${ano}`;
+}
+
+function formatarDataAtualExtenso(diasOffset = 0) {
+  const d = new Date();
+  if (diasOffset !== 0) d.setDate(d.getDate() + diasOffset);
+  const dia = String(d.getDate()).padStart(2, "0");
+  const meses = [
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez",
+  ];
+  const mesExt = meses[d.getMonth()];
+  const ano = d.getFullYear();
+  return `${dia} de ${mesExt} ${ano}`;
+}
+
+function migrarLocalStorageExames() {
+  try {
+    const raw = localStorage.getItem("agendamentosExames");
+    if (raw) {
+      let agendamentos = JSON.parse(raw);
+      let alterou = false;
+      agendamentos = agendamentos.map((item) => {
+        if (
+          item &&
+          item.data &&
+          (item.data.includes("/06/2026") ||
+            item.data.includes("Jun") ||
+            item.data.includes("14/06"))
+        ) {
+          item.data = formatarDataAtualBR();
+          alterou = true;
+        }
+        return item;
+      });
+      if (alterou) {
+        localStorage.setItem("agendamentosExames", JSON.stringify(agendamentos));
+      }
+    }
+  } catch (err) {
+    console.warn("Aviso ao sincronizar agendamentosExames:", err);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  migrarLocalStorageExames();
+
+  // Garante que o exame default e alertas exibam a data atual dinamicamente
+  const elDataDefault = document.getElementById("exame-data-default");
+  if (elDataDefault) {
+    elDataDefault.innerHTML = `<i class="bi bi-calendar3 me-2"></i> ${formatarDataAtualExtenso()}`;
+  }
+  const elAvisoJejum = document.getElementById("aviso-jejum-texto");
+  if (elAvisoJejum) {
+    elAvisoJejum.textContent = `Jejum de 8h para a Ressonância do dia ${formatarDataAtualBR()}`;
+  }
+
   const urlParams = new URLSearchParams(window.location.search);
   const tabParam = urlParams.get("tab");
   if (tabParam) {
@@ -265,14 +338,24 @@ const historicoExames = [
     local: "Clínica Mulher & Vida",
   },
   {
+    nome: "Hemoglobina Completa",
+    data: "18/10/2026",
+    local: "Laboratório Central",
+  },
+  {
     nome: "Ultrassom Pélvico Transvaginal",
-    data: "18/06/2026",
+    data: "15/10/2026",
     local: "Clínica Mulher & Vida",
   },
   {
-    nome: "Teste Ergométrico Cardiovascular",
-    data: "10/02/2025",
+    nome: "Eletrocardiograma (ECG)",
+    data: "10/10/2026",
     local: "Clínica Cardiológica",
+  },
+  {
+    nome: "Colesterol Total e Frações",
+    data: "02/10/2026",
+    local: "Laboratório Central",
   },
   {
     nome: "Radiografia de Tórax (Raio-X)",

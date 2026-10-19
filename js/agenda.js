@@ -336,6 +336,12 @@ function cancelarConsulta(id) {
 // --- HISTÓRICO DE CONSULTAS REALIZADAS ---
 const historicoConsultas = [
   {
+    especialidade: "Cardiologia",
+    medico: "Dr. Roberto",
+    data: "14/10/2026",
+    clinica: "Clínica Central",
+  },
+  {
     especialidade: "Ginecologia",
     medico: "Dra. Cláudia",
     data: "12/03/2026",

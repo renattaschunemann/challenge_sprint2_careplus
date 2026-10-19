@@ -295,3 +295,212 @@
     transform: none;
   }
 }
+
+/* ============================================
+   HERO - SAÚDE BUCAL
+   ============================================ */
+.dental-hero {
+  position: relative;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #eef6fc;
+}
+
+.dental-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../img/hero-saude-bucal.jpg") center right / cover no-repeat;
+  animation: dentalHeroZoom 14s ease-out forwards;
+}
+
+/* Degradê claro à esquerda para destacar o texto (efeito "fluido") */
+.dental-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(240, 247, 253, 0.9) 32%,
+    rgba(240, 247, 253, 0.45) 52%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+/* Transição suave do banner para o conteúdo */
+.dental-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(248, 249, 250, 0), #f8f9fa);
+}
+
+.dental-hero .container {
+  z-index: 2;
+}
+
+.dental-hero-content {
+  max-width: 520px;
+  padding: 3.5rem 0;
+}
+
+.dental-hero-content > * {
+  opacity: 0;
+  animation: dentalHeroFadeUp 0.8s ease forwards;
+}
+.dental-hero-content > *:nth-child(2) { animation-delay: 0.12s; }
+.dental-hero-content > *:nth-child(3) { animation-delay: 0.24s; }
+.dental-hero-content > *:nth-child(4) { animation-delay: 0.36s; }
+
+.dental-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  margin-bottom: 1.1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #0079c8;
+  background: rgba(0, 121, 200, 0.1);
+  border: 1px solid rgba(0, 121, 200, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.dental-hero-title {
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #00335b;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.dental-hero-title span {
+  background: linear-gradient(90deg, #0079c8, #00a3e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dental-hero-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #2b3a4a;
+  margin-bottom: 1.75rem;
+}
+
+.dental-hero-btn {
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0079c8;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 121, 200, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.dental-hero-btn:hover,
+.dental-hero-btn:focus-visible {
+  color: #fff;
+  background: #00335b;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 51, 91, 0.35);
+}
+
+.dental-hero-btn-outline {
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  color: #00335b;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid #00335b;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+.dental-hero-btn-outline:hover,
+.dental-hero-btn-outline:focus-visible {
+  color: #fff;
+  background: #00335b;
+}
+
+@keyframes dentalHeroFadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dentalHeroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+/* Responsivo: no celular a imagem fica mais suave atrás do texto */
+@media (max-width: 767.98px) {
+  .dental-hero {
+    min-height: 380px;
+  }
+  .dental-hero-bg {
+    background-position: 70% center;
+  }
+  .dental-hero::before {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(240, 247, 253, 0.85) 100%
+    );
+  }
+}
+
+/* Tema escuro */
+.dark-theme .dental-hero::before,
+[data-theme="dark"] .dental-hero::before {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 22, 40, 0.97) 0%,
+    rgba(13, 22, 40, 0.88) 32%,
+    rgba(13, 22, 40, 0.4) 55%,
+    rgba(13, 22, 40, 0) 72%
+  );
+}
+.dark-theme .dental-hero::after,
+[data-theme="dark"] .dental-hero::after {
+  background: linear-gradient(to bottom, rgba(13, 22, 40, 0), #0d1628);
+}
+.dark-theme .dental-hero-title,
+[data-theme="dark"] .dental-hero-title {
+  color: #f1f5f9;
+}
+.dark-theme .dental-hero-title span,
+[data-theme="dark"] .dental-hero-title span {
+  background-image: linear-gradient(90deg, #38bdf8, #7dd3fc);
+}
+.dark-theme .dental-hero-text,
+[data-theme="dark"] .dental-hero-text {
+  color: #cbd5e1;
+}
+.dark-theme .dental-hero-badge,
+[data-theme="dark"] .dental-hero-badge {
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+.dark-theme .dental-hero-btn-outline,
+[data-theme="dark"] .dental-hero-btn-outline {
+  color: #e2e8f0;
+  border-color: #e2e8f0;
+  background: rgba(13, 22, 40, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dental-hero-bg,
+  .dental-hero-content > * {
+    animation: none;
+    opacity: 1;
+  }
+}
