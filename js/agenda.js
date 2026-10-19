@@ -160,9 +160,82 @@ document.addEventListener("DOMContentLoaded", function () {
       if (modalClinica) modalClinica.innerText = clinica;
     });
   }
+  const inputData = document.getElementById("input-data");
+  if (inputData) {
+    const hojeISO = new Date().toISOString().split("T")[0];
+    inputData.value = hojeISO;
+    inputData.min = hojeISO;
+  }
+
+  const badgeConsultaHoje = document.getElementById("agenda-consulta-hoje");
+  if (badgeConsultaHoje) {
+    badgeConsultaHoje.innerHTML = `<i class="bi bi-calendar-event me-2 text-primary"></i> Hoje (${formatarDataAtualExtenso()}) às 15:30`;
+  }
+
+  migrarLocalStorageAgenda();
   renderizarConsultas();
   renderizarHistoricoConsultas();
 });
+
+function formatarDataAtualBR(diasOffset = 0) {
+  const d = new Date();
+  if (diasOffset !== 0) d.setDate(d.getDate() + diasOffset);
+  const dia = String(d.getDate()).padStart(2, "0");
+  const mes = String(d.getMonth() + 1).padStart(2, "0");
+  const ano = d.getFullYear();
+  return `${dia}/${mes}/${ano}`;
+}
+
+function formatarDataAtualExtenso(diasOffset = 0) {
+  const d = new Date();
+  if (diasOffset !== 0) d.setDate(d.getDate() + diasOffset);
+  const dia = String(d.getDate()).padStart(2, "0");
+  const meses = [
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez",
+  ];
+  const mesExt = meses[d.getMonth()];
+  const ano = d.getFullYear();
+  return `${dia} de ${mesExt} ${ano}`;
+}
+
+function migrarLocalStorageAgenda() {
+  try {
+    const raw = localStorage.getItem("consultasAgendadas");
+    if (raw) {
+      let consultas = JSON.parse(raw);
+      let alterou = false;
+      consultas = consultas.map((c) => {
+        if (
+          c &&
+          c.data &&
+          (c.data.includes("/06/2026") ||
+            c.data.includes("Jun") ||
+            c.data.includes("14/06"))
+        ) {
+          c.data = formatarDataAtualBR(3);
+          alterou = true;
+        }
+        return c;
+      });
+      if (alterou) {
+        localStorage.setItem("consultasAgendadas", JSON.stringify(consultas));
+      }
+    }
+  } catch (err) {
+    console.warn("Erro ao higienizar consultasAgendadas no localStorage", err);
+  }
+}
 let idConsultaEmFoco = null;
 function renderizarConsultas() {
   const lista = document.getElementById("listaConsultasAgendadas");
@@ -338,26 +411,32 @@ const historicoConsultas = [
   {
     especialidade: "Cardiologia",
     medico: "Dr. Roberto",
-    data: "14/10/2026",
+    data: "18/10/2026",
     clinica: "Clínica Central",
+  },
+  {
+    especialidade: "Dermatologia",
+    medico: "Dr. Carlos",
+    data: "15/10/2026",
+    clinica: "Vida Plus",
   },
   {
     especialidade: "Ginecologia",
     medico: "Dra. Cláudia",
-    data: "12/03/2026",
+    data: "08/10/2026",
     clinica: "Saúde da Mulher",
   },
   {
     especialidade: "Oftalmologia",
     medico: "Dr. Marcos",
-    data: "05/02/2026",
+    data: "01/10/2026",
     clinica: "SP Saúde",
   },
   {
-    especialidade: "Oftalmologia",
-    medico: "Dr. Marcos",
-    data: "15/10/2025",
-    clinica: "SP Saúde",
+    especialidade: "Clínica Geral",
+    medico: "Dra. Ana",
+    data: "22/09/2026",
+    clinica: "Bem Estar Clínica",
   },
   {
     especialidade: "Ginecologia",
