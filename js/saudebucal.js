@@ -365,10 +365,10 @@ function renderizarHistoricoOdonto() {
 
   const historicoSample = [
     {
-      especialidade: "Estética",
+      especialidade: "Periodontia",
       procedimento: "Limpeza Dental (Profilaxia)",
-      dentista: "Dra. Mariana Fonseca",
-      data: "10/01/2026",
+      dentista: "Dr. Bruno Alves",
+      data: "10/10/2026",
       clinica: "Care Plus Odonto Central"
     },
     {
@@ -407,3 +407,17 @@ function renderizarHistoricoOdonto() {
     container.appendChild(div);
   });
 }
+
+// Hero: botões levam às abas correspondentes
+document.addEventListener("DOMContentLoaded", () => {
+  const irParaAba = (idAba) => {
+    const aba = document.getElementById(idAba);
+    if (!aba) return;
+    aba.click();
+    aba.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  const btnAgendar = document.getElementById("hero-btn-agendar");
+  const btnEsp = document.getElementById("hero-btn-especialidades");
+  if (btnAgendar) btnAgendar.addEventListener("click", () => irParaAba("tab-agendar"));
+  if (btnEsp) btnEsp.addEventListener("click", (e) => { e.preventDefault(); irParaAba("tab-procedimentos"); });
+});

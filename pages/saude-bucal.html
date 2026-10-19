@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Care Plus - Saúde Bucal & Odontologia</title>
+    <title>Care Plus - Saúde Bucal</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -120,19 +120,35 @@
       </div>
     </nav>
 
+    <!-- Hero: Saúde Bucal -->
+    <section class="dental-hero" aria-labelledby="dental-hero-title">
+      <div class="dental-hero-bg" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="dental-hero-content">
+          <span class="dental-hero-badge">
+            <i class="bi bi-shield-fill-check me-1"></i> Rede Odontológica Care Plus
+          </span>
+          <h1 id="dental-hero-title" class="dental-hero-title">
+            Saúde <span>Bucal</span>
+          </h1>
+          <p class="dental-hero-text">
+            Encontre especialidades odontológicas, conheça tratamentos e agende
+            suas consultas com quem cuida do seu sorriso com padrão de excelência.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <button type="button" class="btn dental-hero-btn" id="hero-btn-agendar">
+              <i class="bi bi-calendar2-check me-2"></i>Agende sua Consulta
+            </button>
+            <a href="#content-procedimentos" class="btn dental-hero-btn-outline" id="hero-btn-especialidades">
+              Ver especialidades
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Main Container -->
     <main class="container my-5">
-      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-        <div>
-          <h2 class="fw-bold text-brand-primary m-0">Saúde Bucal & Odontologia</h2>
-          <p class="text-secondary font-md mt-1 mb-0">
-            Encontre especialidades odontológicas, conheça tratamentos e agende suas consultas.
-          </p>
-        </div>
-        <span class="badge bg-primary text-white px-3 py-2 rounded-pill font-xs shadow-sm">
-          <i class="bi bi-shield-fill-check me-1"></i> Rede Odontológica Care Plus
-        </span>
-      </div>
 
       <div class="row">
         <!-- Main Content Area -->
@@ -140,7 +156,7 @@
           <!-- Main Tabs -->
           <div class="d-flex mb-4 gap-2 flex-wrap">
             <button class="btn tab-btn active" id="tab-procedimentos">
-              Especialidades & Tratamentos
+              Especialidades e Tratamentos
             </button>
             <button class="btn tab-btn" id="tab-agendar">
               Agendar Consulta
@@ -160,10 +176,13 @@
               <i class="bi bi-grid-fill me-2 text-primary"></i>Especialidades Odontológicas
             </h5>
 
-            <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+            <div class="row row-cols-1 row-cols-md-2 g-3 mb-4 specialty-grid">
               <!-- Ortodontia -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M11 5c-3.3 0-5.3 2.7-5.3 6 0 2.7 1 4.7 1.7 7.3.7 2.7.9 6.7 2.3 9.3.7 1.3 2 1.3 2.7-.3.8-2.1 1.1-5.7 2.6-5.7h2c1.5 0 1.8 3.6 2.6 5.7.7 1.6 2 1.6 2.7.3 1.4-2.6 1.6-6.6 2.3-9.3.7-2.6 1.7-4.6 1.7-7.3 0-3.3-2-6-5.3-6-2.1 0-3.5 1.3-5.3 1.3S13.1 5 11 5z"/><path d="M4 12.5h24"/><rect x="9" y="10" width="4" height="5" rx=".8"/><rect x="19" y="10" width="4" height="5" rx=".8"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Ortodontia</h6>
                     <span class="badge badge-specialty badge-ortodontia">Alinhamento</span>
@@ -177,6 +196,9 @@
               <!-- Periodontia -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M9 8c-2.8 0-4.5 2.3-4.5 5 0 2.3.9 4 1.5 6.3.6 2.3.8 5.7 2 8 .6 1.1 1.7 1.1 2.3-.3.7-1.8 1-4.8 2.2-4.8s1.5 3 2.2 4.8c.6 1.4 1.7 1.4 2.3.3 1.2-2.3 1.4-5.7 2-8"/><path d="M4 19c4 2 14 2 18 0"/><circle cx="23" cy="8.5" r="5.5"/><path d="M23 6v5M20.5 8.5h5"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Periodontia</h6>
                     <span class="badge badge-specialty badge-periodontia">Gengiva</span>
@@ -190,6 +212,9 @@
               <!-- Endodontia -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M11 5c-3.3 0-5.3 2.7-5.3 6 0 2.7 1 4.7 1.7 7.3.7 2.7.9 6.7 2.3 9.3.7 1.3 2 1.3 2.7-.3.8-2.1 1.1-5.7 2.6-5.7h2c1.5 0 1.8 3.6 2.6 5.7.7 1.6 2 1.6 2.7.3 1.4-2.6 1.6-6.6 2.3-9.3.7-2.6 1.7-4.6 1.7-7.3 0-3.3-2-6-5.3-6-2.1 0-3.5 1.3-5.3 1.3S13.1 5 11 5z"/><path d="M13.5 11v8.5l-1 5M18.5 11v8.5l1 5"/><circle cx="16" cy="10.5" r="1.6"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Endodontia</h6>
                     <span class="badge badge-specialty badge-endodontia">Canal</span>
@@ -203,6 +228,9 @@
               <!-- Implantodontia -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M10 4.5c-2 0-3 1.6-3 3.4 0 1.4.6 2.4 1 3.6h16c.4-1.2 1-2.2 1-3.6 0-1.8-1-3.4-3-3.4-1.5 0-2.4.9-4 .9s-2.5-.9-4-.9z"/><path d="M11 14h10M12 17.5h8M12.7 21h6.6M13.5 24.5h5M16 28v-2"/><path d="M12 14l1.5 12h5L20 14"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Implantodontia</h6>
                     <span class="badge badge-specialty badge-implantodontia">Implantes</span>
@@ -216,6 +244,9 @@
               <!-- Odontopediatria -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><circle cx="16" cy="17" r="11"/><path d="M13 6.5c0-2 1.5-3 3-3 1.2 0 2 .8 2 1.8"/><circle cx="12.3" cy="15.5" r=".9" fill="currentColor"/><circle cx="19.7" cy="15.5" r=".9" fill="currentColor"/><path d="M12 20.5c2.3 2.6 5.7 2.6 8 0"/><path d="M15 22.2v1.6h2v-1.6"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Odontopediatria</h6>
                     <span class="badge badge-specialty badge-odontopediatria">Infantil</span>
@@ -229,6 +260,9 @@
               <!-- Prótese / Reabilitação Oral -->
               <div class="col">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M4 10c3-4 7-4 9-2 1.2-1 4.8-1 6 0 2-2 6-2 9 2"/><path d="M4 10v4c0 2 1.5 3 3 3h18c1.5 0 3-1 3-3v-4"/><path d="M9.5 9v8M16 8v9M22.5 9v8"/><path d="M7 17c.5 4 1.5 8 3 10M25 17c-.5 4-1.5 8-3 10"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Prótese / Reabilitação Oral</h6>
                     <span class="badge badge-specialty badge-protese">Reabilitação</span>
@@ -242,6 +276,9 @@
               <!-- Estética -->
               <div class="col-12">
                 <div class="p-3 border rounded-3 bg-white h-100 dental-feature-card shadow-sm">
+                  <span class="specialty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 32 32"><path d="M10 7c-3 0-4.8 2.4-4.8 5.4 0 2.4.9 4.2 1.5 6.6.6 2.4.8 6 2.1 8.4.6 1.2 1.8 1.2 2.4-.3.7-1.9 1-5.1 2.3-5.1h1.8c1.3 0 1.6 3.2 2.3 5.1.6 1.5 1.8 1.5 2.4.3 1.3-2.4 1.5-6 2.1-8.4.6-2.4 1.5-4.2 1.5-6.6 0-3-1.8-5.4-4.8-5.4-1.9 0-3.1 1.2-4.8 1.2S11.9 7 10 7z"/><path d="M26 2.5v5M23.5 5h5M28 11v3M26.5 12.5h3"/><path d="M10.5 11.5c.5-1 1.3-1.5 2.3-1.5"/></svg>
+                  </span>
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h6 class="fw-bold text-navy m-0">Estética Odontológica</h6>
                     <span class="badge badge-specialty badge-estetica">Sorriso</span>
@@ -394,6 +431,28 @@
                   </div>
                 </div>
 
+                <!-- Limpeza dental -->
+                <div class="col procedure-card-col" data-specialty="Periodontia">
+                  <div class="card p-3 procedure-card">
+                    <div class="procedure-card-body">
+                      <h6 class="procedure-card-title">
+                        Limpeza dental
+                      </h6>
+                      <p class="procedure-card-text">
+                        Tratamento periódico realizado para remoção de placa bacteriana, tártaro e manchas nos dentes, com indicação de ser realizada 2 vezes ao ano.
+                      </p>
+                    </div>
+                    <div class="mt-2 text-end">
+                      <button
+                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
+                        onclick="abrirAgendamentoOdonto('Limpeza dental', 'Periodontia')"
+                      >
+                        Agendar Consulta
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Coroas em cerâmica -->
                 <div class="col procedure-card-col" data-specialty="Prótese">
                   <div class="card p-3 procedure-card">
@@ -528,28 +587,6 @@
                       <button
                         class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
                         onclick="abrirAgendamentoOdonto('Lentes de contato', 'Estética')"
-                      >
-                        Agendar Consulta
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Limpeza dental -->
-                <div class="col procedure-card-col" data-specialty="Estética">
-                  <div class="card p-3 procedure-card">
-                    <div class="procedure-card-body">
-                      <h6 class="procedure-card-title">
-                        Limpeza dental
-                      </h6>
-                      <p class="procedure-card-text">
-                        Tratamento periódico realizado para remoção de placa bacteriana, tártaro e manchas nos dentes, com indicação de ser realizada 2 vezes ao ano.
-                      </p>
-                    </div>
-                    <div class="mt-2 text-end">
-                      <button
-                        class="btn btn-sm btn-outline-primary rounded-pill w-100 font-xs fw-bold"
-                        onclick="abrirAgendamentoOdonto('Limpeza dental', 'Estética')"
                       >
                         Agendar Consulta
                       </button>
@@ -1069,7 +1106,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/global.js"></script>
-    <script src="../js/saudebucal.js"></script>
+    <script src="../js/global.js?v=20261019"></script>
+    <script src="../js/saudebucal.js?v=20261019-3"></script>
   </body>
 </html>

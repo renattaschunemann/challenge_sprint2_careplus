@@ -527,8 +527,11 @@ body.dark-theme,
 
 [data-theme="dark"] .procedure-card:hover,
 [data-bs-theme="dark"] .procedure-card:hover,
-.dark-theme .procedure-card:hover {
-  background-color: #172847 !important;
+.dark-theme .procedure-card:hover,
+[data-theme="dark"] .card.procedure-card:hover,
+[data-bs-theme="dark"] .card.procedure-card:hover,
+.dark-theme .card.procedure-card:hover {
+  background-color: #1c2e50 !important;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4) !important;
   border-color: #38bdf8 !important;
 }
