@@ -26,6 +26,15 @@
 .card-exercise {
   background-image: url(../img/Exercise.jpeg);
 }
+.card-outubro-rosa {
+  background-image: url(../img/outubro-rosa.jpg);
+}
+.card-novembro-azul {
+  background-image: url(../img/novembro-azul.jpg);
+}
+.card-saude-crianca {
+  background-image: url(../img/saude-crianca.jpg);
+}
 .xp-badge {
   background-color: #f8f9fa;
   color: var(--text-dark);
