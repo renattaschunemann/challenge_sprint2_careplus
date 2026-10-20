@@ -124,177 +124,244 @@
       <h2 class="fw-bold mb-4 text-navy">Saber +</h2>
       <div class="row">
         <div class="col-lg-8">
-          <div class="banner-blue rounded-4 p-4 mb-4 shadow-sm">
-            <h4 class="fw-medium lh-base m-0">
-              Olá, Amanda! Você está a
-              <span class="fw-bold">2 conteúdos</span> para subir para o nível
-              Ouro. Vamos Aprender algo novo hoje?
-            </h4>
+          <!-- SEÇÃO 1: LISTAGEM DE ARTIGOS -->
+          <div id="secao-lista-artigos">
+            <div class="banner-blue rounded-4 p-4 mb-4 shadow-sm">
+              <h4 class="fw-medium lh-base m-0" id="texto-progresso-nivel">
+                Olá, Amanda! Você está a
+                <span class="fw-bold">2 conteúdos</span> para subir para o nível
+                Ouro. Vamos Aprender algo novo hoje?
+              </h4>
+            </div>
+            <div class="row g-4">
+              <!-- Card 1: Saúde Mental -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="saude-mental"
+                  onclick="abrirArtigo('saude-mental')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-mental-healthy"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Artigo</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy">Saúde mental</h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Alimentação Equilibrada -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="alimentacao-equilibrada"
+                  onclick="abrirArtigo('alimentacao-equilibrada')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-healthy-food"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Vídeo</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
+                      Alimentação equilibrada. Entenda os benefícios para ter
+                      saúde e qualidade de vida
+                    </h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Atividade Física -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="atividade-fisica"
+                  onclick="abrirArtigo('atividade-fisica')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-exercise"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Artigo</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
+                      Você já se mexeu hoje? Como ter uma rotina de atividade
+                      física melhora humor, disposição e aumenta sua longevidade
+                    </h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: Outubro Rosa -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="outubro-rosa"
+                  onclick="abrirArtigo('outubro-rosa')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-outubro-rosa"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Campanha & Prevenção</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
+                      Outubro Rosa: como prevenir o câncer de mama através do diagnóstico precoce e rotina de exames
+                    </h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 5: Novembro Azul -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="novembro-azul"
+                  onclick="abrirArtigo('novembro-azul')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-novembro-azul"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Saúde Masculina</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
+                      Novembro Azul: prevenção ao câncer de próstata e a importância do autocuidado masculino
+                    </h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 6: Saúde da Criança -->
+              <div class="col-md-4">
+                <div
+                  class="card border-0 shadow-sm rounded-4 h-100 content-card"
+                  data-artigo-id="saude-crianca"
+                  onclick="abrirArtigo('saude-crianca')"
+                >
+                  <div
+                    class="card-img-top bg-secondary rounded-top-4 card-img-cover card-saude-crianca"
+                  ></div>
+                  <div class="card-body p-3 d-flex flex-column">
+                    <span class="text-secondary font-sm">Pediatria & Cuidado</span>
+                    <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
+                      Saúde da criança: como prevenir doenças infantis com vacinação em dia e alimentação saudável
+                    </h5>
+                    <div
+                      class="mt-auto d-flex justify-content-between align-items-center"
+                    >
+                      <span class="badge-status-leitura"></span>
+                      <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
+                        >+50 xp</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-mental-healthy"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Artigo</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy">Saúde mental</h5>
-                  <div
-                    class="mt-auto d-flex justify-content-between align-items-center"
-                  >
-                    <i class="bi bi-check-lg text-success fs-5"></i>
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-healthy-food"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Vídeo</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
-                    Alimentação equilibrada. Entenda os benefícios para ter
-                    saúde e qualidade de vida
-                  </h5>
-                  <div
-                    class="mt-auto d-flex justify-content-end align-items-center"
-                  >
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-exercise"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Artigo</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
-                    Você já se mexeu hoje? Como ter uma rotina de atividade
-                    física melhora humor, disposição e aumenta sua longevidade
-                  </h5>
-                  <div
-                    class="mt-auto d-flex justify-content-end align-items-center"
-                  >
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Card 4: Outubro Rosa -->
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-outubro-rosa"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Campanha & Prevenção</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
-                    Outubro Rosa: como prevenir o câncer de mama através do diagnóstico precoce e rotina de exames
-                  </h5>
-                  <div
-                    class="mt-auto d-flex justify-content-end align-items-center"
-                  >
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- SEÇÃO 2: LEITURA COMPLETA DO ARTIGO (Exibida dinamicamente ao clicar no card) -->
+          <div id="secao-leitura-artigo" class="d-none">
+            <button
+              type="button"
+              class="btn btn-link text-decoration-none text-navy p-0 mb-4 fw-semibold d-inline-flex align-items-center"
+              onclick="voltarParaLista()"
+            >
+              <i class="bi bi-arrow-left me-2 fs-5"></i> Voltar para Saber +
+            </button>
 
-            <!-- Card 5: Novembro Azul -->
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-novembro-azul"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Saúde Masculina</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
-                    Novembro Azul: prevenção ao câncer de próstata e a importância do autocuidado masculino
-                  </h5>
-                  <div
-                    class="mt-auto d-flex justify-content-end align-items-center"
-                  >
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
-                  </div>
+            <article class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4 bg-white">
+              <img
+                id="artigo-header-img"
+                src=""
+                alt="Imagem de capa do artigo"
+                class="article-header-img"
+              />
+              <div class="p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                  <span id="artigo-categoria" class="badge bg-light text-primary border rounded-pill px-3 py-2 font-xs fw-bold"></span>
+                  <span id="artigo-tempo" class="text-secondary font-sm"></span>
                 </div>
-              </div>
-            </div>
 
-            <!-- Card 6: Saúde da Criança -->
-            <div class="col-md-4">
-              <div
-                class="card border-0 shadow-sm rounded-4 h-100 content-card"
-                onclick="
-                  addScore(50);
-                  this.onclick = null;
-                "
-              >
-                <div
-                  class="card-img-top bg-secondary rounded-top-4 card-img-cover card-saude-crianca"
-                ></div>
-                <div class="card-body p-3 d-flex flex-column">
-                  <span class="text-secondary font-sm">Pediatria & Cuidado</span>
-                  <h5 class="fw-bold mt-1 mb-3 text-navy fs-6">
-                    Saúde da criança: como prevenir doenças infantis com vacinação em dia e alimentação saudável
-                  </h5>
-                  <div
-                    class="mt-auto d-flex justify-content-end align-items-center"
-                  >
-                    <span class="badge xp-badge px-2 py-1 rounded-pill font-sm"
-                      >+50 xp</span
-                    >
+                <h1 id="artigo-titulo" class="fw-bold text-navy mb-4 fs-3"></h1>
+                
+                <div id="artigo-corpo" class="article-content mb-5">
+                  <!-- Injetado dinamicamente via js/saber.js -->
+                </div>
+
+                <hr class="my-4" />
+
+                <!-- Caixa de Resgate de Care Coins ao Final do Artigo -->
+                <div class="reward-claim-box rounded-4 p-4 text-center my-4">
+                  <div class="avatar-md bg-warning bg-opacity-25 text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                    <i class="bi bi-stars fs-3"></i>
                   </div>
+                  <h4 class="fw-bold text-navy mb-2">Você concluiu a leitura deste artigo!</h4>
+                  <p class="text-secondary font-md mb-4 mx-auto" style="max-width: 520px;">
+                    Parabéns por investir tempo em sua saúde e prevenção. Clique no botão abaixo para creditar suas <strong>Care Coins</strong>.
+                  </p>
+                  <button
+                    id="btn-concluir-leitura"
+                    type="button"
+                    class="btn btn-brand-primary px-4 px-md-5 py-3 rounded-pill fw-bold text-white shadow-sm"
+                    onclick="concluirLeituraArtigo()"
+                  >
+                    <i class="bi bi-award-fill me-2 text-warning fs-5"></i> Concluir Leitura e Ganhar +50 XP
+                  </button>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mt-4 pt-2">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary px-4 py-2 rounded-pill font-sm"
+                    onclick="voltarParaLista()"
+                  >
+                    <i class="bi bi-arrow-left me-2"></i> Voltar à lista de conteúdos
+                  </button>
+                  <span class="text-secondary font-xs">
+                    Care Plus • Medicina Preventiva & Bem-estar
+                  </span>
                 </div>
               </div>
-            </div>
+            </article>
           </div>
         </div>
         <div class="col-lg-4 mt-4 mt-lg-0 ps-lg-4">
@@ -344,6 +411,7 @@
       © 2026 - Care Plus Medicina Assistencial LTDA
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/global.js"></script>
+    <script src="../js/global.js?v=20261019"></script>
+    <script src="../js/saber.js?v=20261019"></script>
   </body>
 </html>

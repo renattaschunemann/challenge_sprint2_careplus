@@ -43,3 +43,77 @@
   font-size: 2.5rem;
   color: var(--primary-color);
 }
+
+/* ========================================================
+   SEÇÃO DE LEITURA DO ARTIGO (Saber +)
+   ======================================================== */
+.article-header-img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.article-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.article-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color, #00335b);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.article-callout {
+  background-color: #f0f9ff;
+  border-left: 4px solid var(--secondary-color, #0079c8);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.5rem 0;
+}
+
+.reward-claim-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border: 2px dashed rgba(0, 121, 200, 0.3) !important;
+}
+
+/* Suporte ao Modo Escuro */
+.dark-theme .article-content,
+[data-theme="dark"] .article-content,
+[data-bs-theme="dark"] .article-content {
+  color: #cbd5e1 !important;
+}
+
+.dark-theme .article-content h3,
+[data-theme="dark"] .article-content h3,
+[data-bs-theme="dark"] .article-content h3 {
+  color: #38bdf8 !important;
+}
+
+.dark-theme .article-callout,
+[data-theme="dark"] .article-callout,
+[data-bs-theme="dark"] .article-callout {
+  background-color: #0f223d !important;
+  border-left-color: #38bdf8 !important;
+  color: #e2e8f0 !important;
+}
+
+.dark-theme .reward-claim-box,
+[data-theme="dark"] .reward-claim-box,
+[data-bs-theme="dark"] .reward-claim-box {
+  background: #111e33 !important;
+  border-color: #1e3357 !important;
+}
+
