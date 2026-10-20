@@ -949,6 +949,42 @@
 
         <!-- Sidebar (Col-lg-4) -->
         <div class="col-lg-4 mt-4 mt-lg-0 ps-lg-4">
+          <!-- Card Mental Care (Apoio Psicológico na Odontologia) -->
+          <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4 card-mental-care">
+            <div class="card-mental-care-img-wrapper position-relative">
+              <img
+                src="../img/mental-care.jpg"
+                alt="Atendimento acolhedor com psicólogo Mental Care"
+                class="card-mental-care-img"
+              />
+              <span class="badge badge-mental-care position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2 font-xs fw-bold">
+                <i class="bi bi-heart-pulse-fill me-1 text-danger"></i> Apoio Emocional
+              </span>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center mb-2">
+                <div class="icon-box-mental-care rounded-circle d-flex align-items-center justify-content-center me-2">
+                  <i class="bi bi-chat-heart text-primary fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-navy m-0">Mental Care</h5>
+              </div>
+              <h6 class="fw-bold text-secondary-brand mb-2 font-sm">
+                Medo de ir ao dentista?
+              </h6>
+              <p class="text-secondary font-sm mb-3">
+                Conte com nosso apoio e suporte do mental care antes do seu tratamento.
+              </p>
+              <button
+                type="button"
+                class="btn btn-mental-care w-100 rounded-3 py-2 fw-medium d-flex align-items-center justify-content-center gap-2"
+                data-bs-toggle="modal"
+                data-bs-target="#modalMentalCare"
+              >
+                <i class="bi bi-calendar2-heart"></i> Agendar Acolhimento
+              </button>
+            </div>
+          </div>
+
           <!-- Status de Cuidado -->
           <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
             <div class="d-flex align-items-center mb-3 fw-bold fs-5 text-brand-primary">
@@ -1093,6 +1129,62 @@
                 onclick="confirmarRemarcacaoOdonto()"
               >
                 Sim
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Mental Care -->
+    <div
+      class="modal fade"
+      id="modalMentalCare"
+      tabindex="-1"
+      aria-labelledby="modalMentalCareLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal-body text-center p-4 pt-0">
+            <div class="avatar-lg bg-info bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+              <i class="bi bi-chat-heart fs-2"></i>
+            </div>
+            <h4 class="fw-bold mb-2 text-brand-primary" id="modalMentalCareLabel">
+              Acolhimento Mental Care
+            </h4>
+            <p class="text-secondary font-sm mb-4">
+              Sabemos que a ansiedade e o medo de procedimentos odontológicos são reais. Nossos psicólogos especializados oferecem sessões prévias de acolhimento e técnicas de relaxamento para que você se sinta 100% seguro(a) e confortável antes da sua consulta.
+            </p>
+            <div class="alert alert-custom-warning d-flex align-items-center text-start p-3 mb-4 rounded-3">
+              <i class="bi bi-shield-check text-warning fs-4 me-3"></i>
+              <div class="font-xs">
+                <strong>Serviço 100% coberto pelo seu plano Care Plus</strong>, disponível presencialmente ou por telemedicina.
+              </div>
+            </div>
+            <div class="d-flex gap-2 justify-content-center flex-column flex-sm-row">
+              <button
+                type="button"
+                class="btn btn-outline-secondary px-4 py-2 rounded-3 font-sm"
+                data-bs-dismiss="modal"
+              >
+                Voltar
+              </button>
+              <button
+                type="button"
+                class="btn btn-brand-primary px-4 py-2 rounded-3 font-sm fw-medium"
+                data-bs-dismiss="modal"
+                onclick="alert('Sua solicitação de acolhimento com a equipe de psicologia do Mental Care foi registrada! Entraremos em contato para confirmar o melhor horário.')"
+              >
+                Confirmar Acolhimento Pré-Consulta
               </button>
             </div>
           </div>

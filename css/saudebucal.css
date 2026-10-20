@@ -504,3 +504,112 @@
     opacity: 1;
   }
 }
+
+/* ========================================================
+   CARD MENTAL CARE (Apoio Psicológico na Saúde Bucal)
+   ======================================================== */
+.card-mental-care {
+  background: #ffffff;
+  border: 1px solid rgba(0, 121, 200, 0.15) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-mental-care:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 51, 91, 0.1) !important;
+}
+
+.card-mental-care-img-wrapper {
+  overflow: hidden;
+  height: 185px;
+}
+
+.card-mental-care-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card-mental-care:hover .card-mental-care-img {
+  transform: scale(1.04);
+}
+
+.badge-mental-care {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-color, #00335b);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.icon-box-mental-care {
+  background: rgba(0, 121, 200, 0.1);
+  width: 36px;
+  height: 36px;
+}
+
+.btn-mental-care {
+  background: linear-gradient(135deg, #00335b 0%, #0079c8 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.btn-mental-care:hover {
+  background: linear-gradient(135deg, #002240 0%, #005a96 100%);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 121, 200, 0.3);
+}
+
+/* Suporte a Modo Escuro para o Card Mental Care */
+.dark-theme .card-mental-care,
+[data-theme="dark"] .card-mental-care,
+[data-bs-theme="dark"] .card-mental-care {
+  background: #111e33 !important;
+  border-color: #1e3357 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark-theme .card-mental-care:hover,
+[data-theme="dark"] .card-mental-care:hover,
+[data-bs-theme="dark"] .card-mental-care:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45) !important;
+}
+
+.dark-theme .badge-mental-care,
+[data-theme="dark"] .badge-mental-care,
+[data-bs-theme="dark"] .badge-mental-care {
+  background: rgba(15, 23, 42, 0.9);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.dark-theme .icon-box-mental-care,
+[data-theme="dark"] .icon-box-mental-care,
+[data-bs-theme="dark"] .icon-box-mental-care {
+  background: rgba(56, 189, 248, 0.15);
+}
+
+.dark-theme .icon-box-mental-care i,
+[data-theme="dark"] .icon-box-mental-care i,
+[data-bs-theme="dark"] .icon-box-mental-care i {
+  color: #38bdf8 !important;
+}
+
+.dark-theme .btn-mental-care,
+[data-theme="dark"] .btn-mental-care,
+[data-bs-theme="dark"] .btn-mental-care {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+}
+
+.dark-theme .btn-mental-care:hover,
+[data-theme="dark"] .btn-mental-care:hover,
+[data-bs-theme="dark"] .btn-mental-care:hover {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.3);
+}
+
