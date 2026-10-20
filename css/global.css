@@ -38,6 +38,33 @@ body {
   position: relative;
 }
 
+/* Logo em Destaque na Navbar */
+.navbar-brand {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.navbar-brand img {
+  height: 96px;
+  max-height: 96px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.08));
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(0, 121, 200, 0.2));
+}
+
+@media (max-width: 768px) {
+  .navbar-brand img {
+    height: 72px;
+    max-height: 72px;
+  }
+}
+
 .nav-link {
   position: relative;
 }
